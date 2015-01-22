@@ -63,6 +63,66 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post--原-Spark任务调度" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/26/-原-Spark任务调度/" class="article-date">
+  <time datetime="2014-12-26T06:59:08.000Z" itemprop="datePublished">Dec 26 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/26/-原-Spark任务调度/">[原]Spark任务调度</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.SparkSubmit 提交应用</p>
+<p>2.调用Client来RequestSubmitDriver</p>
+<p>3.Master launchDriver</p>
+<p>4.DriverRunner 在work上启动</p>
+<p>5.DriverRunner运行DriverWrapper</p>
+<p>6.DriverWrapper 在work上启动</p>
+<p>7.DriverWrapper运行提交的应用的main方法</p>
+<p>8.SparkContext 创建</p>
+<p>9.TaskSchedulerImpl启动,  SparkDeploySchedulerBackend CoarseGrainedSchedulerBackend启动</p>
+<p>10.SparkDeploySchedulerBackend 调用AppClient, 传递了封装了CoarseGrainedExecutorBackend的ApplicationDescription</p>
+<p>11.AppClient向Master注册应用</p>
+<p>12.Master从获得的ApplicationDescription创建出 ApplicationInfo, 调度到Work上运行</p>
+<p>13.Work启动ExecutorRunner</p>
+<p>14.ExecutorRunner运行CoarseGrainedExecutorBackend</p>
+<p>15.CoarseGrainedExecutorBackend调用RegisterExecutor, 向CoarseGrainedSchedulerBackend注册</p>
+<p>16.SparkContext runjob </p>
+<p>17.DAGScheduler 调runjob  submitJob  handleJobSubmitted  submitStage  submitMissingTasks</p>
+<p>18.TaskSchedulerImpl submitTasks</p>
+<p>19.CoarseGrainedSchedulerBackend —-&gt; reviveOffers —-&gt;  makeOffers  —-&gt; launchTasks</p>
+<p>20.CoarseGrainedExecutorBackend  LaunchTask执行</p>
+<p>21.Executor LaunchTask</p>
+<p>22.TaskRunner  run</p>
+<p>广告:<br>欢迎加入<a href="http://180.76.149.97" target="_blank" rel="external">Spark中文社区</a></p>
+<p>作者：wowdd1 发表于2014-12-26 14:59:08 <a href="http://blog.csdn.net/wowdd1/article/details/42172063" target="_blank" rel="external">原文链接</a><br>阅读：42 评论：0 <a href="http://blog.csdn.net/wowdd1/article/details/42172063#comments" target="_blank" rel="external">查看评论</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/26/-原-Spark任务调度/" data-id="fw7joigp5k2emyqn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post--原-用docker搭建spark集群" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/12/12/-原-用docker搭建spark集群/" class="article-date">
@@ -88,7 +148,8 @@
         <p>系统是osx</p>
 <p>最近在学习spark, 有了docker搭建集群太方便了 </p>
 <p>安装好docker之后,在vbox里面做一个共享目录, 方便虚拟机从host拷贝文件</p>
-<p><img src="http://img.blog.csdn.net/20141212190059981?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd293ZGQx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br><img src="./image/20141212190059981.png" alt=""><br>运行docker, </p>
+<p><img src="http://img.blog.csdn.net/20141212190059981?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd293ZGQx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>运行docker, </p>
 <p>接着运行boot2docker ssh</p>
 <p>这样就进到虚拟机里面了, 因为需要用到github上的脚本, 可以拷贝你的ssh文件到虚拟机里面</p>
 <p>cp /Users/name/.ssh/id_* ~/.ssh/</p>
@@ -123,17 +184,12 @@
 <p><a href="http://ju.outofmemory.cn/entry/63486" target="_blank" rel="external">http://ju.outofmemory.cn/entry/63486</a></p>
 <p><a href="https://github.com/amplab/docker-scripts" target="_blank" rel="external">https://github.com/amplab/docker-scripts</a></p>
 <p><a href="http://docs.docker.com/userguide/usingdocker/#seeing-docker-command-usage" target="_blank" rel="external">http://docs.docker.com/userguide/usingdocker/#seeing-docker-command-usage</a></p>
-<pre><code>        &lt;<span class="operator">div</span>&gt;
-            作者：wowdd1 发表于<span class="number">2014</span>-<span class="number">12</span>-<span class="number">12</span> <span class="number">20</span>:<span class="number">25</span>:<span class="number">02</span> [原文链接](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">41897757</span>)
-        &lt;/<span class="operator">div</span>&gt;
-        &lt;<span class="operator">div</span>&gt;
-        阅读：<span class="number">24</span> 评论：<span class="number">0</span> [查看评论](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">41897757</span><span class="comment">#comments)</span>
-        &lt;/<span class="operator">div</span>&gt;
-</code></pre>
+<p>作者：wowdd1 发表于2014-12-12 20:25:02 <a href="http://blog.csdn.net/wowdd1/article/details/41897757" target="_blank" rel="external">原文链接</a><br>阅读：104 评论：0 <a href="http://blog.csdn.net/wowdd1/article/details/41897757#comments" target="_blank" rel="external">查看评论</a></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/12/-原-用docker搭建spark集群/" data-id="yhtpq2d5nz88cqex" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/12/-原-用docker搭建spark集群/" data-id="8mpbebblfp4hd7u9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -158,7 +214,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">January 2010</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -170,6 +226,14 @@
       <ul>
         
           <li>
+            <a href="/2015/01/20/-原-数据挖掘入门作/">[原]数据挖掘入门作</a>
+          </li>
+        
+          <li>
+            <a href="/2014/12/26/-原-Spark任务调度/">[原]Spark任务调度</a>
+          </li>
+        
+          <li>
             <a href="/2014/12/12/-原-用docker搭建spark集群/">[原]用docker搭建spark集群</a>
           </li>
         
@@ -179,14 +243,6 @@
         
           <li>
             <a href="/2013/06/16/-转-2012年软件开发者薪资调查报告/">[转]2012年软件开发者薪资调查报告</a>
-          </li>
-        
-          <li>
-            <a href="/2013/06/10/-原-android系统定制项目展示/">[原]android系统定制项目展示</a>
-          </li>
-        
-          <li>
-            <a href="/2012/04/29/-转-MIT本科CS课程安排-2012版/">[转]MIT本科CS课程安排(2012版)</a>
           </li>
         
       </ul>

@@ -3,30 +3,41 @@
 <head>
   <meta charset="utf-8">
   
-  <title>[原]android系统定制项目展示 | wowdd1</title>
+  <title>[原]Spark任务调度 | wowdd1</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&nbsp; &nbsp;过去一年主要从事android系统定制方面的工作,这是其中一个项目,贴出来纪录一下
-
-视频地址
-&nbsp; 这种项目做多了也就腻了,学不到很多东西,所以就辞职了,想去做做系统,又得找工作了,头大………..
-作者：wowdd1 发表于2013-6-10 10:24:03 原文链接阅读：245 评论：0 查看评论">
+  <meta name="description" content="1.SparkSubmit 提交应用
+2.调用Client来RequestSubmitDriver
+3.Master launchDriver
+4.DriverRunner 在work上启动
+5.DriverRunner运行DriverWrapper
+6.DriverWrapper 在work上启动
+7.DriverWrapper运行提交的应用的main方法
+8.SparkContext 创建
+9">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[原]android系统定制项目展示">
-<meta property="og:url" content="http://yoursite.com/2013/06/10/-原-android系统定制项目展示/">
+<meta property="og:title" content="[原]Spark任务调度">
+<meta property="og:url" content="http://yoursite.com/2014/12/26/-原-Spark任务调度/">
 <meta property="og:site_name" content="wowdd1">
-<meta property="og:description" content="&nbsp; &nbsp;过去一年主要从事android系统定制方面的工作,这是其中一个项目,贴出来纪录一下
-
-视频地址
-&nbsp; 这种项目做多了也就腻了,学不到很多东西,所以就辞职了,想去做做系统,又得找工作了,头大………..
-作者：wowdd1 发表于2013-6-10 10:24:03 原文链接阅读：245 评论：0 查看评论">
-<meta property="og:image" content="http://img.my.csdn.net/uploads/201306/10/1370830880_6052.png">
+<meta property="og:description" content="1.SparkSubmit 提交应用
+2.调用Client来RequestSubmitDriver
+3.Master launchDriver
+4.DriverRunner 在work上启动
+5.DriverRunner运行DriverWrapper
+6.DriverWrapper 在work上启动
+7.DriverWrapper运行提交的应用的main方法
+8.SparkContext 创建
+9">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[原]android系统定制项目展示">
-<meta name="twitter:description" content="&nbsp; &nbsp;过去一年主要从事android系统定制方面的工作,这是其中一个项目,贴出来纪录一下
-
-视频地址
-&nbsp; 这种项目做多了也就腻了,学不到很多东西,所以就辞职了,想去做做系统,又得找工作了,头大………..
-作者：wowdd1 发表于2013-6-10 10:24:03 原文链接阅读：245 评论：0 查看评论">
+<meta name="twitter:title" content="[原]Spark任务调度">
+<meta name="twitter:description" content="1.SparkSubmit 提交应用
+2.调用Client来RequestSubmitDriver
+3.Master launchDriver
+4.DriverRunner 在work上启动
+5.DriverRunner运行DriverWrapper
+6.DriverWrapper 在work上启动
+7.DriverWrapper运行提交的应用的main方法
+8.SparkContext 创建
+9">
 
   
     <link rel="alternative" href="/atom.xml" title="wowdd1" type="application/atom+xml">
@@ -74,10 +85,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post--原-android系统定制项目展示" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post--原-Spark任务调度" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2013/06/10/-原-android系统定制项目展示/" class="article-date">
-  <time datetime="2013-06-10T02:24:03.000Z" itemprop="datePublished">Jun 10 2013</time>
+    <a href="/2014/12/26/-原-Spark任务调度/" class="article-date">
+  <time datetime="2014-12-26T06:59:08.000Z" itemprop="datePublished">Dec 26 2014</time>
 </a>
     
   </div>
@@ -88,7 +99,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      [原]android系统定制项目展示
+      [原]Spark任务调度
     </h1>
   
 
@@ -96,16 +107,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&nbsp; &nbsp;过去一年主要从事android系统定制方面的工作,这是其中一个项目,贴出来纪录一下</p>
-<p><img src="http://img.my.csdn.net/uploads/201306/10/1370830880_6052.png" alt=""></p>
-<p><a href="http://v.youku.com/v_show/id_XNTU3MDk4MDk2.html" target="_blank" rel="external">视频地址</a></p>
-<p>&nbsp; 这种项目做多了也就腻了,学不到很多东西,所以就辞职了,想去做做系统,又得找工作了,头大………..</p>
-<p>作者：wowdd1 发表于2013-6-10 10:24:03 <a href="http://blog.csdn.net/wowdd1/article/details/9069771" target="_blank" rel="external">原文链接</a><br>阅读：245 评论：0 <a href="http://blog.csdn.net/wowdd1/article/details/9069771#comments" target="_blank" rel="external">查看评论</a></p>
+        <p>1.SparkSubmit 提交应用</p>
+<p>2.调用Client来RequestSubmitDriver</p>
+<p>3.Master launchDriver</p>
+<p>4.DriverRunner 在work上启动</p>
+<p>5.DriverRunner运行DriverWrapper</p>
+<p>6.DriverWrapper 在work上启动</p>
+<p>7.DriverWrapper运行提交的应用的main方法</p>
+<p>8.SparkContext 创建</p>
+<p>9.TaskSchedulerImpl启动,  SparkDeploySchedulerBackend CoarseGrainedSchedulerBackend启动</p>
+<p>10.SparkDeploySchedulerBackend 调用AppClient, 传递了封装了CoarseGrainedExecutorBackend的ApplicationDescription</p>
+<p>11.AppClient向Master注册应用</p>
+<p>12.Master从获得的ApplicationDescription创建出 ApplicationInfo, 调度到Work上运行</p>
+<p>13.Work启动ExecutorRunner</p>
+<p>14.ExecutorRunner运行CoarseGrainedExecutorBackend</p>
+<p>15.CoarseGrainedExecutorBackend调用RegisterExecutor, 向CoarseGrainedSchedulerBackend注册</p>
+<p>16.SparkContext runjob </p>
+<p>17.DAGScheduler 调runjob  submitJob  handleJobSubmitted  submitStage  submitMissingTasks</p>
+<p>18.TaskSchedulerImpl submitTasks</p>
+<p>19.CoarseGrainedSchedulerBackend —-&gt; reviveOffers —-&gt;  makeOffers  —-&gt; launchTasks</p>
+<p>20.CoarseGrainedExecutorBackend  LaunchTask执行</p>
+<p>21.Executor LaunchTask</p>
+<p>22.TaskRunner  run</p>
+<p>广告:<br>欢迎加入<a href="http://180.76.149.97" target="_blank" rel="external">Spark中文社区</a></p>
+<p>作者：wowdd1 发表于2014-12-26 14:59:08 <a href="http://blog.csdn.net/wowdd1/article/details/42172063" target="_blank" rel="external">原文链接</a><br>阅读：42 评论：0 <a href="http://blog.csdn.net/wowdd1/article/details/42172063#comments" target="_blank" rel="external">查看评论</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/06/10/-原-android系统定制项目展示/" data-id="8y52aj2wz7n6ewtb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/26/-原-Spark任务调度/" data-id="fw7joigp5k2emyqn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -114,19 +144,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2013/06/16/-转-2012年软件开发者薪资调查报告/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/01/20/-原-数据挖掘入门作/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          [转]2012年软件开发者薪资调查报告
+          [原]数据挖掘入门作
         
       </div>
     </a>
   
   
-    <a href="/2012/04/29/-转-MIT本科CS课程安排-2012版/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2014/12/12/-原-用docker搭建spark集群/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">[转]MIT本科CS课程安排(2012版)</div>
+      <div class="article-nav-title">[原]用docker搭建spark集群</div>
     </a>
   
 </nav>

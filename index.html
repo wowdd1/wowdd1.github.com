@@ -63,6 +63,105 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post--原-数据挖掘入门作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/20/-原-数据挖掘入门作/" class="article-date">
+  <time datetime="2015-01-20T05:53:10.000Z" itemprop="datePublished">Jan 20 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/20/-原-数据挖掘入门作/">[原]数据挖掘入门作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>此图是用d3产生图形,&nbsp; 描述了mit 6.01课程的依赖关系,&nbsp; 没想到图形是个五角星, 妙哉</p>
+<p><img src="http://img.blog.csdn.net/20150120135214671?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd293ZGQx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>作者：wowdd1 发表于2015-1-20 13:53:10 <a href="http://blog.csdn.net/wowdd1/article/details/42916989" target="_blank" rel="external">原文链接</a><br>阅读：7 评论：0 <a href="http://blog.csdn.net/wowdd1/article/details/42916989#comments" target="_blank" rel="external">查看评论</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/01/20/-原-数据挖掘入门作/" data-id="w81i7tlbjxx6v552" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--原-Spark任务调度" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/26/-原-Spark任务调度/" class="article-date">
+  <time datetime="2014-12-26T06:59:08.000Z" itemprop="datePublished">Dec 26 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/26/-原-Spark任务调度/">[原]Spark任务调度</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.SparkSubmit 提交应用</p>
+<p>2.调用Client来RequestSubmitDriver</p>
+<p>3.Master launchDriver</p>
+<p>4.DriverRunner 在work上启动</p>
+<p>5.DriverRunner运行DriverWrapper</p>
+<p>6.DriverWrapper 在work上启动</p>
+<p>7.DriverWrapper运行提交的应用的main方法</p>
+<p>8.SparkContext 创建</p>
+<p>9.TaskSchedulerImpl启动,  SparkDeploySchedulerBackend CoarseGrainedSchedulerBackend启动</p>
+<p>10.SparkDeploySchedulerBackend 调用AppClient, 传递了封装了CoarseGrainedExecutorBackend的ApplicationDescription</p>
+<p>11.AppClient向Master注册应用</p>
+<p>12.Master从获得的ApplicationDescription创建出 ApplicationInfo, 调度到Work上运行</p>
+<p>13.Work启动ExecutorRunner</p>
+<p>14.ExecutorRunner运行CoarseGrainedExecutorBackend</p>
+<p>15.CoarseGrainedExecutorBackend调用RegisterExecutor, 向CoarseGrainedSchedulerBackend注册</p>
+<p>16.SparkContext runjob </p>
+<p>17.DAGScheduler 调runjob  submitJob  handleJobSubmitted  submitStage  submitMissingTasks</p>
+<p>18.TaskSchedulerImpl submitTasks</p>
+<p>19.CoarseGrainedSchedulerBackend —-&gt; reviveOffers —-&gt;  makeOffers  —-&gt; launchTasks</p>
+<p>20.CoarseGrainedExecutorBackend  LaunchTask执行</p>
+<p>21.Executor LaunchTask</p>
+<p>22.TaskRunner  run</p>
+<p>广告:<br>欢迎加入<a href="http://180.76.149.97" target="_blank" rel="external">Spark中文社区</a></p>
+<p>作者：wowdd1 发表于2014-12-26 14:59:08 <a href="http://blog.csdn.net/wowdd1/article/details/42172063" target="_blank" rel="external">原文链接</a><br>阅读：42 评论：0 <a href="http://blog.csdn.net/wowdd1/article/details/42172063#comments" target="_blank" rel="external">查看评论</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/26/-原-Spark任务调度/" data-id="fw7joigp5k2emyqn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post--原-用docker搭建spark集群" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/12/12/-原-用docker搭建spark集群/" class="article-date">
@@ -88,7 +187,8 @@
         <p>系统是osx</p>
 <p>最近在学习spark, 有了docker搭建集群太方便了 </p>
 <p>安装好docker之后,在vbox里面做一个共享目录, 方便虚拟机从host拷贝文件</p>
-<p><img src="http://img.blog.csdn.net/20141212190059981?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd293ZGQx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br><img src="./image/20141212190059981.png" alt=""><br>运行docker, </p>
+<p><img src="http://img.blog.csdn.net/20141212190059981?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd293ZGQx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>运行docker, </p>
 <p>接着运行boot2docker ssh</p>
 <p>这样就进到虚拟机里面了, 因为需要用到github上的脚本, 可以拷贝你的ssh文件到虚拟机里面</p>
 <p>cp /Users/name/.ssh/id_* ~/.ssh/</p>
@@ -123,17 +223,12 @@
 <p><a href="http://ju.outofmemory.cn/entry/63486" target="_blank" rel="external">http://ju.outofmemory.cn/entry/63486</a></p>
 <p><a href="https://github.com/amplab/docker-scripts" target="_blank" rel="external">https://github.com/amplab/docker-scripts</a></p>
 <p><a href="http://docs.docker.com/userguide/usingdocker/#seeing-docker-command-usage" target="_blank" rel="external">http://docs.docker.com/userguide/usingdocker/#seeing-docker-command-usage</a></p>
-<pre><code>        &lt;<span class="operator">div</span>&gt;
-            作者：wowdd1 发表于<span class="number">2014</span>-<span class="number">12</span>-<span class="number">12</span> <span class="number">20</span>:<span class="number">25</span>:<span class="number">02</span> [原文链接](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">41897757</span>)
-        &lt;/<span class="operator">div</span>&gt;
-        &lt;<span class="operator">div</span>&gt;
-        阅读：<span class="number">24</span> 评论：<span class="number">0</span> [查看评论](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">41897757</span><span class="comment">#comments)</span>
-        &lt;/<span class="operator">div</span>&gt;
-</code></pre>
+<p>作者：wowdd1 发表于2014-12-12 20:25:02 <a href="http://blog.csdn.net/wowdd1/article/details/41897757" target="_blank" rel="external">原文链接</a><br>阅读：104 评论：0 <a href="http://blog.csdn.net/wowdd1/article/details/41897757#comments" target="_blank" rel="external">查看评论</a></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/12/-原-用docker搭建spark集群/" data-id="yhtpq2d5nz88cqex" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/12/-原-用docker搭建spark集群/" data-id="8mpbebblfp4hd7u9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -185,17 +280,12 @@
 <p>75000&nbsp; &nbsp; 90w (google平均水平 124520美元 Twitter平均水平 120768美元 facebook平均水平 118857美元 apple平均水平 118192美元）</p>
 <p>79166&nbsp; &nbsp; 95w (Juniper Networks平均水平 128378美元)</p>
 <p>83333&nbsp; &nbsp; 100w</p>
-<pre><code>        &lt;<span class="operator">div</span>&gt;
-            作者：wowdd1 发表于<span class="number">2014</span>-<span class="number">9</span>-<span class="number">25</span> <span class="number">17</span>:<span class="number">54</span>:<span class="number">48</span> [原文链接](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">39555055</span>)
-        &lt;/<span class="operator">div</span>&gt;
-        &lt;<span class="operator">div</span>&gt;
-        阅读：<span class="number">88</span> 评论：<span class="number">0</span> [查看评论](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">39555055</span><span class="comment">#comments)</span>
-        &lt;/<span class="operator">div</span>&gt;
-</code></pre>
+<p>作者：wowdd1 发表于2014-9-25 17:54:48 <a href="http://blog.csdn.net/wowdd1/article/details/39555055" target="_blank" rel="external">原文链接</a><br>阅读：116 评论：0 <a href="http://blog.csdn.net/wowdd1/article/details/39555055#comments" target="_blank" rel="external">查看评论</a></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/09/25/-原-世界上最没用的是工资条-看了生气-擦屁股嫌太细/" data-id="v61y4p4gxt5a12kk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/09/25/-原-世界上最没用的是工资条-看了生气-擦屁股嫌太细/" data-id="ricbkpmg1rcgpo77" class="article-share-link">Share</a>
       
       
     </footer>
@@ -289,17 +379,12 @@
 <p><img src="http://ipad-cms.csdn.net/cms/attachment/201302/5105fb3e6c84f.jpg" alt=""></p>
 <p>我们发现，随着学历的提升，开发者的收入水平也在逐渐提升。数据显示，本科以上学历的开发者中，绝大部分都能获得中高收入的薪资，而拥有硕士学历的开发者中，5000元以下月收入的开发者比例也只有6.5%，这一数字在本科学历层次上还是34.8%。另外，拥有博士及以上学位的开发者，能拿到高收入的开发者占据了绝大多数，为72.4%。由此我们能看出，“读书无用论”这一说法是站不住脚的，能够将书读好的人，在其他方面也都会相对比较优秀。所以那些不想提升综合素质能力，认为自己精通一门开发语言就可以拿高薪的开发者应该从这里获得一些启示。</p>
 <p>在接受调查的开发者中，掌握第二语言的开发者比例也达到了73.5%，目前国内开发者所掌握的第二语言中，英语仍然是第一选择，比例高达93.7%，余下的语种里，除日语占4.2%以外，其他语种比例 皆不到1%。调查数据显示，掌握第二语言的开发者薪资水平略高于不掌握第二语言的开发者，其中主要的差别在高收入，分别为20.5%和14%。</p>
-<pre><code>        &lt;<span class="operator">div</span>&gt;
-            作者：wowdd1 发表于<span class="number">2013</span>-<span class="number">6</span>-<span class="number">16</span> <span class="number">9</span>:<span class="number">37</span>:<span class="number">47</span> [原文链接](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">9104605</span>)
-        &lt;/<span class="operator">div</span>&gt;
-        &lt;<span class="operator">div</span>&gt;
-        阅读：<span class="number">410</span> 评论：<span class="number">0</span> [查看评论](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">9104605</span><span class="comment">#comments)</span>
-        &lt;/<span class="operator">div</span>&gt;
-</code></pre>
+<p>作者：wowdd1 发表于2013-6-16 9:37:47 <a href="http://blog.csdn.net/wowdd1/article/details/9104605" target="_blank" rel="external">原文链接</a><br>阅读：444 评论：0 <a href="http://blog.csdn.net/wowdd1/article/details/9104605#comments" target="_blank" rel="external">查看评论</a></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/06/16/-转-2012年软件开发者薪资调查报告/" data-id="qzrs7vt0mtdymubs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/06/16/-转-2012年软件开发者薪资调查报告/" data-id="zjqx5q5rmdl80k95" class="article-share-link">Share</a>
       
       
     </footer>
@@ -335,17 +420,12 @@
 <p><img src="http://img.my.csdn.net/uploads/201306/10/1370830880_6052.png" alt=""></p>
 <p><a href="http://v.youku.com/v_show/id_XNTU3MDk4MDk2.html" target="_blank" rel="external">视频地址</a></p>
 <p>&nbsp; 这种项目做多了也就腻了,学不到很多东西,所以就辞职了,想去做做系统,又得找工作了,头大………..</p>
-<pre><code>        &lt;<span class="operator">div</span>&gt;
-            作者：wowdd1 发表于<span class="number">2013</span>-<span class="number">6</span>-<span class="number">10</span> <span class="number">10</span>:<span class="number">24</span>:<span class="number">03</span> [原文链接](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">9069771</span>)
-        &lt;/<span class="operator">div</span>&gt;
-        &lt;<span class="operator">div</span>&gt;
-        阅读：<span class="number">217</span> 评论：<span class="number">0</span> [查看评论](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">9069771</span><span class="comment">#comments)</span>
-        &lt;/<span class="operator">div</span>&gt;
-</code></pre>
+<p>作者：wowdd1 发表于2013-6-10 10:24:03 <a href="http://blog.csdn.net/wowdd1/article/details/9069771" target="_blank" rel="external">原文链接</a><br>阅读：245 评论：0 <a href="http://blog.csdn.net/wowdd1/article/details/9069771#comments" target="_blank" rel="external">查看评论</a></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/06/10/-原-android系统定制项目展示/" data-id="rhm15xfmlg1zsn4p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/06/10/-原-android系统定制项目展示/" data-id="8y52aj2wz7n6ewtb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -524,17 +604,12 @@
 <p>更加详细的信息可参考:&nbsp;</p>
 <p><a href="http://www.eecs.mit.edu/ug/6-3.html" target="_blank" rel="external">http://www.eecs.mit.edu/ug/6-3.html</a></p>
 <p><a href="http://www.eecs.mit.edu/ug/6-3.html" target="_blank" rel="external"></a></p>
-<pre><code>        &lt;<span class="operator">div</span>&gt;
-            作者：wowdd1 发表于<span class="number">2012</span>-<span class="number">4</span>-<span class="number">29</span> <span class="number">16</span>:<span class="number">16</span>:<span class="number">56</span> [原文链接](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">7522479</span>)
-        &lt;/<span class="operator">div</span>&gt;
-        &lt;<span class="operator">div</span>&gt;
-        阅读：<span class="number">2512</span> 评论：<span class="number">2</span> [查看评论](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">7522479</span><span class="comment">#comments)</span>
-        &lt;/<span class="operator">div</span>&gt;
-</code></pre>
+<p>作者：wowdd1 发表于2012-4-29 16:16:56 <a href="http://blog.csdn.net/wowdd1/article/details/7522479" target="_blank" rel="external">原文链接</a><br>阅读：2637 评论：2 <a href="http://blog.csdn.net/wowdd1/article/details/7522479#comments" target="_blank" rel="external">查看评论</a></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2012/04/29/-转-MIT本科CS课程安排-2012版/" data-id="7zjr33gv0bmtwg7y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2012/04/29/-转-MIT本科CS课程安排-2012版/" data-id="4p7fjtzt88atcsza" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1599,17 +1674,12 @@
 <p><a href="http://ocw.mit.edu/courses/chemistry/5-95j-teaching-college-level-science-and-engineering-spring-2009/related-resources/" target="_blank" rel="external">http://ocw.mit.edu/courses/chemistry/5-95j-teaching-college-level-science-and-engineering-spring-2009/related-resources/</a></p>
 <p><span style="white-space:pre"></span><span style="white-space:pre"></span><span style="white-space:pre"></span></p>
 <p><span style="white-space:pre"></span></p>
-<pre><code>        &lt;<span class="operator">div</span>&gt;
-            作者：wowdd1 发表于<span class="number">2012</span>-<span class="number">3</span>-<span class="number">21</span> <span class="number">9</span>:<span class="number">47</span>:<span class="number">24</span> [原文链接](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">7376630</span>)
-        &lt;/<span class="operator">div</span>&gt;
-        &lt;<span class="operator">div</span>&gt;
-        阅读：<span class="number">3214</span> 评论：<span class="number">0</span> [查看评论](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">7376630</span><span class="comment">#comments)</span>
-        &lt;/<span class="operator">div</span>&gt;
-</code></pre>
+<p>作者：wowdd1 发表于2012-3-21 9:47:24 <a href="http://blog.csdn.net/wowdd1/article/details/7376630" target="_blank" rel="external">原文链接</a><br>阅读：3466 评论：0 <a href="http://blog.csdn.net/wowdd1/article/details/7376630#comments" target="_blank" rel="external">查看评论</a></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2012/03/21/-原-MIT-Electrical-Engineering-and-Computer-Science-参考书整理/" data-id="hh9m75xgxt3okxdp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2012/03/21/-原-MIT-Electrical-Engineering-and-Computer-Science-参考书整理/" data-id="t5m5ah3k2qs7owg9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1934,19 +2004,14 @@
 <li><p><a href="http://www.amazon.com/HTML5-Developers-Cookbook-Library/dp/0321769384/?tag=drdos-20" target="_blank" rel="external">HTML5 Developer’s Cookbook</a>&nbsp;by Chuck Hudson, Tom Leadbetter</p>
 </li>
 <li><p><a href="http://www.amazon.com/iOS-Programming-Ranch-Guide-Guides/dp/0321821521/?tag=drdos-20" target="_blank" rel="external">iOS Programming: The Big Nerd Ranch Guide</a>&nbsp;by Joe Conway, Aaron Hillegass</p>
-<pre><code>    &lt;<span class="operator">div</span>&gt;
-        作者：wowdd1 发表于<span class="number">2012</span>-<span class="number">1</span>-<span class="number">12</span> <span class="number">22</span>:<span class="number">22</span>:<span class="number">12</span> [原文链接](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">7197423</span>)
-    &lt;/<span class="operator">div</span>&gt;
-    &lt;<span class="operator">div</span>&gt;
-    阅读：<span class="number">691</span> 评论：<span class="number">1</span> [查看评论](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">7197423</span><span class="comment">#comments)</span>
-    &lt;/<span class="operator">div</span>&gt;
-</code></pre></li>
+</li>
 </ol>
+<p>作者：wowdd1 发表于2012-1-12 22:22:12 <a href="http://blog.csdn.net/wowdd1/article/details/7197423" target="_blank" rel="external">原文链接</a><br>阅读：725 评论：1 <a href="http://blog.csdn.net/wowdd1/article/details/7197423#comments" target="_blank" rel="external">查看评论</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2012/01/12/-原-历届jolt大奖/" data-id="kfnk3z68brpjz3wi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2012/01/12/-原-历届jolt大奖/" data-id="k7o95klmj7ozq9ms" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1983,184 +2048,12 @@
 <p><img src="http://img.my.csdn.net/uploads/201210/21/1350800636_8185.png" alt=""></p>
 <p><a href="http://v.youku.com/v_show/id_XMzQxMDUzOTgw.html" target="_blank" rel="external">视频地址</a></p>
 <p><span style="white-space:pre"></span></p>
-<pre><code>        &lt;<span class="operator">div</span>&gt;
-            作者：wowdd1 发表于<span class="number">2012</span>-<span class="number">1</span>-<span class="number">9</span> <span class="number">11</span>:<span class="number">09</span>:<span class="number">18</span> [原文链接](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">7186659</span>)
-        &lt;/<span class="operator">div</span>&gt;
-        &lt;<span class="operator">div</span>&gt;
-        阅读：<span class="number">161</span> 评论：<span class="number">0</span> [查看评论](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">7186659</span><span class="comment">#comments)</span>
-        &lt;/<span class="operator">div</span>&gt;
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2012/01/09/-原-高尔夫项目展示/" data-id="xcgdhd0axp6mg2gh" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post--转-有理想的程序员必须知道的15件事" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2011/04/26/-转-有理想的程序员必须知道的15件事/" class="article-date">
-  <time datetime="2011-04-26T09:56:00.000Z" itemprop="datePublished">Apr 26 2011</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2011/04/26/-转-有理想的程序员必须知道的15件事/">[转]有理想的程序员必须知道的15件事</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><p>作为程序员，要取得非凡成就需要记住的15件事。<br>1、走一条不一样的路<br>在有利于自己的市场中竞争，如果你满足于&ldquo;泯然众人矣&rdquo;，那恐怕就得跟那些低工资国家的程序员们同场竞技了。</p>
-<p>2、了解自己的公司<br>以我在医院、咨询公司、物流企业以及大技术公司工作的经验来看，这一点所言不虚。</p>
-<p>不同公司的运营模式差异极大。如果你理解企业的运营模式，那你就不一样了！在这家公司中（或者对客户而言），你是参与业务运营的资产，你的工作能直接产生效益！</p>
-<p>3、与最优秀的人为伍<br>很早以前，我喜欢打篮球，被分配到一个水平比较高的队里。一开始适应的确很困难，但环境的压力越大（重大比赛），我的长进也就越明显。</p>
-<p>每个领域其实都一样：你周围人的水平（以及对你的期望）越高，你就会变得越优秀。</p>
-<p>4、制造差异<br>每年学习一门新编程语言。为什么不呢？不断尝试新事物，你关注的技术种类越多，脚下的路就越宽广，你的职业生涯就会日新月异。不知道几年后Java的趋势如何？那就学习Clojure。学Ruby还是Python？这两种语言都可以试试啊。然后你才能知道哪种语言更适合某个特定的项目。看，掌握的语言多了，才能在需要的时候信手拈来吧。</p>
-<p>5、畏惧，是最大的敌人<br>还是直接从书中摘一句吧：&ldquo;在畏惧中做出的职业规划，很可能会让自己后半辈子就一直被&lsquo;圈禁&rsquo;在小隔断里，永远不会有创造明天辉煌的时刻。没错，那样是安全，但有意思吗？&rdquo;</p>
-<p>6、要成为多面手<br>如果你掌握了所在领域的知识，那你只能是一名专业人士。用PHP编程？花点时间设置一台Apache服务器，让PHP和MySQL都跑起来。一直在用jQuery？试试Prototype。你懂了吧。</p>
-<p>7、一个字：做<br>别指望别人过来教你该怎么做，出去，自己学着去做！</p>
-<p>8、找一位好老师<br>找一位好老师可以让你在学习技术的时候有的放矢。作者给我们讲述了别人是怎么指导他学习的（顺便说一句，作者在这本书里讲了很多个人经历的小故事，他居然从一位演奏家转行来做软件开发！）：&ldquo;好好研究一下目录服务，熟悉一种UNIX变体，然后再掌握一门脚本语言。&rdquo;</p>
-<p>请记住这句禅宗谚语：&ldquo;循路觅宗师，形影不相离，师知吾亦知，吾乃成宗师。&rdquo;</p>
-<p>9、主动教会别人<br>教会别人是一种最好的学习方式。写一篇博客能帮你搞清楚一个问题。为此，你必须先掌握很多材料，同时还要有条有理地讲给别人听（写作技能）。如书中所言：&ldquo;要想知道自己是不是真的明白，你就讲给别人听听。&rdquo;</p>
-<p>10、实践，实践，再实践（训练）<br>只有进行大量实践（花大量的时间）才能掌握某种技术。看的很多，写的很少，遇到问题，改一改，又去读代码，&hellip;&hellip;（这样下去是不行的）。</p>
-<p>要特别警惕拖延症。其实，往往只要有了开头就好办了。</p>
-<p>自我加压，效果会更好。我曾在一篇博客中提到帕金森定律：紧张的时限可以让你提高工作效率。为什么不把这个定律用到学习上呢，比如说在y时间内学会x？</p>
-<p>11、从小处入手<br>每天都取得一项小成果，每天都要坚持做（写在博客上？）。这样一来，你只能让自己比昨天更进步，而不能说自己比上星期进步了一点。</p>
-<p>12、享受过程<br>关注当下，而不是目标，享受那些在追逐未来目标的途中可能无暇顾及的小胜利。人总要生活在当下。我享受编程的过程，就像享受编程的结果一样。</p>
-<p>13、不要丧失危机感<br>越是成功，就越容易犯重大错误。永远不要忘了危机感，特别是要认识到你今天所知道的，到了明天可能就会一文不值。过去的荣耀不能保你永远无虞。</p>
-<p>据书中所说，你最好是要让自己能够&ldquo;通用&rdquo;，而不要对哪种技术或哪个公司产生依赖。你所掌握的某些技能，甚至你的工作，到了明天都可能会变得毫无价值。因此要不断提高/丰富/扩展自己的技能。</p>
-<p>14、推销自己<br>为某个项目贡献自己的一份力量，写一篇博客，共享自己的源代码，成为对某个社区有用的人。<br>当然，做这些事可能需要激情，要看你的爱好，但这些事也会间接地推广你的工作成果，证明你的实力，提高你的知名度。</p>
-<p>15、关注市场<br>书中还提到了&ldquo;预警极客&rdquo;，也就是那些始终引领技术发展的人。这些人说过的话往往带有预见性，他们提到事物也许过几天就会成为头条新闻。关注这些人，常看他们的Twitter和博客。</p>
-<p></p><br>            <div><br>                作者：wowdd1 发表于2011-4-26 17:56:00 <a href="http://blog.csdn.net/wowdd1/article/details/6364959" target="_blank" rel="external">原文链接</a><br>            </div><br>            <div><br>            阅读：204 评论：0 <a href="http://blog.csdn.net/wowdd1/article/details/6364959#comments" target="_blank" rel="external">查看评论</a><br>            </div><p></p>
+<p>作者：wowdd1 发表于2012-1-9 11:09:18 <a href="http://blog.csdn.net/wowdd1/article/details/7186659" target="_blank" rel="external">原文链接</a><br>阅读：187 评论：0 <a href="http://blog.csdn.net/wowdd1/article/details/7186659#comments" target="_blank" rel="external">查看评论</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2011/04/26/-转-有理想的程序员必须知道的15件事/" data-id="yxkf7n3efa4uwl33" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post--原-解决vlc-android播放http视频退出问题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2011/04/25/-原-解决vlc-android播放http视频退出问题/" class="article-date">
-  <time datetime="2011-04-25T02:52:00.000Z" itemprop="datePublished">Apr 25 2011</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2011/04/25/-原-解决vlc-android播放http视频退出问题/">[原]解决vlc-android播放http视频退出问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>之前用vlc-android播放http视频,程序就自动退出了,尝试用ndk-gdb调试,但是一调试,就报</p>
-<p><table border="0" cellspacing="0" cellpadding="0"></table></p>
-<p><tbody></tbody></p>
-<p><tr></tr></p>
-<p><td id="postmessage_446382" class="t_f"></td></p>
-<p></p><p>/home/administrator/code/vlc-android/extras/package/android/vlc-android/obj/local/armeabi/gdb.setup:4: Error in sourced command file:<br>Remote communication error: Connection reset by peer.</p>
-<p>到网上也没找到解决方案,最后只用采用在c代码中加入调试打印语句的方式,看究竟是哪里报错,最后跟踪到是调用poll函数引起,</p>
-<p>最后采在ffmpeg源码中找到一个poll函数的源码,修改后加入到vlc-android中</p>
-<p>&nbsp;</p>
-<p>int poll(struct pollfd *fds, nfds_t numfds, int timeout)</p>
-<p>{</p>
-<p>&nbsp;&nbsp; &nbsp;fd_set read_set;</p>
-<p>&nbsp;&nbsp; &nbsp;fd_set write_set;</p>
-<p>&nbsp;&nbsp; &nbsp;fd_set exception_set;</p>
-<p>&nbsp;&nbsp; &nbsp;nfds_t i;</p>
-<p>&nbsp;&nbsp; &nbsp;int n;</p>
-<p>&nbsp;&nbsp; &nbsp;int rc;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<h1 id="if_HAVE_WINSOCK2_H">if HAVE_WINSOCK2_H</h1>
-<p>&nbsp;&nbsp; &nbsp;if (numfds &gt;= FD_SETSIZE) {</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;errno = EINVAL;</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;return -1;</p>
-<p>&nbsp;&nbsp; &nbsp;}</p>
-<h1 id="endif">endif</h1>
-<p>&nbsp;&nbsp; &nbsp;FD_ZERO(&amp;read_set);</p>
-<p>&nbsp;&nbsp; &nbsp;FD_ZERO(&amp;write_set);</p>
-<p>&nbsp;&nbsp; &nbsp;FD_ZERO(&amp;exception_set);</p>
-<p>&nbsp;&nbsp; &nbsp;n = -1;</p>
-<p>&nbsp;&nbsp; &nbsp;for(i = 0; i &lt; numfds; i++) {</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].fd &lt; 0)</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;continue;</p>
-<h1 id="if_!HAVE_WINSOCK2_H">if !HAVE_WINSOCK2_H</h1>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].fd &gt;= FD_SETSIZE) {</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;errno = EINVAL;</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return -1;</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;}</p>
-<h1 id="endif-1">endif</h1>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].events &amp; POLLIN) &nbsp;FD_SET(fds[i].fd, &amp;read_set);</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].events &amp; POLLOUT) FD_SET(fds[i].fd, &amp;write_set);</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].events &amp; POLLERR) FD_SET(fds[i].fd, &amp;exception_set);</p>
-<p>&nbsp;</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].fd &gt; n)</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;n = fds[i].fd;</p>
-<p>&nbsp;&nbsp; &nbsp;};</p>
-<p>&nbsp;&nbsp; &nbsp;if (n == -1)</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;/<em> Hey!? Nothing to poll, in fact!!! </em>/</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;return 0;</p>
-<p>&nbsp;</p>
-<p>&nbsp;&nbsp; &nbsp;if (timeout &lt; 0)</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;rc = select(n+1, &amp;read_set, &amp;write_set, &amp;exception_set, NULL);</p>
-<p>&nbsp;&nbsp; &nbsp;else {</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;struct timeval &nbsp; &nbsp;tv;</p>
-<p>&nbsp;</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;tv.tv_sec = timeout / 1000;</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;tv.tv_usec = 1000 * (timeout % 1000);</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;rc = select(n+1, &amp;read_set, &amp;write_set, &amp;exception_set, &amp;tv);</p>
-<p>&nbsp;&nbsp; &nbsp;};</p>
-<p>&nbsp;&nbsp; &nbsp;if (rc &lt; 0)</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;return rc;</p>
-<p>&nbsp;&nbsp; &nbsp;for(i = 0; i &lt; numfds; i++) {</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;fds[i].revents = 0;</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (FD_ISSET(fds[i].fd, &amp;read_set)) &nbsp; &nbsp; &nbsp;fds[i].revents |= POLLIN;</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (FD_ISSET(fds[i].fd, &amp;write_set)) &nbsp; &nbsp; fds[i].revents |= POLLOUT;</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (FD_ISSET(fds[i].fd, &amp;exception_set)) fds[i].revents |= POLLERR;</p>
-<p>&nbsp;&nbsp; &nbsp;};</p>
-<p>&nbsp;&nbsp; &nbsp;return rc;</p>
-<p>}</p>
-<p>&nbsp;</p>
-<p>测试播放网上的http视频,视频地址:<a href="http://forum.ea3w.com/coll_ea3w/attach/2008_10/12231788691.wmv" target="_blank" rel="external">http://forum.ea3w.com/coll_ea3w/attach/2008_10/12231788691.wmv</a></p>
-<p><img src="http://hi.csdn.net/attachment/201104/25/1812247_130369999999g7.png" alt=""></p>
-<p>&nbsp;</p>
-<p><br><br><br><br></p><br>            <div><br>                作者：wowdd1 发表于2011-4-25 10:52:00 <a href="http://blog.csdn.net/wowdd1/article/details/6360940" target="_blank" rel="external">原文链接</a><br>            </div><br>            <div><br>            阅读：2250 评论：9 <a href="http://blog.csdn.net/wowdd1/article/details/6360940#comments" target="_blank" rel="external">查看评论</a><br>            </div><p></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2011/04/25/-原-解决vlc-android播放http视频退出问题/" data-id="ne2rfw4ijmh8mjzk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2012/01/09/-原-高尔夫项目展示/" data-id="87j7lcb4bg390h2n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -2189,7 +2082,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">January 2010</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -2201,6 +2094,14 @@
       <ul>
         
           <li>
+            <a href="/2015/01/20/-原-数据挖掘入门作/">[原]数据挖掘入门作</a>
+          </li>
+        
+          <li>
+            <a href="/2014/12/26/-原-Spark任务调度/">[原]Spark任务调度</a>
+          </li>
+        
+          <li>
             <a href="/2014/12/12/-原-用docker搭建spark集群/">[原]用docker搭建spark集群</a>
           </li>
         
@@ -2210,14 +2111,6 @@
         
           <li>
             <a href="/2013/06/16/-转-2012年软件开发者薪资调查报告/">[转]2012年软件开发者薪资调查报告</a>
-          </li>
-        
-          <li>
-            <a href="/2013/06/10/-原-android系统定制项目展示/">[原]android系统定制项目展示</a>
-          </li>
-        
-          <li>
-            <a href="/2012/04/29/-转-MIT本科CS课程安排-2012版/">[转]MIT本科CS课程安排(2012版)</a>
           </li>
         
       </ul>

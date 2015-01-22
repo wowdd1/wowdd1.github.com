@@ -104,79 +104,14 @@
 <p><tbody></tbody></p>
 <p><tr></tr></p>
 <p><td id="postmessage_446382" class="t_f"></td></p>
-<p></p><p>/home/administrator/code/vlc-android/extras/package/android/vlc-android/obj/local/armeabi/gdb.setup:4: Error in sourced command file:<br>Remote communication error: Connection reset by peer.</p>
-<p>到网上也没找到解决方案,最后只用采用在c代码中加入调试打印语句的方式,看究竟是哪里报错,最后跟踪到是调用poll函数引起,</p>
-<p>最后采在ffmpeg源码中找到一个poll函数的源码,修改后加入到vlc-android中</p>
-<p>&nbsp;</p>
-<p>int poll(struct pollfd *fds, nfds_t numfds, int timeout)</p>
-<p>{</p>
-<p>&nbsp;&nbsp; &nbsp;fd_set read_set;</p>
-<p>&nbsp;&nbsp; &nbsp;fd_set write_set;</p>
-<p>&nbsp;&nbsp; &nbsp;fd_set exception_set;</p>
-<p>&nbsp;&nbsp; &nbsp;nfds_t i;</p>
-<p>&nbsp;&nbsp; &nbsp;int n;</p>
-<p>&nbsp;&nbsp; &nbsp;int rc;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<h1 id="if_HAVE_WINSOCK2_H">if HAVE_WINSOCK2_H</h1>
-<p>&nbsp;&nbsp; &nbsp;if (numfds &gt;= FD_SETSIZE) {</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;errno = EINVAL;</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;return -1;</p>
-<p>&nbsp;&nbsp; &nbsp;}</p>
-<h1 id="endif">endif</h1>
-<p>&nbsp;&nbsp; &nbsp;FD_ZERO(&amp;read_set);</p>
-<p>&nbsp;&nbsp; &nbsp;FD_ZERO(&amp;write_set);</p>
-<p>&nbsp;&nbsp; &nbsp;FD_ZERO(&amp;exception_set);</p>
-<p>&nbsp;&nbsp; &nbsp;n = -1;</p>
-<p>&nbsp;&nbsp; &nbsp;for(i = 0; i &lt; numfds; i++) {</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].fd &lt; 0)</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;continue;</p>
-<h1 id="if_!HAVE_WINSOCK2_H">if !HAVE_WINSOCK2_H</h1>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].fd &gt;= FD_SETSIZE) {</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;errno = EINVAL;</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return -1;</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;}</p>
-<h1 id="endif-1">endif</h1>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].events &amp; POLLIN) &nbsp;FD_SET(fds[i].fd, &amp;read_set);</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].events &amp; POLLOUT) FD_SET(fds[i].fd, &amp;write_set);</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].events &amp; POLLERR) FD_SET(fds[i].fd, &amp;exception_set);</p>
-<p>&nbsp;</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].fd &gt; n)</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;n = fds[i].fd;</p>
-<p>&nbsp;&nbsp; &nbsp;};</p>
-<p>&nbsp;&nbsp; &nbsp;if (n == -1)</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;/<em> Hey!? Nothing to poll, in fact!!! </em>/</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;return 0;</p>
-<p>&nbsp;</p>
-<p>&nbsp;&nbsp; &nbsp;if (timeout &lt; 0)</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;rc = select(n+1, &amp;read_set, &amp;write_set, &amp;exception_set, NULL);</p>
-<p>&nbsp;&nbsp; &nbsp;else {</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;struct timeval &nbsp; &nbsp;tv;</p>
-<p>&nbsp;</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;tv.tv_sec = timeout / 1000;</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;tv.tv_usec = 1000 * (timeout % 1000);</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;rc = select(n+1, &amp;read_set, &amp;write_set, &amp;exception_set, &amp;tv);</p>
-<p>&nbsp;&nbsp; &nbsp;};</p>
-<p>&nbsp;&nbsp; &nbsp;if (rc &lt; 0)</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;return rc;</p>
-<p>&nbsp;&nbsp; &nbsp;for(i = 0; i &lt; numfds; i++) {</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;fds[i].revents = 0;</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (FD_ISSET(fds[i].fd, &amp;read_set)) &nbsp; &nbsp; &nbsp;fds[i].revents |= POLLIN;</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (FD_ISSET(fds[i].fd, &amp;write_set)) &nbsp; &nbsp; fds[i].revents |= POLLOUT;</p>
-<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (FD_ISSET(fds[i].fd, &amp;exception_set)) fds[i].revents |= POLLERR;</p>
-<p>&nbsp;&nbsp; &nbsp;};</p>
-<p>&nbsp;&nbsp; &nbsp;return rc;</p>
-<p>}</p>
-<p>&nbsp;</p>
-<p>测试播放网上的http视频,视频地址:<a href="http://forum.ea3w.com/coll_ea3w/attach/2008_10/12231788691.wmv" target="_blank" rel="external">http://forum.ea3w.com/coll_ea3w/attach/2008_10/12231788691.wmv</a></p>
-<p><img src="http://hi.csdn.net/attachment/201104/25/1812247_130369999999g7.png" alt=""></p>
-<p>&nbsp;</p>
-<p><br><br><br><br></p><br>            <div><br>                作者：wowdd1 发表于2011-4-25 10:52:00 <a href="http://blog.csdn.net/wowdd1/article/details/6360940" target="_blank" rel="external">原文链接</a><br>            </div><br>            <div><br>            阅读：2250 评论：9 <a href="http://blog.csdn.net/wowdd1/article/details/6360940#comments" target="_blank" rel="external">查看评论</a><br>            </div><p></p>
+<p>/home/administrator/code/vlc-android/extras/package/android/vlc-android/obj/local/armeabi/gdb.setup:4: Error in sourced command file:<br>Remote communication error: Connection reset by peer.<br><br>到网上也没找到解决方案,最后只用采用在c代码中加入调试打印语句的方式,看究竟是哪里报错,最后跟踪到是调用poll函数引起,<br><br>最后采在ffmpeg源码中找到一个poll函数的源码,修改后加入到vlc-android中<br><br>&nbsp;<br><br>int poll(struct pollfd <em>fds, nfds_t numfds, int timeout)<br><br>{<br><br>&nbsp;&nbsp; &nbsp;fd_set read_set;<br><br>&nbsp;&nbsp; &nbsp;fd_set write_set;<br><br>&nbsp;&nbsp; &nbsp;fd_set exception_set;<br><br>&nbsp;&nbsp; &nbsp;nfds_t i;<br><br>&nbsp;&nbsp; &nbsp;int n;<br><br>&nbsp;&nbsp; &nbsp;int rc;<br><br>&nbsp;<br><br>&nbsp;<br><br>#if HAVE_WINSOCK2_H<br><br>&nbsp;&nbsp; &nbsp;if (numfds &gt;= FD_SETSIZE) {<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;errno = EINVAL;<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;return -1;<br><br>&nbsp;&nbsp; &nbsp;}<br><br>#endif<br><br>&nbsp;&nbsp; &nbsp;FD_ZERO(&amp;read_set);<br><br>&nbsp;&nbsp; &nbsp;FD_ZERO(&amp;write_set);<br><br>&nbsp;&nbsp; &nbsp;FD_ZERO(&amp;exception_set);<br><br>&nbsp;&nbsp; &nbsp;n = -1;<br><br>&nbsp;&nbsp; &nbsp;for(i = 0; i &lt; numfds; i++) {<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].fd &lt; 0)<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;continue;<br><br>#if !HAVE_WINSOCK2_H<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].fd &gt;= FD_SETSIZE) {<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;errno = EINVAL;<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return -1;<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;}<br><br>#endif<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].events &amp; POLLIN) &nbsp;FD_SET(fds[i].fd, &amp;read_set);<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].events &amp; POLLOUT) FD_SET(fds[i].fd, &amp;write_set);<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].events &amp; POLLERR) FD_SET(fds[i].fd, &amp;exception_set);<br><br>&nbsp;<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].fd &gt; n)<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;n = fds[i].fd;<br><br>&nbsp;&nbsp; &nbsp;};<br><br>&nbsp;&nbsp; &nbsp;if (n == -1)<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;/</em> Hey!? Nothing to poll, in fact!!! <em>/<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;return 0;<br><br>&nbsp;<br><br>&nbsp;&nbsp; &nbsp;if (timeout &lt; 0)<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;rc = select(n+1, &amp;read_set, &amp;write_set, &amp;exception_set, NULL);<br><br>&nbsp;&nbsp; &nbsp;else {<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;struct timeval &nbsp; &nbsp;tv;<br><br>&nbsp;<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;tv.tv_sec = timeout / 1000;<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;tv.tv_usec = 1000 </em> (timeout % 1000);<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;rc = select(n+1, &amp;read_set, &amp;write_set, &amp;exception_set, &amp;tv);<br><br>&nbsp;&nbsp; &nbsp;};<br><br>&nbsp;&nbsp; &nbsp;if (rc &lt; 0)<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;return rc;<br><br>&nbsp;&nbsp; &nbsp;for(i = 0; i &lt; numfds; i++) {<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;fds[i].revents = 0;<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (FD_ISSET(fds[i].fd, &amp;read_set)) &nbsp; &nbsp; &nbsp;fds[i].revents |= POLLIN;<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (FD_ISSET(fds[i].fd, &amp;write_set)) &nbsp; &nbsp; fds[i].revents |= POLLOUT;<br><br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (FD_ISSET(fds[i].fd, &amp;exception_set)) fds[i].revents |= POLLERR;<br><br>&nbsp;&nbsp; &nbsp;};<br><br>&nbsp;&nbsp; &nbsp;return rc;<br><br>}<br><br>&nbsp;<br><br>测试播放网上的http视频,视频地址:<a href="http://forum.ea3w.com/coll_ea3w/attach/2008_10/12231788691.wmv" target="_blank" rel="external">http://forum.ea3w.com/coll_ea3w/attach/2008_10/12231788691.wmv</a><br><br><img src="http://hi.csdn.net/attachment/201104/25/1812247_130369999999g7.png" alt=""><br><br>&nbsp;<br><br><br><br><br><br></p>
+
+<p>作者：wowdd1 发表于2011-4-25 10:52:00 <a href="http://blog.csdn.net/wowdd1/article/details/6360940" target="_blank" rel="external">原文链接</a><br>阅读：2301 评论：9 <a href="http://blog.csdn.net/wowdd1/article/details/6360940#comments" target="_blank" rel="external">查看评论</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2011/04/25/-原-解决vlc-android播放http视频退出问题/" data-id="ne2rfw4ijmh8mjzk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2011/04/25/-原-解决vlc-android播放http视频退出问题/" data-id="9dtsae113lr8g51l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -219,7 +154,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">January 2010</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -231,6 +166,14 @@
       <ul>
         
           <li>
+            <a href="/2015/01/20/-原-数据挖掘入门作/">[原]数据挖掘入门作</a>
+          </li>
+        
+          <li>
+            <a href="/2014/12/26/-原-Spark任务调度/">[原]Spark任务调度</a>
+          </li>
+        
+          <li>
             <a href="/2014/12/12/-原-用docker搭建spark集群/">[原]用docker搭建spark集群</a>
           </li>
         
@@ -240,14 +183,6 @@
         
           <li>
             <a href="/2013/06/16/-转-2012年软件开发者薪资调查报告/">[转]2012年软件开发者薪资调查报告</a>
-          </li>
-        
-          <li>
-            <a href="/2013/06/10/-原-android系统定制项目展示/">[原]android系统定制项目展示</a>
-          </li>
-        
-          <li>
-            <a href="/2012/04/29/-转-MIT本科CS课程安排-2012版/">[转]MIT本科CS课程安排(2012版)</a>
           </li>
         
       </ul>
