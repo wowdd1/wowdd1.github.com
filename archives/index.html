@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Hexo</title>
+  <title>Archives | wowdd1</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="wowdd1">
 <meta property="og:url" content="http://yoursite.com/archives/">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="wowdd1">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="wowdd1">
 <meta name="twitter:description">
 
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="wowdd1" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -35,7 +35,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">wowdd1</a>
       </h1>
       
     </div>
@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--原-用docker搭建spark集群" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/12/17/hello-world/" class="article-date">
-  <time datetime="2014-12-17T01:59:13.000Z" itemprop="datePublished">Dec 17 2014</time>
+    <a href="/2014/12/12/-原-用docker搭建spark集群/" class="article-date">
+  <time datetime="2014-12-12T12:25:02.000Z" itemprop="datePublished">Dec 12 2014</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/17/hello-world/">Hello World</a>
+      <a class="article-title" href="/2014/12/12/-原-用docker搭建spark集群/">[原]用docker搭建spark集群</a>
     </h1>
   
 
@@ -85,29 +85,55 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2>
-<h3 id="Create_a_new_post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
+        <p>系统是osx</p>
+<p>最近在学习spark, 有了docker搭建集群太方便了 </p>
+<p>安装好docker之后,在vbox里面做一个共享目录, 方便虚拟机从host拷贝文件</p>
+<p><img src="http://img.blog.csdn.net/20141212190059981?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd293ZGQx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br><img src="./image/20141212190059981.png" alt=""><br>运行docker, </p>
+<p>接着运行boot2docker ssh</p>
+<p>这样就进到虚拟机里面了, 因为需要用到github上的脚本, 可以拷贝你的ssh文件到虚拟机里面</p>
+<p>cp /Users/name/.ssh/id_* ~/.ssh/</p>
+<p>接着输入<br><code>tce-ab</code></p>
+<p>输入s`输入python.tcz<br>输入esc键  然后 输入 i 安装python</p>
+<p>同样的还需要安装<code>bash.tcz ,方法同上</code></p>
+<p>接着就clone amplab的docker脚本了</p>
+<p>git clone git@github.com:amplab/d<code>&lt;/code&gt;</code><code>ocker-scripts<code>&lt;/code&gt;</code><code><code>&lt;/code&gt;</code><code>.git</code></code></code></p>
+<p>注意: 这些更改到你退出虚拟机后不会被保存下来,  记得提出虚拟机前,在mac中再运行下<code>boot2docker save`</code></p>
+<p>ok,现在进到<code>&lt;code&gt;d</code>`<code>ocker-scripts</code></p>
+<p>进入apache-hadoop-hdfs-precise  dnsmasq-precise spark-1.0.0这3个目录,运行里面的build脚本,</p>
+<p><code>&lt;/code&gt;</code><code>运行docker images,就能看到相应的images<br><img src="http://img.blog.csdn.net/20141212201548452?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd293ZGQx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>`</code>你需要修改deploy/start_spark_cluster.sh 的start_master方法, 加入-p 8080:8080, 这是做端口映射,将容器的8080端口暴露给虚拟机,然后你在外部可以<br>访问虚拟机,这样你在浏览器中可以看到集群的运行状态</p>
+<p>work也要做端口映射, 8080给了master,8081 8082给work1 work2,依次类推<br>具体修改如下图所示:<br><img src="http://img.blog.csdn.net/20141212200934067?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd293ZGQx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>接着就可以启动集群了,运行 sudo ./deploy/deploy.sh -i spark:1.0.0 -w 3 </p>
+<p><strong><em> Starting Spark 1.0.0 </em></strong><br>starting nameserver container<br>started nameserver container:&nbsp; be7031996f698e0ec012448e3fbe65918e72902afc1fe5116fde90858b116a60<br>DNS host-&gt;IP file mapped:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /tmp/dnsdir_12623/0hosts<br>NAMESERVER_IP:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 172.17.0.23<br>waiting for nameserver to come up<br>starting master container<br>started master container:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 58a8169e8a0afcda7b3bc063409a602c7accba7e77d1e82366390d0b1e6ce4ae<br>MASTER_IP:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 172.17.0.24<br>waiting for master ……<br>waiting for nameserver to find master<br>starting worker container<br>started worker container:&nbsp; 8f5e14583c06419417ab918041b11f01278c471796a8b6d7824f6d9f40fb70cd<br>&nbsp;worker1 at port 8081, WORKER_IP is 172.17.0.25<br>starting worker container<br>started worker container:&nbsp; 118fa52a1662b061138151d907a649e4a34da755c5e84bf25d2a724102f728da<br>&nbsp;worker2 at port 8082, WORKER_IP is 172.17.0.26<br>starting worker container<br>started worker container:&nbsp; fc1905d24cdb4a97afad6c0f115e1700a9d8a13a610672a16b193739990b8e61<br>&nbsp;worker3 at port 8083, WORKER_IP is 172.17.0.27<br>waiting for workers to register …..</p>
+<hr>
+<p>start shell via:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sudo /home/docker/docker-scripts/deploy/start_shell.sh -i spark-shell:1.0.0 -n be7031996f698e0ec012448e3fbe65918e72902afc1fe5116fde90858b116a60 </p>
+<p>visit Spark WebUI at:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://172.17.0.24:8080/" target="_blank" rel="external">http://172.17.0.24:8080/</a><br>visit Hadoop Namenode at:&nbsp;&nbsp; <a href="http://172.17.0.24:50070" target="_blank" rel="external">http://172.17.0.24:50070</a><br>ssh into master via:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ssh -i /home/docker/docker-scripts/deploy/../apache-hadoop-hdfs-precise/files/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@172.17.0.24</p>
+<p>/data mapped:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</p>
+<p>kill master via:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sudo docker kill 58a8169e8a0afcda7b3bc063409a602c7accba7e77d1e82366390d0b1e6ce4ae</p>
+<hr>
+<p>to enable cluster name resolution add the following line to <em>the top</em> of your host’s /etc/resolv.conf:<br>nameserver 172.17.0.23</p>
+<p>运行docker ps:<br>docker@boot2docker:~/docker-scripts$ docker ps<br>CONTAINER ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IMAGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; COMMAND&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CREATED&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STATUS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PORTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NAMES<br>fc1905d24cdb&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; spark-worker:1.0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;/root/spark<em>worker</em>&nbsp;&nbsp; 21 seconds ago&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Up 19 seconds&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8888/tcp, 0.0.0.0:8083-&gt;8081/tcp&nbsp;&nbsp; evil<em>hopper&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br>118fa52a1662&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; spark-worker:1.0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;/root/spark_worker</em>&nbsp;&nbsp; 24 seconds ago&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Up 23 seconds&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8888/tcp, 0.0.0.0:8082-&gt;8081/tcp&nbsp;&nbsp; sharp<em>yonath&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br>8f5e14583c06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; spark-worker:1.0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;/root/spark_worker</em>&nbsp;&nbsp; 27 seconds ago&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Up 26 seconds&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8888/tcp, 0.0.0.0:8081-&gt;8081/tcp&nbsp;&nbsp; berserk<em>einstein&nbsp;&nbsp; &nbsp;<br>58a8169e8a0a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; spark-master:1.0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;/root/spark_master</em>&nbsp;&nbsp; 40 seconds ago&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Up 39 seconds&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7077/tcp, 0.0.0.0:8080-&gt;8080/tcp&nbsp;&nbsp; insane_einstein&nbsp;&nbsp;&nbsp; &nbsp;<br>be7031996f69&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; amplab/dnsmasq-precise:latest&nbsp;&nbsp; &quot;/root/dnsmasq_files&nbsp;&nbsp; 42 seconds ago&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Up 41 seconds&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; trusting_sammet&nbsp;&nbsp;&nbsp; &nbsp;</p>
+<p>在ports列可以看到相应的端口都做了映射</p>
+<p>在外部运行boot2docker ip 可以看到虚拟机的ip,我这边是<br>bash-3.2$ boot2docker ip</p>
+<p>The VM’s Host only interface IP address is: 192.168.59.103</p>
+<p>接着打开浏览器,依次输入<br>192.168.59.103:8080  查看master状态<br>192.168.59.103：8081 查看work1状态<br>192.168.59.103：8082 查看work2状态…</p>
+<p><img src="http://img.blog.csdn.net/20141212202505046?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd293ZGQx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p></p>
+<p>用sudo ./deploy/kill_all.sh spark可以关闭集群</p>
+<p>参考:</p>
+<p><a href="http://ju.outofmemory.cn/entry/63486" target="_blank" rel="external">http://ju.outofmemory.cn/entry/63486</a></p>
+<p><a href="https://github.com/amplab/docker-scripts" target="_blank" rel="external">https://github.com/amplab/docker-scripts</a></p>
+<p><a href="http://docs.docker.com/userguide/usingdocker/#seeing-docker-command-usage" target="_blank" rel="external">http://docs.docker.com/userguide/usingdocker/#seeing-docker-command-usage</a></p>
+<pre><code>        &lt;<span class="operator">div</span>&gt;
+            作者：wowdd1 发表于<span class="number">2014</span>-<span class="number">12</span>-<span class="number">12</span> <span class="number">20</span>:<span class="number">25</span>:<span class="number">02</span> [原文链接](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">41897757</span>)
+        &lt;/<span class="operator">div</span>&gt;
+        &lt;<span class="operator">div</span>&gt;
+        阅读：<span class="number">24</span> 评论：<span class="number">0</span> [查看评论](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">41897757</span><span class="comment">#comments)</span>
+        &lt;/<span class="operator">div</span>&gt;
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/17/hello-world/" data-id="o1iav92r5wd95vw2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/12/-原-用docker搭建spark集群/" data-id="yhtpq2d5nz88cqex" class="article-share-link">Share</a>
       
       
     </footer>
@@ -117,6 +143,2037 @@
 
 
   
+    <article id="post--原-世界上最没用的是工资条-看了生气-擦屁股嫌太细" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/09/25/-原-世界上最没用的是工资条-看了生气-擦屁股嫌太细/" class="article-date">
+  <time datetime="2014-09-25T09:54:48.000Z" itemprop="datePublished">Sep 25 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/09/25/-原-世界上最没用的是工资条-看了生气-擦屁股嫌太细/">[原]世界上最没用的是工资条,看了生气,擦屁股嫌太细</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>月薪 &nbsp; &nbsp; &nbsp;年薪</p>
+<p>8333&nbsp; &nbsp; &nbsp; 10w</p>
+<p>12500 &nbsp;&nbsp; 15w</p>
+<p>16666&nbsp;&nbsp;&nbsp; 20w</p>
+<p>20833&nbsp; &nbsp; 25w</p>
+<p>25000&nbsp; &nbsp; 30w</p>
+<p>29166&nbsp; &nbsp; 35w</p>
+<p>33333&nbsp; &nbsp; 40w</p>
+<p>37500&nbsp; &nbsp; 45w</p>
+<p>41666&nbsp; &nbsp; 50w&nbsp; (google实习生水平)</p>
+<p>45833&nbsp; &nbsp; 55w</p>
+<p>50000&nbsp; &nbsp; 60w</p>
+<p>54166&nbsp; &nbsp; 65w</p>
+<p>58333&nbsp; &nbsp; 70w</p>
+<p>62500 &nbsp;&nbsp; 75w</p>
+<p>66666&nbsp; &nbsp; 80w</p>
+<p>70833&nbsp; &nbsp; 85w</p>
+<p>75000&nbsp; &nbsp; 90w (google平均水平 124520美元 Twitter平均水平 120768美元 facebook平均水平 118857美元 apple平均水平 118192美元）</p>
+<p>79166&nbsp; &nbsp; 95w (Juniper Networks平均水平 128378美元)</p>
+<p>83333&nbsp; &nbsp; 100w</p>
+<pre><code>        &lt;<span class="operator">div</span>&gt;
+            作者：wowdd1 发表于<span class="number">2014</span>-<span class="number">9</span>-<span class="number">25</span> <span class="number">17</span>:<span class="number">54</span>:<span class="number">48</span> [原文链接](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">39555055</span>)
+        &lt;/<span class="operator">div</span>&gt;
+        &lt;<span class="operator">div</span>&gt;
+        阅读：<span class="number">88</span> 评论：<span class="number">0</span> [查看评论](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">39555055</span><span class="comment">#comments)</span>
+        &lt;/<span class="operator">div</span>&gt;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/09/25/-原-世界上最没用的是工资条-看了生气-擦屁股嫌太细/" data-id="v61y4p4gxt5a12kk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--转-2012年软件开发者薪资调查报告" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/06/16/-转-2012年软件开发者薪资调查报告/" class="article-date">
+  <time datetime="2013-06-16T01:37:47.000Z" itemprop="datePublished">Jun 16 2013</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/06/16/-转-2012年软件开发者薪资调查报告/">[转]2012年软件开发者薪资调查报告</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>2012年末，CSDN和《程序员》杂志发起了一年一度的“软件开发者薪资大调查”。本次调查收到了上万份问卷，开发者的参与积极性超过以往。通过分析这些数据，我们得以对目前软件开发者的生存状态、待遇水平、行业状况等有了更清晰的了解。</p>
+<p>本次参与调查的开发者中，约59.4%的开发者在公司中的职位是软件工程师，高级软件工程师占14.98%。任职管理岗位的开发者中，项目经理或主管占 6.3%，部门经理或主管的人群约为4.7%。另外，本次调查也吸引了一些公司高级管理人员参与，其中公司CTO甚至CEO级别的开发者在本次调查中已经 能够占到2.4%。<span id="more-14918" style="margin:0px; padding:0px; border:0px; outline:0px"></span></p>
+<ul>
+<li>本次调查数据真实地反映出了2012年中国软件开发者的薪资现状。</li>
+<li>开发者薪资水平明显提高，月薪5000元以上人数占比较2011年增长10.8%。</li>
+<li>在IT业较集中的17个城市中，高收入开发者占比最高的依次为：上海、北京、深圳，最低的依次是济南、沈阳和西安。</li>
+<li>高收入开发者占比最大的前3行业：互联网、游戏、国防/军队。</li>
+<li>最赚钱的四种编程语言是：Objective-C、C&#43;&#43;、Python、C。</li>
+<li>导致开发者跳槽三大原因：薪水低、福利少、公司技术水平差。</li>
+<li>开发者跳槽三大途径：招聘网站、朋友介绍、招聘会。</li>
+</ul>
+<p><span style="margin:0px; padding:0px; border:0px; outline:0px">城市：上海、北京领先全国</span></p>
+<p>本次软件开发者薪资调查受访者来自全国IT行业发展处于领先的17个城市。按高收入和中高收入的比例排序，开发者收入较高的城市依次是：上海 （77.3%）、北京（76.7%）、深圳（71.7%）、杭州（69.5%）、广州（64.3%）、南京（64.1%）、大连（61.9%），这一结果 与上次基本相同。</p>
+<p><img src="http://ipad-cms.csdn.net/cms/attachment/201302/5105f6f71e4e6.jpg" alt=""></p>
+<p>&nbsp;</p>
+<p>其中，上海和北京组成第一阵营。其他五个城市处在第二阵营。与上次相比，广州和南京的比例提升更加明显。这些地区的IT行业发展在全国处于领先地位；同时， 它们的生活成本之高也是公认的。对于开发者来说，在这样的城市中发展也面临着诱惑与困难，诱惑来自于IT行业发展处于前列，有利于开发者的职业生涯发展及 获得更好的收入，困难则意味着需要面对较大的竞争压力及生存压力。</p>
+<p>其他城市里，成都、西安和厦门中高收入比例的提升非常明显，这应该是得益于当地政府对软件和互联网比较重视，产业开始产生集聚效应所致。</p>
+<p>在上述17个城市中，低收入和中等收入所占比例较高的三座城市分别是沈阳（73%）、济南（66.6%）和武汉（58.4%）。</p>
+<p><img src="http://ipad-cms.csdn.net/cms/attachment/201302/5105f75b9f233.jpg" alt=""></p>
+<p>每个人选择的生活方式不同会决定其对工作及城市的选择。如果选择在一二线城市，可以参与到最激烈的竞争中，从中获得成功的快感；如果选择竞争压力相对不大的城市，虽然收入相对要少，但也可以享受慢节奏的人生。个中滋味，如人饮水，冷暖自知。</p>
+<p><span style="margin:0px; padding:0px; border:0px; outline:0px">行业：制造（通信/电子设备）行业薪资具有竞争力</span></p>
+<p>俗话说：“三百六十行，行行出状元”。同为开发者，但大家对行业的选择，不同性质企业的选择都有所不同。</p>
+<p>行业方面，参与本次调查的开发者中，有超过28.2%的开发者来自独立软件开发商，互联网从业者也有13%，排名第三的是制造业（通信/电子设备），为 11.5%。同时，开发者从业企业性质方面，数据显示，私企仍然占很大的比例，高达74.5%，外企比例约为15.2%，国企比例最小，占了10.3%。</p>
+<p>在我们进行调查的18个行业中，高收入开发者所占比例较大的前三行业是互联网（28.1%）、游戏（27.4%）和国防/军队（25%）。而中高等收入开发者所占比例较大的前三行业分别是电信（53.4%）、交通（52.2%）和制造业（50.6%），另外，制造（通信/电子设备等）行业高收入开发者所占的 比例也达到了21.3%，显示出制造（通信/电子设备等）行业在与各行业的竞争中具有一定的竞争力。</p>
+<p>有人收入高，自然有人收入低，在这些行业中，政府（19.1%）、零售/物流（17.3%）及媒体（17.2%）这三个行业里低收入开发者所占比例较大。</p>
+<p><img src="http://ipad-cms.csdn.net/cms/attachment/201302/5105f7f5c6ecd.jpg" alt=""></p>
+<p>&nbsp;再来看企业性质与开发者薪资水平的对比分析，从上表中，我们可以明显地看出，外企在薪资待遇上较之国内企业有较大的优势，虽然中高等收入所占比例 （42.5%）相比国内企业的45.8%有些许差距，但在高收入开发者所占比例方面，外企优势非常大，为39.7%，而国内私企与国企则分别为15.8% 与15.7%。</p>
+<p><img src="http://ipad-cms.csdn.net/cms/attachment/201302/5105f86307d4b.jpg" alt=""></p>
+<p>当然，从开发者的择业过程及面试经历来看，相比国内企业，外企的门槛及难度也相对较高。</p>
+<p><span style="margin:0px; padding:0px; border:0px; outline:0px">技术：流行的不赚钱</span></p>
+<p>在本次调查结果中，使用者最多的编程语言依然是Java，占到所有语言的39%，但较之去年的45.3%下降明显。Java之外，C#、C&#43;&#43;及C三种语言所占比例为16.61%、16.11%及10.9%。</p>
+<p><img src="http://ipad-cms.csdn.net/cms/attachment/201302/5105f8ed6fae6.jpg" alt=""></p>
+<p>从不同编程语言的开发者收入范围分布来看，情况就大不相同了。最赚钱的四种编程语言分别是Objective-C、C&#43;&#43;、Python和C，使用这四种语言的开发者中，1万元以上的高收入者所占比例均超过了20%，而Objective-C无愧于“TIOBE 2012年度编程语言”称号，其使用者中，高收入开发者所占比例最高，达到31.6%，后三者的比例依次为26.3%、25%及21.9%。而 PL/SQL、C#、JavaScript、Java三种语言的开发者收入范围分布差别不大。</p>
+<p><img src="http://ipad-cms.csdn.net/cms/attachment/201302/5105f946b2392.jpg" alt=""></p>
+<p>数据库使用方面，调查结果显示，Oracle、SQL Server及MySQL三种数据库占据了近80%的使用率，各自比例依次为29.3%、24.76%、24.15%。有意思的是NoSQL的使用者虽然 比较少，但1万元以上的高收入人群占比例较多，达到了43.4%。反而是一贯高帅富形象的Oracle开发者收入偏低，非常奇怪，难道是因为Oracle 太流行了吗？其中原因，&#20540;得继续调查。</p>
+<p><img src="http://ipad-cms.csdn.net/cms/attachment/201302/5105f9a98a79f.jpg" alt=""></p>
+<p>本次调查中，我们还设置了开发项目所面向的操作系统选项，通过统计发现，面向Windows系列操作系统的项目很强势，其中Windows Server占据比例最大，为33.9%，Windows Client紧随其后，约为22.6%，这两者之外，面向Linux操作系统的项目比例也达到27.9%。</p>
+<p><img src="http://ipad-cms.csdn.net/cms/attachment/201302/5105f9ed7a694.jpg" alt=""></p>
+<p>薪资方面，Oracle Solaris、Linux、Mac操作系统项目的开发者中，1万元以上的高收入者占比均较高，超过了24%。而在Windows Client、Windows Server、Google App Engine操作系统的开发者中，1万元以上的高收入者不足15%。&#20540;得注意的是，开发项目面向IBM AIX系统的开发者中，中高收入以上的人所占比例非常高，达到82.4%。</p>
+<p>随着智能手机的普及，移动应用开发需求越来越多，在本次调查中，从事移动应用的开发者比例已经达到了10%。而互联网产品开发者占据较大比例，约为34.4%，其中前后端开发者分别占11%和23.4%。企业级应用 （包括ERP/CRM/SCM/BPM）开发者也不在少数，比例约为22.5%。</p>
+<p><img src="http://ipad-cms.csdn.net/cms/attachment/201302/5105fa29cb825.jpg" alt=""></p>
+<p>从薪资角度来看，各类软件的开发者薪资水平基本持平。但也有例外，从上面表中我们可以看出，互联网前端（网页端）的薪资水平较之其他类型开发工作的薪资水平 显得较低，中低等收入占据了超过50%的比例。出现这种情况的原因是目前互联网前端开发对技术水平要求相对不高，开发语言掌握比较容易。</p>
+<p>总体来看，前沿、小众技术的使用者，收入反而高，但适用面肯定会窄一些。而流行的技术虽然很多使用者薪资不高，但也不乏高薪者。这个现象为大家选择技术学习路线提供了很有意思的启示。</p>
+<p><span style="margin:0px; padding:0px; border:0px; outline:0px">那些年，我们一起跳的“槽”</span></p>
+<p>水往低处流，人往高处走。或期望更好的发展、或期望拿更高的薪水、或期望一展宏图大志，也或者只是想让自己安定下来，这些都是我们选择跳槽的各种理由。在本次调查中，有32.6%的受访者表示在一年之内曾换过工作。</p>
+<p>换工作的原因有很多，其中导致开发者跳槽的三大原因分别是：薪水低，有近28%的开发者表示换工作的原因是能够获得更高的薪水；福利少，有13.5%的开发 者表示新单位的福利待遇更好；公司技术水平差，有13.4%的开发者选择跳槽是因为新单位的技术水平更高，这样的公司无疑有利于开发者的职业生涯发展。</p>
+<p><img src="http://ipad-cms.csdn.net/cms/attachment/201302/5105fa8b78497.jpg" alt=""></p>
+<p>调查数据显示，拥有2～3年工作经验的开发者最容易跳槽，跳槽的比例占总人数的42%。而工作10年以上的开发者由于工作及生活基本稳定，大部分都不会轻易选择跳槽，跳槽的人数仅有16.5%。</p>
+<p>正如前面所说，有部分开发者换工作是因为期望拿更高的薪水，在受访者中，有近70%参与调查的开发者表示在过去一年中换工作后的工资都有所提升，其中最普遍 的涨幅在10%~30%之间，这部分开发者的比例约为40%。而涨幅能够超过50%的开发者比例也不低，约为10%。不过也有例外，调查结果显示，跳槽的 开发者中，仍有约22%的开发者薪资仍然维持原先的水平。更有甚者，约9.9%的开发者表示跳槽之后薪水略有下降，但我们猜测，这部分开发者应该是遇到较 好的公司，希望能够更好地提升自己的能力及水平，于人屋檐下暂时低头。</p>
+<p>在最近一年没有更换工作的受访者中，薪资有所增长的开发者比例约为56.4%，其中涨幅也大多处于10%~20%之间，这部分开发者所占比例约38.4%。</p>
+<p>虽然未跳槽的开发者涨薪较之跳槽者较低，且涨薪幅度也低于后者，但正所谓“跳槽有风险，选择需谨慎”，我们仍不建议广大开发者单纯为追求薪水选择跳槽。影响 个人生活水平的不仅仅是薪水，且现在的公司如果能给你提供薪水之外的待遇福利（如培训、学习机会等），对个人职业生涯发展也是十分有益的。</p>
+<p>即便我们这么说，但调查数据显示，受访者中仅有21.6%的开发者表示未来一年不考虑换工作，有32.5的开发者表示暂未考虑跳槽，但有好机遇也会抓住，而45.9%的开发者表示将会在新一年中选择跳槽。</p>
+<p><img src="http://ipad-cms.csdn.net/cms/attachment/201302/5105fad886acd.jpg" alt=""></p>
+<p>社会化媒体在近几年快速发展，国外已经出现如LinkedIn这样的职业社交网络，但在国内，调查数据显示，54%的开发者更换工作仍是通过传统的招聘网 站，还有11.7%的开发者是通过校园招聘会或主题招聘会完成工作更换的，除此以外，有17.7%的开发者是通过朋友介绍获得新工作的，这个算是社交媒体线下的模式吧。被猎头发现推荐工作的开发者也占了7%的比例。</p>
+<p><span style="margin:0px; padding:0px; border:0px; outline:0px">其他数据</span></p>
+<p>每年的薪资调查报告中，总有些数据大同小异，比如：男女比例极不平衡，本次比例是97:3；超过五成开发者都生活在一线发达城市：北京、上海、深圳及广州等。</p>
+<p>2012年是移动互联网和云计算快速发展的一年，在接受调查的软件开发者中，有超过四分之一的受访者最关注的技术方向都集中在这两方面。</p>
+<p>虽然开发者对自己的薪资满意度上升明显，但通过调查发现，目前国内开发者目前的生活支出依旧不理想，除生活费之外，占据开发者生活支出前三位的分别是房租/ 房贷、休闲娱乐及学习培训，但比例相差较大，房租房贷的比例约为69.2%，休闲娱乐比例约为20.4%，而学习培训仅占7%。其他方面，硬件配置占了 3.14%，至于软件购买，仅占0.33%。</p>
+<p>在之前的薪资调查报告中，我们发现软件开发者的学历、语言技能对个人的薪资水平存在一定的影响，本次也不例外。在本次调查中，我们发现软件开发者群体的学历水平集体有所上升，本科以上学历的开发者比例已经接近80%。</p>
+<p><img src="http://ipad-cms.csdn.net/cms/attachment/201302/5105fb3e6c84f.jpg" alt=""></p>
+<p>我们发现，随着学历的提升，开发者的收入水平也在逐渐提升。数据显示，本科以上学历的开发者中，绝大部分都能获得中高收入的薪资，而拥有硕士学历的开发者中，5000元以下月收入的开发者比例也只有6.5%，这一数字在本科学历层次上还是34.8%。另外，拥有博士及以上学位的开发者，能拿到高收入的开发者占据了绝大多数，为72.4%。由此我们能看出，“读书无用论”这一说法是站不住脚的，能够将书读好的人，在其他方面也都会相对比较优秀。所以那些不想提升综合素质能力，认为自己精通一门开发语言就可以拿高薪的开发者应该从这里获得一些启示。</p>
+<p>在接受调查的开发者中，掌握第二语言的开发者比例也达到了73.5%，目前国内开发者所掌握的第二语言中，英语仍然是第一选择，比例高达93.7%，余下的语种里，除日语占4.2%以外，其他语种比例 皆不到1%。调查数据显示，掌握第二语言的开发者薪资水平略高于不掌握第二语言的开发者，其中主要的差别在高收入，分别为20.5%和14%。</p>
+<pre><code>        &lt;<span class="operator">div</span>&gt;
+            作者：wowdd1 发表于<span class="number">2013</span>-<span class="number">6</span>-<span class="number">16</span> <span class="number">9</span>:<span class="number">37</span>:<span class="number">47</span> [原文链接](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">9104605</span>)
+        &lt;/<span class="operator">div</span>&gt;
+        &lt;<span class="operator">div</span>&gt;
+        阅读：<span class="number">410</span> 评论：<span class="number">0</span> [查看评论](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">9104605</span><span class="comment">#comments)</span>
+        &lt;/<span class="operator">div</span>&gt;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/06/16/-转-2012年软件开发者薪资调查报告/" data-id="qzrs7vt0mtdymubs" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--原-android系统定制项目展示" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/06/10/-原-android系统定制项目展示/" class="article-date">
+  <time datetime="2013-06-10T02:24:03.000Z" itemprop="datePublished">Jun 10 2013</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/06/10/-原-android系统定制项目展示/">[原]android系统定制项目展示</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&nbsp; &nbsp;过去一年主要从事android系统定制方面的工作,这是其中一个项目,贴出来纪录一下</p>
+<p><img src="http://img.my.csdn.net/uploads/201306/10/1370830880_6052.png" alt=""></p>
+<p><a href="http://v.youku.com/v_show/id_XNTU3MDk4MDk2.html" target="_blank" rel="external">视频地址</a></p>
+<p>&nbsp; 这种项目做多了也就腻了,学不到很多东西,所以就辞职了,想去做做系统,又得找工作了,头大………..</p>
+<pre><code>        &lt;<span class="operator">div</span>&gt;
+            作者：wowdd1 发表于<span class="number">2013</span>-<span class="number">6</span>-<span class="number">10</span> <span class="number">10</span>:<span class="number">24</span>:<span class="number">03</span> [原文链接](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">9069771</span>)
+        &lt;/<span class="operator">div</span>&gt;
+        &lt;<span class="operator">div</span>&gt;
+        阅读：<span class="number">217</span> 评论：<span class="number">0</span> [查看评论](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">9069771</span><span class="comment">#comments)</span>
+        &lt;/<span class="operator">div</span>&gt;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/06/10/-原-android系统定制项目展示/" data-id="rhm15xfmlg1zsn4p" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--转-MIT本科CS课程安排-2012版" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/04/29/-转-MIT本科CS课程安排-2012版/" class="article-date">
+  <time datetime="2012-04-29T08:16:56.000Z" itemprop="datePublished">Apr 29 2012</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/04/29/-转-MIT本科CS课程安排-2012版/">[转]MIT本科CS课程安排(2012版)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://images.cnblogs.com/cnblogs_com/lute-fan/201202/201202100046295446.png" target="_blank" rel="external"><img src="http://images.cnblogs.com/cnblogs_com/lute-fan/201202/201202100046307771.png" alt="6-3" title="6-3"></a></p>
+<p>&nbsp;</p>
+<p>上图由下至上，不同层级以颜色做区分，分别表示了低年级到高年级相关课程，连线表示了各课程之间的依赖关系，对于每门课程的说明如下</p>
+<p><strong>8.02&nbsp; Physics II (电磁学基础)</strong>&nbsp;</p>
+<p>Introduction to electromagnetism and electrostatics: electric charge, Coulomb’s law, electric structure of matter; conductors and dielectrics. Concepts of electrostatic field and potential, electrostatic energy. Electric currents, magnetic fields and Ampere’s<br> law. Magnetic materials. Time-varying fields and Faraday’s law of induction. Basic electric circuits. Electromagnetic waves and Maxwell’s equations. Subject taught using the TEAL (Technology Enabled Active Learning) studio format which utilizes small group<br> interaction and current technology to help students develop intuition about, and conceptual models of, physical phenomena.&nbsp;</p>
+<p>Fall: R. Redwine, J. Conrad&nbsp;</p>
+<p>Spring: Staff&nbsp;</p>
+<p>课本: Sen-Ben Liao, &quot;Introduction to Electricity and Magnetism (Custom)&quot;, Person Custom, 2004&nbsp;</p>
+<p>网址:&nbsp;<a href="http://mit.edu/8.02t/www/" target="_blank" rel="external">http://mit.edu/8.02t/www/</a></p>
+<p>&nbsp;</p>
+<p><strong>18.01 Calculus I (微积分基础，相当于高等数学上册内容)</strong>&nbsp;</p>
+<p>Differentiation and integration of functions of one variable, with applications. Informal treatment of limits and continuity. Differentiation: definition, rules, application to graphing, rates, approximations, and extremum problems. Indefinite integration;<br> separable first-order differential equations. Definite integral; fundamental theorem of calculus. Applications of integration to geometry and science. Elementary functions. Techniques of integration. Polar coordinates. L’Hôpital’s rule. Improper integrals.<br> Infinite series: geometric, p-harmonic, simple comparison tests, power series for some elementary functions.&nbsp;</p>
+<p>Fall: P. Seidel&nbsp;</p>
+<p>Spring: Information: D. Vogan</p>
+<p>课本: George Simmons, “Calculus with Analytic Geometry”, McGraw-Hill, 2nd Edition, 1996&nbsp;</p>
+<p>网址:&nbsp;<a href="http://math.mit.edu/classes/18.01/" target="_blank" rel="external">http://math.mit.edu/classes/18.01/</a></p>
+<p><strong>18.03 Differential Equations(微分方程)</strong>&nbsp;</p>
+<p>Study of ordinary differential equations (ODEs), including modeling physical systems. Solution of first-order ODEs by analytical, graphical, and numerical methods. Linear ODEs, primarily second order with constant coefficients. Complex numbers and exponentials.<br> Inhomogeneous equations: polynomial, sinusoidal, and exponential inputs. Oscillations, damping, resonance. Fourier series inputs; resonant terms. Laplace transform methods; convolution and delta function. Matrix methods for first order linear systems: eigenvalues<br> and eigenvectors, matrix exponentials, variation of parameters. Nonlinear autonomous systems: critical point analysis, phase plane diagrams, applications to modeling.&nbsp;</p>
+<p>Fall: B. Brubaker&nbsp;</p>
+<p>Spring: H. Miller&nbsp;</p>
+<p>课本: Edwards, C. Henry; Penney, David E. &quot;Elementary Differential Equations with Boundary Value Problems&quot;, Prentice Hall PTR, 6th edition, 2007&nbsp;</p>
+<p>网址:&nbsp;<a href="http://math.mit.edu/classes/18.03/" target="_blank" rel="external">http://math.mit.edu/classes/18.03/</a></p>
+<p>&nbsp;</p>
+<p><strong>18.06 Linear Algebra(线性代数)</strong>&nbsp;</p>
+<p>Basic subject on matrix theory and linear algebra, emphasizing topics useful in other disciplines, including systems of equations, vector spaces, determinants, eigenvalues, singular value decomposition, and positive definite matrices. Applications to least-squares<br> approximations, stability of differential equations, networks, Fourier transforms, and Markov processes. Uses MATLAB. Compared with 18.700, more emphasis on matrix algorithms and many applications.&nbsp;</p>
+<p>Fall: A. Edelman&nbsp;</p>
+<p>Spring: G. Strang&nbsp;</p>
+<p>课本:Strang, Gilbert &quot;Introduction to Linear Algebra&quot; Wellesley-Cambridge Press, 4th edition, 2009&nbsp;</p>
+<p>网址:&nbsp;<a href="http://web.mit.edu/18.06/www/" target="_blank" rel="external">http://web.mit.edu/18.06/www/</a></p>
+<p>&nbsp;</p>
+<p><strong>6.042J Mathematics for Computer Science(基础离散数学)</strong>&nbsp;</p>
+<p>Elementary discrete mathematics for computer science and engineering. Emphasis on mathematical definitions and proofs as well as on applicable methods. Topics: formal logic notation, proof methods; induction, well-ordering; sets, relations; elementary graph<br> theory; integer congruences; asymptotic notation and growth of functions; permutations and combinations, counting principles; discrete probability. Further selected topics such as: recursive definition and structural induction; state machines and invariants;<br> recurrences; generating functions.&nbsp;</p>
+<p>A. R. Meyer, T. Leighton&nbsp;</p>
+<p>No textbook information available&nbsp;</p>
+<p>网址:&nbsp;<a href="http://courses.csail.mit.edu/6.042/spring12/" target="_blank" rel="external">http://courses.csail.mit.edu/6.042/spring12/</a></p>
+<p>&nbsp;</p>
+<p><strong>6.01&nbsp;&nbsp; EECS介绍1</strong>&nbsp;</p>
+<p>An integrated introduction to electrical engineering and computer science, taught using substantial laboratory experiments with mobile robots. Key issues in the design of engineered artifacts operating in the natural world: measuring and modeling system behaviors;<br> assessing errors in sensors and effectors; specifying tasks; designing solutions based on analytical and computational models; planning, executing, and evaluating experimental tests of performance; refining models and designs. Issues addressed in the context<br> of computer programs, control systems, probabilistic inference problems, circuits and transducers, which all play important roles in achieving robust operation of a large variety of engineered systems. 6 Engineering Design Points.&nbsp;</p>
+<p>D. M. Freeman, L. P. Kaelbling, T. Lozano-Perez&nbsp;</p>
+<p>No required or recommended textbooks&nbsp;</p>
+<p>网址:&nbsp;<a href="http://mit.edu/6.01/mercurial/spring12/www/index.html" target="_blank" rel="external">http://mit.edu/6.01/mercurial/spring12/www/index.html</a></p>
+<p>&nbsp;</p>
+<p><strong>6.02&nbsp;&nbsp; EECS介绍2</strong>&nbsp;</p>
+<p>Explores communication signals, systems and networks. Substantial laboratory experiments illustrate the role of abstraction and modularity in engineering design. Students gain practical experience in building reliable systems using imperfect components; selecting<br> appropriate design metrics; choosing effective representations for information; and evaluating tradeoffs in complex systems. Topics include physical characterization and modeling of transmission systems in the time and frequency domains; analog and digital<br> signaling; coding; detecting and correcting errors; relating information transmission rate to signal power, bandwidth and noise; and engineering of packet-switched networks. 6 Engineering Design Points.&nbsp;</p>
+<p>C. J. Terman, H. Balakrishnan, J. K. White&nbsp;</p>
+<p>No textbook information available</p>
+<p>&nbsp;</p>
+<p><strong>6..004 Computtation Structures(计算机体系结构)</strong>&nbsp;</p>
+<p>Introduces architecture of digital systems, emphasizing structural principles common to a wide range of technologies. Multilevel implementation strategies; definition of new primitives (e.g., gates, instructions, procedures, and processes) and their mechanization<br> using lower-level elements. Analysis of potential concurrency; precedence constraints and performance measures; pipelined and multidimensional systems. Instruction set design issues; architectural support for contemporary software structures. 4 Engineering<br> Design Points.&nbsp;</p>
+<p>S. A. Ward, C. J. Terman&nbsp;</p>
+<p>No textbook information available</p>
+<p>网址:&nbsp;<a href="http://6004.lcs.mit.edu/" target="_blank" rel="external">http://6004.lcs.mit.edu/</a></p>
+<p>&nbsp;</p>
+<p><strong>6.005 Elements of Software Construction(软件构建基础)</strong>&nbsp;</p>
+<p>Introduction to the fundamental principles and techniques of software development that have greatest impact on practice. Topics include capturing the essence of a problem by recognizing and inventing suitable abstractions; key paradigms, including state machines,<br> functional programming, and object-oriented programming; use of design patterns to bridge gap between models and code; the role of interfaces and specification in achieving modularity and decoupling; reasoning about code using invariants; testing, test-case<br> generation and coverage; essentials of programming with objects, functions, and abstract types. Includes exercises in modeling, design, implementation and reasoning. 12 Engineering Design Points.&nbsp;</p>
+<p>D. N. Jackson, R. C. Miller&nbsp;</p>
+<p>No textbook information available</p>
+<p>&nbsp;</p>
+<p><strong>6.006 Introduction to Algoithms(算法导论)</strong>&nbsp;</p>
+<p>Introduction to mathematical modeling of computational problems, as well as common algorithms, algorithmic paradigms, and data structures used to solve these problems. Emphasizes the relationship between algorithms and programming, and introduces basic performance<br> measures and analysis techniques for these problems.&nbsp;</p>
+<p>R. L. Rivest, S. Devadas</p>
+<p>课本: Thomas H.Cormen, Charles E.Leiserson, Ronald L.Rivest, and Clifford Stein, &quot;Introduction to Algorithms&quot;, MIT Press, second edition, 2001</p>
+<p><strong>6.033 Computer System Engineering(计算机系统工程)</strong>&nbsp;</p>
+<p>Topics on the engineering of computer software and hardware systems: techniques for controlling complexity; strong modularity using client-server design, operating systems; performance, networks; naming; security and privacy; fault-tolerant systems, atomicity<br> and coordination of concurrent activities, and recovery; impact of computer systems on society. Case studies of working systems and readings from the current literature provide comparisons and contrasts. Two design projects. Students engage in extensive written<br> communication exercises. Enrollment may be limited. 4 Engineering Design Points.&nbsp;</p>
+<p>M. F. Kaashoek, H. Balakrishnan&nbsp;</p>
+<p>课本: Sltzer, Jerome H., Kaashoek, and&nbsp; M.Frans, &quot;Principles of Computer System Design: An Introduction&quot;, Elsevier Science &amp; Technology Books, 2009&nbsp;</p>
+<p>课本(国内引进): 大学计算机教育国外著名教材系列：计算机系统设计原理（影印版）</p>
+<p>&nbsp;</p>
+<p><strong>6.034 Artificial Intelligence(人工智能)</strong>&nbsp;</p>
+<p>Introduces representations, techniques, and architectures used to build applied systems and to account for intelligence from a computational point of view. Applications of rule chaining, heuristic search, constraint propagation, constrained search, inheritance,<br> and other problem-solving paradigms. Applications of identification trees, neural nets, genetic algorithms, and other learning paradigms. Speculations on the contributions of human vision and language systems to human intelligence. 4 Engineering Design Points.&nbsp;</p>
+<p>Fall: P. H. Winston&nbsp;</p>
+<p>Spring: R. A. Barzilay</p>
+<p>课本: Stuart Russell, Peter Norvig, &quot;Artificial Intelligence: A Modern Approach&quot;, Prentice Hall, 3rd edition, 2009</p>
+<p>网址:&nbsp;<a href="http://ai6034.mit.edu/fall10/index.php?title=Main_Page" title="Main_Page" target="_blank" rel="external">http://ai6034.mit.edu/fall10/index.php?title=Main_Page</a></p>
+<p>&nbsp;</p>
+<p><strong>6.046J Design and Analysis of Algorithms(算法设计分析)</strong>&nbsp;</p>
+<p>Techniques for the design and analysis of efficient algorithms, emphasizing methods useful in practice. Topics include sorting; search trees, heaps, and hashing; divide-and-conquer; dynamic programming; greedy algorithms; amortized analysis; graph algorithms;<br> and shortest paths. Advanced topics may include network flow; computational geometry; number-theoretic algorithms; polynomial and matrix calculations; caching; and parallel computing.&nbsp;</p>
+<p>C. E. Leiserson, M. Goemans&nbsp;</p>
+<p>课本: Thomas H.Cormen, Charles E.Leiserson, Ronald L.Rivest, and Clifford Stein, &quot;Introduction to Algorithms&quot;, MIT Press, second edition, 2001&nbsp;</p>
+<p>网址:&nbsp;<a href="http://theory.lcs.mit.edu/classes/6.046/" target="_blank" rel="external">http://theory.lcs.mit.edu/classes/6.046/</a></p>
+<p>&nbsp;</p>
+<p><strong>AUS - Advanced Undergraduate Subjects (高级课程，选择两门）</strong>&nbsp;</p>
+<p>Advanced Undergraduate Subjects (AUS’s) build on the foundation and header subjects to provide an introduction to broadly-recognized areas of specialization in EECS. The AUS’s provide an opportunity for integration of earlier learning and may include design-<br> or project-oriented capstone experience.&nbsp;</p>
+<p>Undergraduate students are required to take two AUS’s, and should choose these subjects based on their interest in the associated areas of specialization. The AUS’s also provide a basis for more advanced subjects for students in the MEng program (where they<br> can be used as part of the required concentration).&nbsp;</p>
+<p>Subjects used to satisfy the AUS requirement may not also be used to satisfy other requirements, such as the Department lab requirement.</p>
+<p>6.022J Quantitative Systems Physiology&nbsp;</p>
+<p>6.023J Fields, Forces and Flows in Biological Systems&nbsp;</p>
+<p>6.035 Computer Language Engineering&nbsp;</p>
+<p>6.045J Automata, Computability and Complexity&nbsp;</p>
+<p>6.047 Computational Biology: Genomes, Networks, Evolution&nbsp;</p>
+<p>6.049 Evolutionary Biology&nbsp;</p>
+<p>6.061 Introduction to Electric Power Systems&nbsp;</p>
+<p>6.077 Semiconductor Device Physics (Spring 2011 only)&nbsp;</p>
+<p>6.111 Introductory Digital Systems Laboratory&nbsp;</p>
+<p>6.115 Microcomputer Project Laboratory&nbsp;</p>
+<p>6.131 Power Electronics Laboratory&nbsp;</p>
+<p>6.141J Robotics: Science and Systems I&nbsp;</p>
+<p>6.142J Robotics Science and Systems II&nbsp;</p>
+<p>6.172 Performance Engineering of Software Systems&nbsp;</p>
+<p>6.173 Multicore Systems Laboratory&nbsp;</p>
+<p>6.207 Networks&nbsp;</p>
+<p>6.301 Solid-State Circuits&nbsp;</p>
+<p>6.302 Feedback Systems&nbsp;</p>
+<p>6.336J Introduction to Numerical Simulation&nbsp;</p>
+<p>6.341 Discrete-Time Signal Processing&nbsp;</p>
+<p>6.434J Statistics for Engineers and Scientists&nbsp;</p>
+<p>6.502J Introduction to Molecular Simulations&nbsp;</p>
+<p>6.503 Foundations of Algorithms and Computational Techniques in Systems Biology&nbsp;</p>
+<p>6.602 Fundamentals of Photonics&nbsp;</p>
+<p>6.608 Introduction to Particle Accelerators&nbsp;</p>
+<p>6.641 Electromagnetic Fields, Forces, and Motion&nbsp;</p>
+<p>6.701 Introduction to Nanoelectronics&nbsp;</p>
+<p>6.717 Design and Fabrication of Microelectromechanical Systems&nbsp;</p>
+<p>6.801 Machine Vision&nbsp;</p>
+<p>6.802 Computational Systems Biology&nbsp;</p>
+<p>6.803 The Human Intelligence Enterprise&nbsp;</p>
+<p>6.804J Computational Cognitive Science&nbsp;</p>
+<p>6.805 Ethics and the Law on the Electronic Frontier&nbsp;</p>
+<p>6.813 User Interface Design and Implementation&nbsp;</p>
+<p>6.814 Database Systems&nbsp;</p>
+<p>6.815 Digital and Computational Photography&nbsp;</p>
+<p>6.825 Techniques in Artificial Intelligence&nbsp;</p>
+<p>6.837 Computer Graphics&nbsp;</p>
+<p>6.840J Theory of Computation&nbsp;</p>
+<p>6.854J Advanced Algorithms&nbsp;</p>
+<p>6.857 Network and Computer Security&nbsp;</p>
+<p>6.858 Computer Systems Security&nbsp;</p>
+<p>6.863J Natural Language and the Computer Representation of Knowledge&nbsp;</p>
+<p>6.867 Machine Learning</p>
+<p>网址:&nbsp;<a href="http://student.mit.edu/catalog/m6c.html" target="_blank" rel="external">http://student.mit.edu/catalog/m6c.html</a></p>
+<p><strong>UAT - Preparation for Undergraduate Advanced Project</strong></p>
+<p>Instruction in aspects of effective technical oral presentations through exposure to different workplace communication skills. As preparation for the advanced undergraduate project (UAP), students develop research topics, identify a research supervisor, and<br> prepare a short research proposal for an oral presentation.&nbsp;</p>
+<p>T. L. Eng&nbsp;</p>
+<p>No textbook information available</p>
+<p>&nbsp;</p>
+<p><strong>UAP - Undergraduate Advanced Project&nbsp;(相当于毕业设计之类)</strong></p>
+<p>Research project for those students completing the SB degree, to be arranged by the student and an appropriate MIT faculty member. Students who register for this subject must consult the department undergraduate office. Students engage in extensive written<br> communications exercises.&nbsp;</p>
+<p>C. J. Terman&nbsp;</p>
+<p>No textbook information available</p>
+<p>网址:&nbsp;<a href="http://www.eecs.mit.edu/ug/uap.html" target="_blank" rel="external">http://www.eecs.mit.edu/ug/uap.html</a></p>
+<p>&nbsp;</p>
+<p><strong>Communication Requirement(沟通课程)</strong></p>
+<p>All undergraduates are required to complete a multi-phase communication requirement which requires that four classes be completed, usually one in each academic year. The first two years’ classes (CI-H) are taken from among designated classes within the HASS<br> requirement. The third and fourth classes (CI-M) are taken from among designated CI-M classes within the student’s major program or department. The CI-M classes taken satisfy the major program requirements as well as CI-M and their units count as units beyond<br> the GIRs.</p>
+<p>&nbsp;</p>
+<p>更加详细的信息可参考:&nbsp;</p>
+<p><a href="http://www.eecs.mit.edu/ug/6-3.html" target="_blank" rel="external">http://www.eecs.mit.edu/ug/6-3.html</a></p>
+<p><a href="http://www.eecs.mit.edu/ug/6-3.html" target="_blank" rel="external"></a></p>
+<pre><code>        &lt;<span class="operator">div</span>&gt;
+            作者：wowdd1 发表于<span class="number">2012</span>-<span class="number">4</span>-<span class="number">29</span> <span class="number">16</span>:<span class="number">16</span>:<span class="number">56</span> [原文链接](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">7522479</span>)
+        &lt;/<span class="operator">div</span>&gt;
+        &lt;<span class="operator">div</span>&gt;
+        阅读：<span class="number">2512</span> 评论：<span class="number">2</span> [查看评论](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">7522479</span><span class="comment">#comments)</span>
+        &lt;/<span class="operator">div</span>&gt;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/04/29/-转-MIT本科CS课程安排-2012版/" data-id="7zjr33gv0bmtwg7y" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--原-MIT-Electrical-Engineering-and-Computer-Science-参考书整理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/03/21/-原-MIT-Electrical-Engineering-and-Computer-Science-参考书整理/" class="article-date">
+  <time datetime="2012-03-21T01:47:24.000Z" itemprop="datePublished">Mar 21 2012</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/03/21/-原-MIT-Electrical-Engineering-and-Computer-Science-参考书整理/">[原]MIT Electrical Engineering and Computer Science 参考书整理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Undergraduate Courses</p>
+<p>6.00 Introduction to Computer Science and Programming&nbsp;</p>
+<p>Python Programming: An Introduction to Computer Science</p>
+<p><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00-introduction-to-computer-science-and-programming-fall-2008/readings/" target="_blank" rel="external">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00-introduction-to-computer-science-and-programming-fall-2008/readings/</a></p>
+<p>6.001 Structure and Interpretation of Computer Programs&nbsp;</p>
+<p>Structure and Interpretation of Computer Programs. 2nd ed</p>
+<p>6.002 Circuits and Electronics <span class="s1">电路与电子技术</span></p>
+<p>Foundations of Analog and Digital Electronic Circuits</p>
+<p>6.003 Signals and Systems</p>
+<p>Signals and Systems. 2nd ed</p>
+<p>6.004 Computation Structures&nbsp;</p>
+<p>6.005 Elements of Software Construction&nbsp;</p>
+<p>6.006 Introduction to Algorithms&nbsp;</p>
+<p>Introduction to Algorithms. 2nd ed</p>
+<p>Problem Solving with Algorithms and Data Structures Using Python</p>
+<p>A Guide to LaTeX: Document Preparation for Beginners and Advanced Users. 3rd ed</p>
+<p>Python: Essential Reference</p>
+<p>6.00SC Introduction to Computer Science and Programming&nbsp;</p>
+<p>Python Programming: An Introduction to Computer Science. 1st edition</p>
+<p>Exploring Python</p>
+<p>Learn Python the Hard Way</p>
+<p>A Byte of Python</p>
+<p>6.01 Introduction to Electrical Engineering and Computer Science I&nbsp;</p>
+<p>The Python Tutorial</p>
+<p>Python for Software Design: How to Think Like a Computer Scientist</p>
+<p>Learning Python. 4th ed</p>
+<p>Official IDLE Documentation</p>
+<p>6.011 Introduction to Communication, Control, and Signal Processing</p>
+<p>Signals and Systems. 2nd ed</p>
+<p>Introduction to Probability. 2nd ed</p>
+<p>Computer Explorations in Signals and Systems Using MATLAB</p>
+<p>Contemporary Linear Systems Using MATLAB</p>
+<p>Discrete-Time Signal Processing. 3rd ed</p>
+<p>Elements of Engineering Probability and Statistics</p>
+<p>Probability and Random Processes for Electrical Engineering. 2nd ed</p>
+<p>Probability and Stochastic Processes for Engineers. 2nd ed</p>
+<p>Probability and Stochastic Processes: A Friendly Introduction for Electrical and Computer Engineers. 2nd ed</p>
+<p>Probability, Random Variables, and Random Processes. 2nd ed</p>
+<p>Principles of Communications: Systems, Modulation, and Noise. 5th ed</p>
+<p>Schaum’s Outline of Probability, Random Variables, and Random Processes</p>
+<p>MATLAB® Primer. 6th ed</p>
+<p>The MathWorks Store</p>
+<p>6.012 Microelectronic Devices and Circuits <span class="s2">微</span><span class="s1">电子器件与电路</span></p>
+<p>Microelectronics: An Integrated Approach</p>
+<p>Microelectronic Devices and Circuits</p>
+<p>Microelectronic Circuits</p>
+<p>Microelectronic Circuits and Devices</p>
+<p>Semiconductor Fundamentals. Vol. I. 2nd ed</p>
+<p>The PN Junction Diode. Vol. II. 2nd ed</p>
+<p>The Bipolar Junction Transistor. Vol. III. 2nd ed</p>
+<p>Field Effect Devices. Vol. IV. 2nd ed</p>
+<p>6.013 Electromagnetics and Applications <span class="s1">电磁学与应用</span></p>
+<p>Electromagnetic Waves</p>
+<p>Electromagnetic Fields and Energy</p>
+<p>6.01SC Introduction to Electrical Engineering and Computer Science I&nbsp;</p>
+<p>6.021J Quantitative Physiology: Cells and Tissues <span class="s2"><br>定量生理学：</span><span class="s1">细胞与组织</span></p>
+<p>Cellular Biophysics: Transport. Vol. 1</p>
+<p>Cellular Biophysics: Electrical Properties. Vol. 2</p>
+<p>Human Physiology, The Mechanisms Body Function</p>
+<p>The Physiology of Excitable Cells. 4th ed</p>
+<p>Principles of Neural Science</p>
+<p>6.022J Quantitative Physiology: Organ Transport Systems <span class="s2"><br>定量生理学：</span><span class="s1">脏器传输系统</span></p>
+<p>Physiology. 2nd ed</p>
+<p>Physiology. 5th ed</p>
+<p>6.023J Fields, Forces and Flows in Biological Systems <span class="s2"><br>在生物系</span><span class="s1">统领域，部队和流动</span></p>
+<p>Transport Phenomena in Biological Systems</p>
+<p>Physicochemical Hydrodynamics: An Introduction</p>
+<p>Electromechanics of Particles. 2nd ed</p>
+<p>Transport Phenomena</p>
+<p>Cellular Biophysics - Volume 1: Transport</p>
+<p>AC Electrokinetics: Colloids and Nanoparticles</p>
+<p>Principles of Colloid and Surface Chemistry</p>
+<p>Molecular Driving Forces</p>
+<p>Electromagnetic Fields and Energy</p>
+<p>6.024J Molecular, Cellular, and Tissue Biomechanics <span class="s2"><br>分子，</span><span class="s1">细胞和组织生物力学</span></p>
+<p>Mechanical Properties of Living Tissues. 2nd ed</p>
+<p>Mechanics of the Cell</p>
+<p>Molecular Cell Biology</p>
+<p>Molecular Driving Forces</p>
+<p>Mechanics of Motor Proteins and the Cytoskeleton</p>
+<p>Cytoskeletal Mechanics: Models and Measurements</p>
+<p>&quot;Rods and Ropes.&quot; In Mechanics of the Cell</p>
+<p>An Introduction to Biomechanics</p>
+<p>6.025J Introduction to Bioengineering (BE.010J) <span class="s2">生物工程</span></p>
+<p>6.033 Computer System Engineering&nbsp;</p>
+<p>Principles of Computer System Design: An Introduction</p>
+<p>6.034 Artificial Intelligence <span class="s2">人工智能</span>&nbsp;</p>
+<p>Artificial Intelligence. 3rd ed</p>
+<p>Artificial intelligence: a modern approach. 2nd edition</p>
+<p>6.035 Computer Language Engineering&nbsp;</p>
+<p>Modern Compiler Implementations in Java (Tiger Book). 2nd ed</p>
+<p>Advanced Compiler Design and Implementation (Whale Book)</p>
+<p>Compilers: Principles, Techniques and Tools</p>
+<p>Engineering a Compiler</p>
+<p>6.041 Probabilistic Systems Analysis and Applied Probability <span class="s2"><br>机率系</span><span class="s1">统分析与应用概率</span></p>
+<p>Introduction to Probability. 2nd ed</p>
+<p>Fundamentals of Applied Probability Theory</p>
+<p>A First Course in Probability. 8th ed</p>
+<p><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-041-probabilistic-systems-analysis-and-applied-probability-spring-2006/related-resources/" target="_blank" rel="external">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-041-probabilistic-systems-analysis-and-applied-probability-spring-2006/related-resources/</a></p>
+<p>6.042J Mathematics for Computer Science <span class="s1">计算机科学数学</span>&nbsp;</p>
+<p>6.045J Automata, Computability, and Complexity <span class="s2">自</span><span class="s1">动机，可计算性与复杂性</span>&nbsp;</p>
+<p>The Nature of Computation</p>
+<p>Introduction to the Theory of Computation</p>
+<p>Computational Complexity: A Modern Approach</p>
+<p>6.046J Introduction to Algorithms (SMA 5503)&nbsp;</p>
+<p>Introduction to Algorithms. 2nd ed</p>
+<p>Data Structures and Algorithms</p>
+<p>More Programming Pearls: Confessions of a Coder</p>
+<p>Writing Efficient Programs</p>
+<p>Algorithmics: Theory and Practice</p>
+<p>Elementary Probability Theory with Stochastic Processes</p>
+<p>Graph Algorithms</p>
+<p>An Introduction to Probability Theory and Its Applications. 3rd ed</p>
+<p>Computers and Intractibility: A Guide to the Theory of NP-Completeness</p>
+<p>Handbook of Algorithms and Data Structures</p>
+<p>Algorithms on Strings, Trees, and Sequences: Computer Science and Computational Biology</p>
+<p>Fundamentals of Computer Algorithms</p>
+<p>Algorithms and Data Structures: Design, Correctness, Analysis</p>
+<p>The Art of Computer Programming. 3rd ed</p>
+<p>Combinatorial Optimization: Networks and Matroids</p>
+<p>Introduction to Combinatorial Mathematics.</p>
+<p>Introduction to Algorithms: A Creative Approach</p>
+<p>Data Structures and Algorithms</p>
+<p>An Introduction to the Theory of Numbers. 4th ed</p>
+<p>Combinatorial Optimization: Algorithms and Complexity</p>
+<p>Numerical Recipies in C: The Art of Scientific Computing</p>
+<p>Combinatorial Algorithms: Theory and Practice</p>
+<p>Algorithms. 2nd ed</p>
+<p>Introduction to the Theory of Computation</p>
+<p>Data Structures and Network Algorithms</p>
+<p>6.047 Computational Biology: Genomes, Networks, Evolution <span class="s1"><br>计算生物学：基因组，网络，演化</span></p>
+<p>Biological Sequence Analysis: Probabilistic Models of Proteins and Nucleic Acids</p>
+<p>An Introduction to Bioinformatics Algorithms</p>
+<p>Pattern Classification</p>
+<p>6.050J Information and Entropy <span class="s2">信息与</span><span class="s1">熵</span></p>
+<p>6.055J The Art of Approximation in Science and Engineering</p>
+<p>6.061 Introduction to Electric Power Systems <span class="s1">电力系统简介</span></p>
+<p>Electric Power Principles: Sources, Conversion, Distribution and Use</p>
+<p>6.071J Introduction to Electronics, Signals, and Measurement <span class="s1"><br>电子学，信号与测量简介</span></p>
+<p>The Art of Electronics. 2nd ed</p>
+<p>Modern Instrumentation for Scientists and Engineers</p>
+<p>Electronics for Scientists: Physical Principles with Applications to Instrumentation</p>
+<p>Fundamentals of Electric Circuits. 2nd ed</p>
+<p>Electronics. 2nd ed</p>
+<p>Electronic Circuit Analysis and Design. 2nd ed</p>
+<p>Signals and Systems. 2nd ed</p>
+<p>6.079 Introduction to Convex Optimization <span class="s2">凸</span><span class="s1">优化简介</span>&nbsp;</p>
+<p>Convex Optimization</p>
+<p>Convex Optimization Theory</p>
+<p>Lectures on Modern Convex Optimization: Analysis, Algorithms, and Engineering Applications&nbsp;</p>
+<p>6.07J Projects in Microscale Engineering for the Life Sciences <span class="s2"><br>在生命科学的微型工程</span><span class="s1">项目</span></p>
+<p><a href="http://ocw.mit.edu/courses/health-sciences-and-technology/hst-410j-projects-in-microscale-engineering-for-the-life-sciences-spring-2007/readings/" target="_blank" rel="external">http://ocw.mit.edu/courses/health-sciences-and-technology/hst-410j-projects-in-microscale-engineering-for-the-life-sciences-spring-2007/readings/</a></p>
+<p>6.080 Great Ideas in Theoretical Computer Science <span class="s2"><br>在理</span><span class="s1">论计算机科学的伟大思想</span>&nbsp;</p>
+<p>Complexity Theory: A Modern Approach</p>
+<p>Introduction to the Theory of Computation. 2nd ed</p>
+<p>6.087 Practical Programming in C&nbsp;</p>
+<p>The C Programming Language. 2nd ed</p>
+<p>6.088 Introduction to C Memory Management and C&#43;&#43; Object-Oriented Programming&nbsp;</p>
+<p>6.089 Great Ideas in Theoretical Computer Science&nbsp;</p>
+<p>6.090 Building Programming Experience: A Lead-In to 6.001&nbsp;</p>
+<p><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-090-building-programming-experience-a-lead-in-to-6-001-january-iap-2005/related-resources/" target="_blank" rel="external">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-090-building-programming-experience-a-lead-in-to-6-001-january-iap-2005/related-resources/</a></p>
+<p>6.091 Hands-On Introduction to Electrical Engineering Lab Skills</p>
+<p>6.092 Introduction to Programming in Java&nbsp;</p>
+<p>How to Think Like a Computer Scientist</p>
+<p>Introduction to Programming Using Java, Fifth Edition</p>
+<p>Thinking in Java, Third Edition</p>
+<p>Java Basics</p>
+<p>Java Notes</p>
+<p>The Java API</p>
+<p>Eclipse: Total Beginner Lessons</p>
+<p>6.092 Java Preparation for 6.170&nbsp;</p>
+<p>Java™ in a Nutshell. 5th ed</p>
+<p>Java™ 1.5 Tiger: A Developer’s Notebook</p>
+<p>Java™ API (Collection)</p>
+<p>Sun Tutorial</p>
+<p>Java™ World: &quot;Java™ 101 Study Guide&quot;</p>
+<p>6.092 Bioinformatics and Proteomics <span class="s2">生物信息学和蛋白</span><span class="s1">质组学</span></p>
+<p>Signals and Systems. 3rd ed</p>
+<p>Probability, Random Variables and Stochastic Processes: Sanitary and Water Resources Engineering (Sanitary &amp; Water Resources Engineering S)</p>
+<p>Microarrays for an Integrative Genomics</p>
+<p>6.094 Introduction to MATLAB&nbsp;</p>
+<p>MATLAB tutorial</p>
+<p>Another MATLAB tutorial</p>
+<p>6.096 Introduction to C&#43;&#43;&nbsp;</p>
+<p>C&#43;&#43; Language Tutorial</p>
+<p>Wikiversity: Introduction to C&#43;&#43;</p>
+<p>Learn about C&#43;&#43; Programming</p>
+<p>6.096 Algorithms for Computational Biology <span class="s1">计算生物学算法</span></p>
+<p>Algorithms on Strings, Trees and Sequences: Computer Science and Computational Biology</p>
+<p>Introduction to Computational Biology: Maps, Sequences, and Genomes</p>
+<p>Biological Sequence Analysis: Probabilistic Models of Proteins and Nucleic Acids</p>
+<p>An Introduction to Bioinformatics Algorithms</p>
+<p>6.097 Fundamentals of Photonics: Quantum Electronics <span class="s2"><br>光子学的基本原理：量子</span><span class="s1">电子</span></p>
+<p>Fundamentals of Photonics</p>
+<p>Optics. 3rd ed</p>
+<p>Introduction to Quantum Mechanics. 2nd ed</p>
+<p>Quantum Mechanics I</p>
+<p>Optical Electronics in Modern Communications. 5th ed</p>
+<p>Principles of Lasers</p>
+<p>Waves and Fields in Optoelectronics</p>
+<p>Optical Resonance and Two-Level Atoms</p>
+<p>Photonic Devices</p>
+<p>Elements of Quantum Optics. 3rd ed</p>
+<p>6.099 Street-Fighting Mathematics <span class="s2">街道</span><span class="s1">战斗数学</span></p>
+<p>Street-Fighting Mathematics: The Art of Educated Guessing and Opportunistic Problem Solving</p>
+<p>Misteaks [sic] and How to Find Them Before the Teacher Does. 3rd ed</p>
+<p>Mathematics and Plausible Reasoning</p>
+<p>Mathematical Discovery: On Understanding, Learning, and Teaching Problem Solving</p>
+<p>Div, Grad, Curl, and All That: An Informal Text on Vector Calculus. 4th ed</p>
+<p>An Album of Fluid Motion</p>
+<p>6.101 Introductory Analog Electronics Laboratory <span class="s2">类比</span><span class="s1">电子实验概论</span></p>
+<p>Microelectronic Circuit Analysis and Design. 3rd ed</p>
+<p>Schaum’s Outlines Electronic Devices and Circuits. 2nd ed</p>
+<p>Operational Amplifier Circuits</p>
+<p>The Art of Electronics. 2nd ed</p>
+<p>6.111 Introductory Digital Systems Laboratory <span class="s2">数字系</span><span class="s1">统导论实验</span></p>
+<p>Contemporary Logic Design. 2nd ed</p>
+<p>Verilog® HDL. 2nd ed</p>
+<p>6.111 Introductory Digital Systems Laboratory</p>
+<p>VHDL for Programmable Logic</p>
+<p>VHDL Made Easy</p>
+<p>A Designer’s Guide to VHDL Synthesis</p>
+<p>An Engineering Approach to Digital Design</p>
+<p>Computer Engineering: Hardware Design</p>
+<p>6.152J Micro/Nano Processing Technology <span class="s2">微</span>/<span class="s1">纳米加工技术</span></p>
+<p>Silicon VLSI Technology: Fundamentals, Practice, and Modeling</p>
+<p>The Science and Engineering of Microelectronic Fabrication. 2nd ed</p>
+<p>Silicon Processing for the VLSI Era. Vol. 1</p>
+<p>VLSI Technology. 2nd ed</p>
+<p>VLSI Fabrication Principles: Silicon and Gallium Arsenide. 2nd ed</p>
+<p>Modular Series on Solid State Devices</p>
+<p>Physics and Technology of Semiconductor Devices</p>
+<p>Microelectronics Processing and Device Design</p>
+<p>Thin Film Processes</p>
+<p>Electronic Materials Science: For Integrated Circuits in Si and GaAs</p>
+<p>Electronic Materials: Science and Technology</p>
+<p>The Materials Science of Thin Films. 2nd ed</p>
+<p>Microsystem Design</p>
+<p>Fundamentals of Microfabrication: The Science of Miniaturization. 2nd ed</p>
+<p>Micromachined Transducers Sourcebook</p>
+<p>Fundamentals of Semiconductor Fabrication</p>
+<p>Thin Film Deposition: Principles and Practice</p>
+<p>The Mayfield Handbook of Technical &amp; Scientific Writing</p>
+<p>6.161 Modern Optics Project Laboratory <span class="s1">现代光学工程实验室</span></p>
+<p>Introduction to Fourier Optics. 3rd ed</p>
+<p>Optical Electronics in Modern Communications. 5th ed</p>
+<p>Fundamentals of Photonics</p>
+<p>Optics. 4th ed</p>
+<p>Principles of Optics: Electromagnetic Theory of Propagation, Interference and Diffraction of Light. 5th ed</p>
+<p>Principles of Optics: Electromagnetic Theory of Propagation, Interference and Diffraction of Light. 6th ed</p>
+<p>Principles of Optics: Electromagnetic Theory of Propagation, Interference and Diffraction of Light. 7th ed</p>
+<p>Fundamentals of Optics. 4th ed</p>
+<p>6.163 Strobe Project Laboratory <span class="s1">频闪工程实验室</span></p>
+<p>Black and White Photography: A Basic Manual. 2nd&nbsp;</p>
+<p>6.170 Laboratory in Software Engineering <span class="s2">在</span><span class="s1">软件工程实验室</span>&nbsp;</p>
+<p>Program Development in Java™: Abstraction, Specification, and Object-Oriented Design</p>
+<p>Effective Java™: Programming Language Guide</p>
+<p>Design Patterns: Elements of Reusable Object-Oriented Software</p>
+<p>Analysis Patterns: Reusable Object Models</p>
+<p>Refactoring: Improving the Design of Existing Code</p>
+<p>Software Requirements and Specifications</p>
+<p>Beginning Java™ 2: JDK 5 Edition</p>
+<p>Java™ 1.5 Tiger: A Developer’s Notebook</p>
+<p>Java™ Puzzlers: Traps, Pitfalls, and Corner Cases</p>
+<p>The Java™ Programming Language. 3rd ed</p>
+<p>The Java™ Language Specification. 3rd ed</p>
+<p>Java™ in a Nutshell. 4th ed</p>
+<p>Thinking in Java™. 3rd ed</p>
+<p>6.170 Laboratory in Software Engineering&nbsp;</p>
+<p>The Complete Reference</p>
+<p>Visual Explanations: Images and Quantities, Evidence and Narrative</p>
+<p>6.171 Software Engineering for Web Applications&nbsp;</p>
+<p>The Complete Reference</p>
+<p>Visual Explanations: Images and Quantities, Evidence and Narrative</p>
+<p><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-171-software-engineering-for-web-applications-fall-2003/related-resources/" target="_blank" rel="external">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-171-software-engineering-for-web-applications-fall-2003/related-resources/</a></p>
+<p>6.172 Performance Engineering of Software Systems&nbsp;</p>
+<p>Cache-Oblivious Algorithms and Data Structures</p>
+<p>Multithreaded Algorithms(Introduction to Algorithms. 3rd ed)</p>
+<p>Reducers and Other Cilk&#43;&#43; Hyperobjects(Algorithms and Architectures)</p>
+<p>Intel 64 and IA-32 Architectures Software Developer’s Manuals</p>
+<p>x86 Instruction Set Reference</p>
+<p>The Git Community Book</p>
+<p>6.186 Mobile Autonomous Systems Laboratory <span class="s2">移</span><span class="s1">动自治系统实验室</span></p>
+<p>MASLab API</p>
+<p>Java® Standard API</p>
+<p>Sun’s Java®Tutorials</p>
+<p>6.189 A Gentle Introduction to Programming Using Python&nbsp;</p>
+<p>How to Think Like a Computer Scientist: Learning with Python</p>
+<p>The Python Quick Reference (2.4)</p>
+<p>6.189 Multicore Programming Primer&nbsp;</p>
+<p><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-189-multicore-programming-primer-january-iap-2007/related-resources/" target="_blank" rel="external">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-189-multicore-programming-primer-january-iap-2007/related-resources/</a></p>
+<p>6.207J Networks&nbsp;</p>
+<p>Networks, Crowds, and Markets: Reasoning about a Highly Connected World</p>
+<p>Social and Economic Networks</p>
+<p>Introduction to Game Theory</p>
+<p>Game Theory for Applied Economists</p>
+<p>The Tipping Point: How Little Things Can Make a Big Difference</p>
+<p>The Wisdom of Crowds: Why the Many Are Smarter Than the Few and How Collective Wisdom Sharpens Business, Economies, Societies, and Nations</p>
+<p>The Wisdom of Crowds</p>
+<p>Linked: How Everything Is Connected to Everything Else and What It Means for Business, Science, and Everyday Life</p>
+<p>Micromotives and Macrobehavior</p>
+<p>Introduction to Probability. 2nd ed</p>
+<p>6.270 Autonomous Robot Design Competition <span class="s2">自主机器人</span><span class="s1">设计大赛</span></p>
+<p>6.338J Applied Parallel Computing (SMA 5505)&nbsp;</p>
+<p>6.370 Robocraft Programming Competition robocraft<span class="s1">编程大赛</span></p>
+<p>6.431 Probabilistic Systems Analysis and Applied Probability <span class="s2"><br>机率系</span><span class="s1">统分析与应用概率</span></p>
+<p>Introduction to Probability. 2nd ed</p>
+<p>Fundamentals of Applied Probability Theory</p>
+<p>A First Course in Probability. 8th ed</p>
+<p>6.521J Quantitative Physiology: Cells and Tissues <span class="s2"><br>定量生理学：</span><span class="s1">细胞与组织</span></p>
+<p>Cellular Biophysics: Transport. Vol. 1</p>
+<p>Cellular Biophysics: Electrical Properties. Vol. 2</p>
+<p>Human Physiology, The Mechanisms Body Function</p>
+<p>The Physiology of Excitable Cells. 4th ed</p>
+<p>Principles of Neural Science</p>
+<p>6.637 Modern Optics Project Laboratory <span class="s1">现代光学工程实验室</span></p>
+<p>Introduction to Fourier Optics. 3rd ed</p>
+<p>Optical Electronics in Modern Communications. 5th ed</p>
+<p>Fundamentals of Photonics</p>
+<p>Optics. 4th ed</p>
+<p>Principles of Optics: Electromagnetic Theory of Propagation, Interference and Diffraction of Light. 5th ed</p>
+<p>Principles of Optics: Electromagnetic Theory of Propagation, Interference and Diffraction of Light. 6th ed</p>
+<p>Principles of Optics: Electromagnetic Theory of Propagation, Interference and Diffraction of Light. 7th ed</p>
+<p>Fundamentals of Optics. 4th ed</p>
+<p>6.690 Introduction to Electric Power Systems</p>
+<p>Electric Power Principles: Sources, Conversion, Distribution and Use</p>
+<p>6.701 Introduction to Nanoelectronics <span class="s1">纳米电子学概论</span></p>
+<p>6.801 Machine Vision <span class="s2">机器</span><span class="s1">视觉</span></p>
+<p>Robot Vision</p>
+<p>6.803 The Human Intelligence Enterprise <span class="s2">人类的智慧企</span><span class="s1">业</span></p>
+<p>6.804J Computational Cognitive Science <span class="s1">计算认知科学</span></p>
+<p>Artificial Intelligence: A Modern Approach. 2nd ed</p>
+<p>6.805 Ethics and the Law on the Electronic Frontier <span class="s1"><br>电子边疆的道德与法</span></p>
+<p>The Transparent Society: Will Technology Force Us to Choose Between Privacy and Freedom?</p>
+<p>No Place to Hide: Behind the Scenes of Our Emerging Surveillance Society</p>
+<p>6.806 Ethics and the Law on the Electronic Frontier</p>
+<p>6.814 Database Systems&nbsp;</p>
+<p>Readings in Database Systems (The Red Book). 4th ed</p>
+<p>Database Management Systems. 3rd ed</p>
+<p>6.830 Database Systems</p>
+<p>6.833 The Human Intelligence Enterprise</p>
+<p>6.837 Computer Graphics&nbsp;</p>
+<p>Fundamentals of Computer Graphics. 1st ed</p>
+<p>6.857 Network and Computer Security&nbsp;</p>
+<p>Cryptography: An Introduction</p>
+<p>Handbook of Applied Cryptography</p>
+<p>Applied Cryptography. 2nd ed</p>
+<p>Security Engineering - A Guide to Building Dependable Distributed Systems</p>
+<p>Cryptography Theory and Practice</p>
+<p>Secrets and Lies — Digital Security in a Networked World</p>
+<p>SSL and TLS: Designing and Building Secure Systems</p>
+<p>Computer Related Risks</p>
+<p>Usability Engineering</p>
+<p>Network Security: Private Communication in a Public World. 2nd ed</p>
+<p>Web Security, Privacy &amp; Commerce. 2nd ed</p>
+<p>The Codebreakers</p>
+<p>6.866 Machine Vision&nbsp;</p>
+<p>Robot Vision</p>
+<p>6.878 Computational Biology: Genomes, Networks, Evolution <span class="s1"><br>计算生物学：基因组，网络，演化</span></p>
+<p>Biological Sequence Analysis: Probabilistic Models of Proteins and Nucleic Acids</p>
+<p>An Introduction to Bioinformatics Algorithms</p>
+<p>Pattern Classification</p>
+<p>6.901 Inventions and Patents <span class="s1">发明与专利</span></p>
+<p>Create or Perish</p>
+<p>6.911 Transcribing Prosodic Structure of Spoken Utterances with ToBI</p>
+<p><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-911-transcribing-prosodic-structure-of-spoken-utterances-with-tobi-january-iap-2006/readings/" target="_blank" rel="external">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-911-transcribing-prosodic-structure-of-spoken-utterances-with-tobi-january-iap-2006/readings/</a></p>
+<p>6.912 Introduction to Copyright Law “<span class="s2">著作权法</span>”<span class="s1">简介</span></p>
+<p>6.930 Management in Engineering <span class="s2">工程管理</span>&nbsp;</p>
+<p>6.974 Fundamentals of Photonics: Quantum Electronics <span class="s2"><br>光子学的基本原理：量子</span><span class="s1">电子</span></p>
+<p>Fundamentals of Photonics</p>
+<p>Optics. 3rd ed</p>
+<p>Introduction to Quantum Mechanics. 2nd ed</p>
+<p>Optical Electronics in Modern Communications. 5th ed</p>
+<p>Principles of Lasers</p>
+<p>Waves and Fields in Optoelectronics</p>
+<p>Optical Resonance and Two-Level Atoms</p>
+<p>Photonic Devices</p>
+<p>Elements of Quantum Optics. 3rd ed</p>
+<p>6.976 NextLab I: Designing Mobile Technologies for the Next Billion Users</p>
+<p>Graduate Courses</p>
+<p>6.041 Probabilistic Systems Analysis and Applied Probability</p>
+<p>Introduction to Probability. 2nd ed</p>
+<p>Fundamentals of Applied Probability Theory</p>
+<p>A First Course in Probability. 8th ed</p>
+<p>6.047 Computational Biology: Genomes, Networks, Evolution</p>
+<p>Biological Sequence Analysis: Probabilistic Models of Proteins and Nucleic Acids</p>
+<p>An Introduction to Bioinformatics Algorithms</p>
+<p>Pattern Classification</p>
+<p>6.061 Introduction to Electric Power Systems</p>
+<p>Electric Power Principles: Sources, Conversion, Distribution and Use</p>
+<p>6.079 Introduction to Convex Optimization&nbsp;</p>
+<p>Convex Optimization</p>
+<p>Convex Optimization Theory</p>
+<p>Lectures on Modern Convex Optimization: Analysis, Algorithms, and Engineering Applications (MPS-SIAM Series on Optimization)</p>
+<p>6.092 Bioinformatics and Proteomics</p>
+<p>Signals and Systems. 3rd ed</p>
+<p>Probability, Random Variables and Stochastic Processes: Sanitary and Water Resources Engineering (Sanitary &amp; Water Resources Engineering S)</p>
+<p>Microarrays for an Integrative Genomics</p>
+<p>6.094 Introduction to MATLAB&nbsp;</p>
+<p>6.097 Fundamentals of Photonics: Quantum Electronics</p>
+<p>Fundamentals of Photonics</p>
+<p>Optics. 3rd ed</p>
+<p>Introduction to Quantum Mechanics. 2nd ed</p>
+<p>Quantum Mechanics I</p>
+<p>Optical Electronics in Modern Communications. 5th ed</p>
+<p>Principles of Lasers.</p>
+<p>Waves and Fields in Optoelectronics</p>
+<p>Optical Resonance and Two-Level Atoms</p>
+<p>Photonic Devices</p>
+<p>Elements of Quantum Optics. 3rd ed</p>
+<p>6.189 Multicore Programming Primer&nbsp;</p>
+<p>6.231 Dynamic Programming and Stochastic Control <span class="s1">动态规划与随机控制</span>&nbsp;</p>
+<p>Dynamic Programming and Optimal Control. Vol. I and II. 3rd ed</p>
+<p>6.241J Dynamic Systems and Control <span class="s1">动力系统和控制</span></p>
+<p>Introduction to Dynamic Systems: Theory, Models, and Applications</p>
+<p>Linear Systems. Prentice Hall</p>
+<p>Feedback Control Theory</p>
+<p>Digital Control: A State-Space Approach</p>
+<p>6.243J Dynamics of Nonlinear Systems <span class="s2">非</span><span class="s1">线性系统的动力学</span></p>
+<p>6.245 Multivariable Control Systems <span class="s2">多</span><span class="s1">变量控制系统</span></p>
+<p>6.251J Introduction to Mathematical Programming <span class="s2">数学</span><span class="s1">规划导论</span>&nbsp;</p>
+<p>Introduction to Linear Optimization</p>
+<p>6.252J Nonlinear Programming <span class="s2">非</span><span class="s1">线性规划</span></p>
+<p>Nonlinear Programming. 2nd ed</p>
+<p>Nonlinear Programming: Theory and Algorithms</p>
+<p>Linear and Nonlinear Programming. 2nd ed</p>
+<p>Introduction to Linear Optimization</p>
+<p>Principles of Mathematical Analysis. 3rd ed</p>
+<p>6.253 Convex Analysis and Optimization&nbsp;</p>
+<p>Convex Optimization Theory</p>
+<p>6.254 Game Theory with Engineering Applications <span class="s2">博弈</span><span class="s1">论与工程应用</span>&nbsp;</p>
+<p>Game Theory</p>
+<p>Algorithmic Game Theory</p>
+<p>The Theory of Learning in Games</p>
+<p>Microeconomic Theory</p>
+<p>A Course in Game Theory</p>
+<p>Game Theory</p>
+<p>Auction Theory. 2nd ed</p>
+<p>Dynamic Noncooperative Game Theory</p>
+<p>Strategic Learning and Its Limits</p>
+<p>Individual Strategy and Social Structure: An Evolutionary Theory of Institutions</p>
+<p>An Introduction to Game Theory</p>
+<p>Game Theory for Applied Economists</p>
+<p>6.262 Discrete Stochastic Processes <span class="s2">离散随机</span><span class="s1">过程</span></p>
+<p>Introduction to Probability. 2nd ed</p>
+<p>6.263J Data Communication Networks <span class="s2">数据通信网</span><span class="s1">络</span></p>
+<p>Data Networks (2nd Edition)</p>
+<p>Computer Networks (2nd Edition)</p>
+<p>High Performance Communication Networks</p>
+<p>Computer Networks. 4th ed</p>
+<p>TCP/IP Illustrated</p>
+<p>Queueing Systems, Vol 1: Theory</p>
+<p>6.264J Queues: Theory and Applications <span class="s1">队列：理论与应用</span></p>
+<p>Queueing Systems</p>
+<p>Reversibility and Stochastic Networks</p>
+<p>Fundamentals of Queueing Networks: Performance, Asymptotics, and Optimization</p>
+<p>6.281J Logistical and Transportation Planning Methods <span class="s2"><br>物流与</span><span class="s1">运输规划方法</span></p>
+<p>Urban Operations Research</p>
+<p>6.301 Solid-State Circuits <span class="s2">固</span><span class="s1">态电路</span></p>
+<p>Troubleshooting Analog Circuits</p>
+<p>Bipolar and MOS Analog Integrated Circuit Design</p>
+<p>Analysis and Design of Analog Integrated Circuits. 5th ed</p>
+<p>Electronic Principles: Physics, Models, and Circuits</p>
+<p>6.302 Feedback Systems <span class="s2">反</span><span class="s1">馈系统</span></p>
+<p>6.331 Advanced Circuit Techniques</p>
+<p>Operational Amplifiers: Theory and Practice</p>
+<p>Become One with the Transistor: for Solid State Circuits</p>
+<p>Feedback Control Systems for Analog Circuit Design</p>
+<p>Bipolar and MOS Analog Integrated Circuit Design</p>
+<p>Troubleshooting Analog Circuits</p>
+<p>Analog Circuit Design: Art, Science, and Personalities</p>
+<p>The Art and Science of Analog Circuit Design</p>
+<p>The Design of CMOS Radio-Frequency Integrated Circuits</p>
+<p>Analysis and Design of Analog Integrated Circuits. 4th ed</p>
+<p>Electronic Principles: Physics, Models, and Circuits</p>
+<p>6.334 Power Electronics <span class="s1">电力电子技术</span></p>
+<p>Principles of Power Electronics</p>
+<p>Elements of Power Electronics</p>
+<p>Power Electronics: Converters, Applications, and Design. 2nd ed</p>
+<p>Fundamentals of Power Electronics</p>
+<p>SPICE for Power Electronics and Electric Power. 2nd ed</p>
+<p>6.336J Introduction to Numerical Simulation (SMA 5211) <span class="s2"><br>数</span><span class="s1">&#20540;模拟导论</span></p>
+<p>6.337J Introduction to Numerical Methods <span class="s2">数</span><span class="s1">&#20540;方法简介</span></p>
+<p>Numerical Linear Algebra</p>
+<p>Templates for the Solution of Algebraic Eigenvalue Problems: a Practical Guide</p>
+<p>Templates for the Solution of Linear Systems: Building Blocks for Iterative Methods</p>
+<p>6.339J Numerical Methods for Partial Differential Equations (SMA 5212)<br><span class="s2">偏微分方程数</span><span class="s1">&#20540;方法</span></p>
+<p>Numerical Linear Algebra</p>
+<p>Analysis of the Finite Element Method</p>
+<p>Numerical Approximation of Partial Differential Equations</p>
+<p>The Numerical Solution of Integral Equations of the Second Kind</p>
+<p>A Multigrid Tutorial. 2nd ed</p>
+<p>Introduction to Partial Differential Equations: A Computational Approach</p>
+<p>6.341 Discrete-Time Signal Processing <span class="s2">离散</span><span class="s1">时间信号处理</span></p>
+<p>Discrete-Time Signal Processing. 2nd ed</p>
+<p>Computer-Based Exercises for Signal Processing Using MATLAB® 5</p>
+<p>Digital Filter Design</p>
+<p>Multirate Digital Signal Processing</p>
+<p>Statistical Digital Signal Processing and Modeling</p>
+<p>Advanced Topics in Signal Processing</p>
+<p>Digital Signal Processing: Principles, Algorithms, and Applications</p>
+<p>6.345 Automatic Speech Recognition <span class="s2">自</span><span class="s1">动语音识别</span></p>
+<p>Spoken Language Processing</p>
+<p>Statistical Methods for Speech Recognition</p>
+<p>Fundamentals of Speech Recognition</p>
+<p>Pattern Classification</p>
+<p>Acoustic Phonetics</p>
+<p>6.370 Robocraft Programming Competition</p>
+<p>6.374 Analysis and Design of Digital Integrated Circuits <span class="s2"><br>数字集成</span><span class="s1">电路分析与设计</span>&nbsp;</p>
+<p>Digital Integrated Circuits: A Design Perspective. 2nd ed</p>
+<p>6.431 Probabilistic Systems Analysis and Applied Probability <span class="s2"><br>机率系</span><span class="s1">统分析与应用概率</span>&nbsp;</p>
+<p>Introduction to Probability. 2nd ed</p>
+<p>Fundamentals of Applied Probability Theory</p>
+<p>A First Course in Probability. 8th ed</p>
+<p>6.432 Stochastic Processes, Detection, and Estimation <span class="s2"><br>随机</span><span class="s1">过程，检测和估计</span></p>
+<p>Probability, Random Variables, and Stochastic Processes. 3rd ed</p>
+<p>Optimal Filtering</p>
+<p>Fundamentals of Applied Probability Theory</p>
+<p>An Introduction to Probability Theory and Its Applications. Vols. 1 and 2</p>
+<p>Introduction to Random Processes: with Applications to Signals and Systems. 2nd ed</p>
+<p>Random Processes: A Mathematical Approach for Engineers</p>
+<p>Probability and Stochastic Processes for Engineers</p>
+<p>Fundamentals of Statistical Signal Processing and Estimation Theory</p>
+<p>Digital Communication. 2nd ed</p>
+<p>Linear Operator Theory in Engineering and Science</p>
+<p>Discrete-Time Signal Processing</p>
+<p>Signals and Systems</p>
+<p>Stochastic Processes</p>
+<p>Statistical Signal Processing: Detection, Estimation, and Time Series Analysis</p>
+<p>Probability, Random Processes, and Estimation Theory for Engineers. 2nd ed</p>
+<p>Linear Algebra and its Applications. 3rd ed</p>
+<p>Discrete Random Signals and Statistical Signal Processing</p>
+<p>Trees, Detection, Estimation and Modulation Theory, Part I</p>
+<p>6.435 System Identification <span class="s2">系</span><span class="s1">统辨识</span></p>
+<p>System Identification: A Theory for the User. 2nd ed</p>
+<p>6.436J Fundamentals of Probability <span class="s2">概率</span><span class="s1">论基础</span>&nbsp;</p>
+<p>Probability and Random Processes. 3rd ed</p>
+<p>Probability with Martingales</p>
+<p>Introduction to Probability. 2nd ed</p>
+<p>Measure Theory and Probability</p>
+<p>Probability and Measure. 3rd ed</p>
+<p>Probability: Theory and Examples. 4th ed</p>
+<p>6.441 Information Theory <span class="s2">信息</span><span class="s1">论</span></p>
+<p>Elements of Information Theory. 2nd ed</p>
+<p>Information Theory and Reliable Communication</p>
+<p>6.443J Quantum Information Science <span class="s2">量子信息科学</span></p>
+<p>Quantum Computation and Quantum Information</p>
+<p>6.450 Principles of Digital Communication I <span class="s2">数字通信原</span><span class="s1">则</span></p>
+<p>Principles of Digital Communication</p>
+<p>Digital Communications. 4th ed</p>
+<p>Communication Systems Engineering. 2nd ed</p>
+<p>Principles of Communication Engineering</p>
+<p>Digital Modulation and Coding</p>
+<p>Information Theory and Reliable Communication</p>
+<p>Thomas. Elements of Information Theory. 2nd ed</p>
+<p>Fundamentals of Wireless Communication</p>
+<p>Wireless Communications</p>
+<p>Introduction to Linear Algebra. 3rd ed</p>
+<p>Fundamentals of Digital Communication</p>
+<p>Digital Communication. 3rd ed</p>
+<p>6.451 Principles of Digital Communication II</p>
+<p>Digital Communications. 4th ed</p>
+<p>Communication Systems Engineering. 3rd ed</p>
+<p>Digital Modulation and Coding</p>
+<p>Digital Communication. 2nd ed</p>
+<p>Principles of Digital Communication and Coding</p>
+<p>Principles of Communication Engineering</p>
+<p>Information Theory and Reliable Communication</p>
+<p>Elements of Information Theory</p>
+<p>6.452 Principles of Wireless Communications <span class="s2">无</span><span class="s1">线通信原则</span></p>
+<p>Fundamentals of Wireless Communication</p>
+<p>6.453 Quantum Optical Communication <span class="s2">光量子通信</span></p>
+<p>Introductory Quantum Optics</p>
+<p>The Quantum Theory of Light</p>
+<p>Quantum Statistical Properties of Radiation</p>
+<p>Optical Coherence and Quantum Optics</p>
+<p>Quantum Computation and Quantum Information</p>
+<p>6.524J Molecular, Cellular and Tissue Biomechanics (BE.410J) <span class="s2"><br>分子，</span><span class="s1">细胞和组织生物力学</span></p>
+<p>Biomechanics: Mechanical Properties of Living Tissues</p>
+<p>Molecular and Cell Biophysics</p>
+<p>Molecular Cell Biology</p>
+<p>Molecular Driving Forces</p>
+<p>6.541J Speech Communication</p>
+<p>Acoustic Phonetics</p>
+<p>The Sound Pattern of English</p>
+<p>Acoustic Theory of Speech Production</p>
+<p>Speech Analysis, Synthesis and Perception</p>
+<p>Music, Language, Speech and Brain</p>
+<p>Preliminaries to Speech Analysis</p>
+<p>The Sounds of the World’s Languages</p>
+<p>Patterns of Sounds</p>
+<p>Introduction to Communication Sciences and Disorders</p>
+<p>Speech Communication: Human and Machine</p>
+<p>Fundamentals of Speech Recognition</p>
+<p>Papers in Speech Communication: Speech Processing</p>
+<p>The Acoustics of Speech Communication: Fundamentals, Speech Perception Theory, and Technology&nbsp; &nbsp; The Handbook of Phonetic Sciences</p>
+<p>6.542J Laboratory on the Physiology, Acoustics, and Perception of Speech<br><span class="s2">生理学，声学及</span><span class="s1">语言感知实验室</span></p>
+<p>Acoustic Phonetics</p>
+<p>Revised ed</p>
+<p>The Sound Pattern of English</p>
+<p>The Speech Chain: The physics and biology of spoken speech. 2nd ed</p>
+<p>Speech Analysis, Synthesis and Perception. 2nd ed</p>
+<p>The Handbook of Phonetic Sciences</p>
+<p>Papers in Speech Communication: Speech Production</p>
+<p>Speech Communications: Human and Machine. 2nd ed</p>
+<p>The Handbook of Speech Perception</p>
+<p>6.543J The Lexicon and Its Features <span class="s1">词典及其特点</span></p>
+<p>6.551J Acoustics of Speech and Hearing <span class="s2">言</span><span class="s1">语及听觉的声学</span></p>
+<p>The Speech Chain: The physics and biology of spoken speech. 2nd ed</p>
+<p>Fundamentals of Acoustics</p>
+<p>Acoustics</p>
+<p>Acoustic Phonetics</p>
+<p>Signals and System for Speech and Hearing</p>
+<p>Acoustic Systems in Biology</p>
+<p>Fundamentals of Hearing Science. 3rd ed</p>
+<p>6.555J Biomedical Signal and Image Processing <span class="s2">生物医学信号与</span><span class="s1">图像处理</span></p>
+<p>Discrete-Time Signal Processing. 2nd ed</p>
+<p>Probability, Random Variables, and Stochastic Processes</p>
+<p>Circuits, Signals and Systems</p>
+<p>Signals and Systems. 2nd ed</p>
+<p>Signals and Systems Made Ridiculously Simple</p>
+<p>Pattern Classification and Scene Analysis</p>
+<p>Pattern Classification. 2nd ed</p>
+<p>Neural Networks for Pattern Recognition</p>
+<p>Netlab: Algorithms for Pattern Recognition. 3rd ed</p>
+<p>Advanced Methods and Tools for ECG Data Analysis</p>
+<p>Digital Processing of Speech Signals</p>
+<p>Discrete-Time Speech Signal Processing: Principles and Practice</p>
+<p>Two-Dimensional Signal and Image Processing</p>
+<p>Digital Image Processing. 2nd ed</p>
+<p>Mathematics of Medical Imaging</p>
+<p>The Physics of Medical Imaging</p>
+<p>MRI in Practice. 3rd ed</p>
+<p>Medical Imaging Systems</p>
+<p>6.561J Fields, Forces, and Flows in Biological Systems (BE.430J) <span class="s1"><br>场，力，和生物系统中的流动</span></p>
+<p>Analysis of Transport Phenomena</p>
+<p>Molecular Cell Biology. 4th ed</p>
+<p>Molecular Biology of the Cell</p>
+<p>6.581J Foundations of Algorithms and Computational Techniques in Systems Biology<br><span class="s2">系</span><span class="s1">统生物学中的算法和计算技术的基础</span></p>
+<p>Molecular Modeling and Simulation: An Interdisciplinary Guide</p>
+<p>Computer Simulation of Liquids</p>
+<p>Numerical Linear Algebra</p>
+<p>Introduction to Protein Structure. 2nd ed</p>
+<p>Introduction to Inverse Problems in Imaging</p>
+<p>6.630 Electromagnetics <span class="s1">电磁</span></p>
+<p>Electromagnetic Wave Theory</p>
+<p>6.632 Electromagnetic Wave Theory <span class="s1">电磁波理论</span></p>
+<p>6.635 Advanced Electromagnetism<span class="s2">先</span><span class="s1">进的电磁</span></p>
+<p>Electromagnetic Wave Theory</p>
+<p>6.637 Optical Signals, Devices, and Systems <span class="s2">光信号，</span><span class="s1">设备和系统</span></p>
+<p>Fourier Optics. 2nd ed</p>
+<p>Optical Electronics in Modern Communications. 5th ed</p>
+<p>Fundamentals of Photonics</p>
+<p>Optics. 4th ed</p>
+<p>6.641 Electromagnetic Fields, Forces, and Motion <span class="s1">电磁场，力和运动</span></p>
+<p>Electromagnetic Field Theory: A Problem Solving Approach</p>
+<p>Electromechanical Dynamics</p>
+<p>Electromagnetic Fields and Energy</p>
+<p>6.642 Continuum Electromechanics <span class="s1">连续机电</span></p>
+<p>Continuum Electromechanics</p>
+<p>Electromagnetic Field Theory: A Problem Solving Approach</p>
+<p>6.651J Introduction to Plasma Physics I <span class="s2">等离子体物理</span></p>
+<p>Introduction to Plasma Physics. 2nd ed</p>
+<p>The Plasma State</p>
+<p>Plasma Physics</p>
+<p>The Framework of Plasma Physics</p>
+<p>Introduction to Plasma Physics</p>
+<p>Electrodynamics of Particles and Plasmas</p>
+<p>Physics of Fully Ionized Gases. 2nd ed</p>
+<p>Physics of High Temperature Plasmas. 2nd ed</p>
+<p>Plasma Dynamics</p>
+<p>Plasma Physics</p>
+<p>Principles of Plasma Physics</p>
+<p>Principles of Plasma Physics - A Statistical Approach</p>
+<p>Ideal Magnetohydrodynamics</p>
+<p>Waves in Plasmas</p>
+<p>Plasma Diagnostic Techniques</p>
+<p>Principles of Plasma Diagnostics</p>
+<p>Plasmas and Controlled Fusion</p>
+<p>Plasma Physics for Nuclear Fusion</p>
+<p>Tokamaks. 3rd ed</p>
+<p>Plasma Astrophysics</p>
+<p>6.661 Receivers, Antennas, and Signals <span class="s2">接收机，天</span><span class="s1">线和信号</span></p>
+<p>Digital and Analog Communication Systems</p>
+<p>Digital Communications-Satellite/Earth Station Engineering</p>
+<p>Signals and Systems</p>
+<p>Probability, Random Variables and Random Processes</p>
+<p>Information Transmission, Modulation, and Noise. 2nd ed</p>
+<p>Radioastronomy</p>
+<p>Interferometry and Synthesis in Radio Astronomy</p>
+<p>Introduction to Radar Systems</p>
+<p>Optical Electronics in Modern Communications</p>
+<p>Electromagnetic Waves</p>
+<p>Digital Communications</p>
+<p>Detection of Light: from Ultraviolet to the Submillimeter</p>
+<p>Statistical and Adaptive Signal Processing</p>
+<p>6.685 Electric Machines <span class="s1">电机</span></p>
+<p>Electric Machinery. 6th ed</p>
+<p>Electric Motor Handbook</p>
+<p>6.690 Introduction to Electric Power Systems <span class="s1">电力系统简介</span></p>
+<p>Electric Power Principles: Sources, Conversion, Distribution and Use</p>
+<p>6.691 Seminar in Electric Power Systems <span class="s1">电力系统研讨会</span></p>
+<p>Power Systems Analysis. 2nd ed</p>
+<p>6.695 Engineering, Economics and Regulation of the Electric Power Sector<br><span class="s2">工程，</span><span class="s1">经济和电力部门的规管</span></p>
+<p>6.701 Introduction to Nanoelectronics <span class="s1">纳米电子学概论</span></p>
+<p>6.720J Integrated Microelectronic Devices <span class="s2">集成微</span><span class="s1">电子器件</span></p>
+<p>Device Electronics for Integrated Circuits. 3rd ed</p>
+<p>Semiconductor Device Fundamentals</p>
+<p>Solid State Electronics Devices. 4th ed</p>
+<p>Solid State and Semiconductor Physics</p>
+<p>Operation and Modeling of the MOS Transistor. 2nd ed</p>
+<p>6.728 Applied Quantum and Statistical Physics <span class="s1">应用量子与统计物理</span></p>
+<p>Introduction to Applied Quantum and Statistical Physics</p>
+<p>Quantum Theory: A Very Short Introduction</p>
+<p>Introductory Quantum Mechanics. 3rd ed</p>
+<p>The Quantum Challenge: Modern Research on the Foundations of Quantum Mechanics. 2nd ed</p>
+<p>Quantum Mechanics</p>
+<p>Quantum Physics. 2nd ed</p>
+<p>Fundamentals of Statistical and Thermal Physics</p>
+<p>Introduction to Quantum Mechanics</p>
+<p>Understanding Quantum Physics</p>
+<p>Understanding More Quantum Physics</p>
+<p>Applied Quantum Mechanics</p>
+<p>Quantum Physics. 2nd ed</p>
+<p>Thermal Physics. 2nd ed</p>
+<p>Statistical Physics. 2nd ed</p>
+<p>A Student’s Guide to Fourier Transforms: With Applications in Physics and Engineering</p>
+<p>The Fast Fourier Transform</p>
+<p>6.730 Physics for Solid-State Applications <span class="s2">固</span><span class="s1">态应用物理</span></p>
+<p>Fundamentals of Carrier Transport. 2nd ed</p>
+<p>Solid State Physics</p>
+<p>6.763 Applied Superconductivity <span class="s1">应用超导</span></p>
+<p>Foundations of Applied Superconductivity</p>
+<p>6.772 Compound Semiconductor Devices <span class="s2">化合物半</span><span class="s1">导体器件</span></p>
+<p><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-772-compound-semiconductor-devices-spring-2003/readings/" target="_blank" rel="external">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-772-compound-semiconductor-devices-spring-2003/readings/</a></p>
+<p>6.774 Physics of Microfabrication: Front End Processing <span class="s2"><br>微</span><span class="s1">细加工物理：前端处理</span></p>
+<p>Silicon VLSI Technology: Fundamentals, Practice and Modeling</p>
+<p>Silicon Processing for the VLSI Era . 2nd ed</p>
+<p>VLSI Technology. 2nd ed</p>
+<p>The Science and Engineering of Microelectronic Fabrication. 2nd ed</p>
+<p>Thin Film Processes</p>
+<p>Electronic Materials Science: For Integrated Circuits in Si and GaAs</p>
+<p>Modular Series on Solid State Devices. Vol. 1-5</p>
+<p>Advanced Semiconductor Fundamentals</p>
+<p>Fundamentals of Modern VLSI Devices</p>
+<p>6.776 High Speed Communication Circuits <span class="s2">高速通信</span><span class="s1">电路</span></p>
+<p>The Design of CMOS Radio-Frequency Integrated Circuits</p>
+<p>RF Microelectronics</p>
+<p>6.777J Design and Fabrication of Microelectromechanical Devices <span class="s2"><br>微机</span><span class="s1">电设备的设计与制作</span></p>
+<p>Microsystem Design</p>
+<p>Fundamentals of Microfabrication</p>
+<p>Micromachined Transducers Sourcebook</p>
+<p>An Introduction to Microelectromechanical Systems Engineering</p>
+<p>Microtransducer CAD: Physical and Computational Aspects</p>
+<p>Methodology for the Modeling and Simulation of Microsystems</p>
+<p>Microactuators</p>
+<p>Microsensors: Principles and Applications</p>
+<p>Sensor Technology and Devices</p>
+<p>Acoustic Wave Sensors: Theory, Design, and Physico-Chemical Applications</p>
+<p>Introduction to Microelectromechanical (MEM) Microwave Systems</p>
+<p>Mechanics of Materials. 2nd ed</p>
+<p>Mechanics of Materials</p>
+<p>The Science and Engineering of Microelectronic Fabrication. 2nd ed</p>
+<p>Microsensors</p>
+<p>Micromechanics and MEMS</p>
+<p>6.780 Semiconductor Manufacturing <span class="s2">半</span><span class="s1">导体制造</span></p>
+<p>Introduction to Statistical Quality Control. 4th ed</p>
+<p>Statistical Methods for Industrial Process Control</p>
+<p>Handbook of Semiconductor Manufacturing Technology</p>
+<p>Handbook of Experimental Methods for Process Improvement</p>
+<p>Statistical Case Studies for Industrial Process Improvement</p>
+<p>Statistical Applications in Process Control</p>
+<p>Quality Engineering Using Robust Design</p>
+<p>Yield Simulation for Integrated Circuits</p>
+<p>Introduction to Semiconductor Manufacturing Technology</p>
+<p>Silicon VLSI Technology — Fundamentals, Practice and Modeling</p>
+<p>Microelectronics Manufacturing Diagnostics Handbook</p>
+<p>Handbook of Silicon Semiconductor Metrology</p>
+<p>Silicon Processing for the VLSI Era: Volume 1 - Process Technology</p>
+<p>Statistics for Experimenters</p>
+<p>Beyond Anova: Basics of Applied Statistics</p>
+<p>Introduction to Probability and Statistics for Engineers and Scientists</p>
+<p>Statistical Foundations of Econometric Modeling</p>
+<p>Manufacturing Systems Engineering</p>
+<p>6.780J Control of Manufacturing Processes (SMA 6303) <span class="s2"><br>生</span><span class="s1">产过程的控制</span></p>
+<p>Introduction to Statistical Quality Control. 5th ed</p>
+<p>Fundamentals of Semiconductor Manufacturing and Process Control</p>
+<p>Manufacturing Processes for Engineering Materials. 3rd ed</p>
+<p>Statistical Quality Design and Control</p>
+<p>Engineering Statistics</p>
+<p>Random Data. 2nd ed</p>
+<p>Modern Control Engineering. 3rd ed</p>
+<p>Control System Design</p>
+<p>6.781J Submicrometer and Nanometer Technology <span class="s1">亚微米和纳米技术</span></p>
+<p>6.801 Machine Vision&nbsp;</p>
+<p>Robot Vision</p>
+<p>6.803 The Human Intelligence Enterprise</p>
+<p>6.804J Computational Cognitive Science <span class="s1">计算认知科学</span></p>
+<p>Artificial Intelligence: A Modern Approach. 2nd ed</p>
+<p>6.814 Database Systems</p>
+<p>Readings in Database Systems (The Red Book). 4th ed</p>
+<p>Database Management Systems. 3rd ed</p>
+<p>6.821 Programming Languages&nbsp;</p>
+<p>Structure and Interpretation of Computer Programs. 2nd ed</p>
+<p>6.823 Computer System Architecture</p>
+<p>Computer Architecture: A Quantitative Approach, 3rd ed</p>
+<p>Computer Organization and Design: The Hardware/Software Interface, 3rd ed</p>
+<p>6.824 Distributed Computer Systems Engineering <span class="s2">分布式</span><span class="s1">计算机系统工程</span>&nbsp;</p>
+<p>UNIX Network Programming, Vol. 1: The Sockets Networking API. 3rd ed</p>
+<p>Modern Operating Systems. 2nd ed</p>
+<p>Distributed Systems: Principles and Paradigms</p>
+<p>The Design and Implementation of the 4.4 BSD Operating System</p>
+<p>The C&#43;&#43; Programming Language. 3rd ed</p>
+<p>Advanced Programming in the UNIX Environment. 2nd ed</p>
+<p>6.825 Techniques in Artificial Intelligence (SMA 5504)&nbsp;</p>
+<p>Artificial Intelligence: A Modern Approach (First Edition)</p>
+<p>Understanding Object-Oriented Programming With Java. 1st ed</p>
+<p>The Java Programming Language. 3rd ed</p>
+<p>Java In A Nutshell. 4th ed</p>
+<p>Java Foundation Classes In A Nutshell. 1st ed</p>
+<p>Thinking In Java. 3rd ed</p>
+<p>6.826 Principles of Computer Systems&nbsp;</p>
+<p>6.827 Multithreaded Parallelism: Languages and Compilers&nbsp;</p>
+<p>Implicit Parallel Programming in pH. 1st ed</p>
+<p>6.828 Operating System Engineering</p>
+<p>Lions’ Commentary on UNIX® 6th Edition with Source Code</p>
+<p><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-828-operating-system-engineering-fall-2006/related-resources/" target="_blank" rel="external">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-828-operating-system-engineering-fall-2006/related-resources/</a></p>
+<p>6.829 Computer Networks</p>
+<p><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-829-computer-networks-fall-2002/readings/" target="_blank" rel="external">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-829-computer-networks-fall-2002/readings/</a></p>
+<p><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-829-computer-networks-fall-2002/related-resources/" target="_blank" rel="external">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-829-computer-networks-fall-2002/related-resources/</a></p>
+<p>6.830 Database Systems&nbsp;</p>
+<p>Readings in Database Systems (The Red Book). 4th ed</p>
+<p>Database Management Systems. 3rd ed</p>
+<p>6.831 User Interface Design and Implementation&nbsp;</p>
+<p>The Design of Everyday Things</p>
+<p>Usability Engineering</p>
+<p>Designing Visual Interfaces: Communication oriented techniques</p>
+<p>Readings in Human-Computer Interaction: Toward the Year 2000</p>
+<p>Designing the User Interface: Strategies for Effective Human-Computer Interaction. 4th ed</p>
+<p>Human-Computer Interaction. 2nd ed</p>
+<p>Developing User Interfaces</p>
+<p>The Visual Display of Quantitative Information</p>
+<p>The Humane Interface: New Directions for Designing Interactive Systems</p>
+<p>GUI Bloopers: Don’ts and Do’s for Software Developers and Web Designers</p>
+<p>The Psychology of Human-Computer Interaction</p>
+<p>Cartoon Guide to Statistics.</p>
+<p>Statistics for Experimenters: An Introduction to Design, Data Analysis, and Model Building</p>
+<p>Beyond Anova: Basics of Applied Statistics</p>
+<p>6.832 Underactuated Robotics</p>
+<p>Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering</p>
+<p>Applied Nonlinear Control</p>
+<p>Non-linear Control for Underactuated Mechanical Systems</p>
+<p>Dynamic Programming and Optimal Control. 3rd ed</p>
+<p>Reinforcement Learning: An Introduction</p>
+<p>Neuro-Dynamic Programming</p>
+<p>Planning Algorithms</p>
+<p>6.833 The Human Intelligence Enterprise</p>
+<p>6.834J Cognitive Robotics <span class="s1">认知机器人</span></p>
+<p>6.837 Computer Graphics</p>
+<p>Fundamentals of Computer Graphics. 1st ed</p>
+<p>6.838 Algorithms for Computer Animation&nbsp;</p>
+<p>6.840J Theory of Computation&nbsp;</p>
+<p>Introduction to the Theory of Computation. 2nd ed</p>
+<p>6.841J Advanced Complexity Theory&nbsp;</p>
+<p>Introduction to the Theory of Computation. 1st ed</p>
+<p>Computational Complexity. 1st ed</p>
+<p>Handbook of Computer Science. Vol. A</p>
+<p>Computers and Intractability: A Guide to the Theory of NP-Completeness</p>
+<p>Structural Complexity I</p>
+<p>Models of Computation</p>
+<p>6.844 Computability Theory of and with Scheme</p>
+<p>6.845 Quantum Complexity Theory <span class="s2">量子复</span><span class="s1">杂性理论</span></p>
+<p>Quantum Computation and Quantum Information</p>
+<p>Quantum Computer Science: An Introduction</p>
+<p>Computational Complexity: A Modern Approach</p>
+<p>Introduction to the Theory of Computation. 2nd ed</p>
+<p>6.851 Advanced Data Structures&nbsp;</p>
+<p>6.852J Distributed Algorithms&nbsp;</p>
+<p>Distributed Algorithms</p>
+<p>Distributed Computing: Fundamentals, Simulations, and Advanced Topics. 2nd ed</p>
+<p>The Art of Multiprocessor Programming</p>
+<p>Transactional Memory: The Theory</p>
+<p>Self-Stabilization</p>
+<p>The Theory of Timed I/O Automata. 2nd ed</p>
+<p>6.854J Advanced Algorithms&nbsp;</p>
+<p>6.855J Network Optimization&nbsp;</p>
+<p>Network Flows: Theory, Algorithms, and Applications</p>
+<p>6.856J Randomized Algorithms&nbsp;</p>
+<p>Randomized Algorithms</p>
+<p>An Introduction to Probability Theory and Its Applications.Vol. 1</p>
+<p>6.857 Network and Computer Security&nbsp;</p>
+<p>Cryptography: An Introduction</p>
+<p><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-857-network-and-computer-security-fall-2003/related-resources/" target="_blank" rel="external">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-857-network-and-computer-security-fall-2003/related-resources/</a></p>
+<p>6.863J Natural Language and the Computer Representation of Knowledge<br><span class="s2">自然</span><span class="s1">语言和电脑对知识的表示</span></p>
+<p>Speech and Language Processing</p>
+<p>Foundations of Statistical Natural Language Processing</p>
+<p>Computational Complexity and Natural Language</p>
+<p>Natural Language Understanding</p>
+<p>Computational Models of Discourse</p>
+<p>6.864 Advanced Natural Language Processing</p>
+<p>Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics and Speech Recognition</p>
+<p>Foundations of Statistical Natural Language Processing</p>
+<p>6.866 Machine Vision&nbsp;</p>
+<p>Robot Vision</p>
+<p>6.867 Machine Learning&nbsp;</p>
+<p>Neural Networks for Pattern Recognition</p>
+<p>Pattern Classification. 2nd ed</p>
+<p>The Elements of Statistical Learning: Data Mining, Inference and Prediction</p>
+<p>Information Theory, Inference, and Learning Algorithms</p>
+<p>Machine Learning</p>
+<p>Elements of Information Theory</p>
+<p>6.868J The Society of Mind <span class="s2">心理</span><span class="s1">协会</span></p>
+<p>The Society of Mind</p>
+<p>The Emotion Machine: Commonsense Thinking, Artificial Intelligence, and the Future of the Human Mind</p>
+<p>6.871 Knowledge-Based Applications Systems</p>
+<p>6.872 Biomedical Computing <span class="s2">生物医学</span><span class="s1">计算</span></p>
+<p>Biomedical informatics: Computer Applications in Health Care and Biomedicine. 3rd ed</p>
+<p>6.872J Medical Computing <span class="s2">医用</span><span class="s1">电脑</span></p>
+<p>Medical Informatics: Computer Applications in Health Care and Biomedicine. 2nd ed</p>
+<p>6.873J Medical Decision Support <span class="s2">医</span><span class="s1">疗决策支援</span></p>
+<p>6.874J Computational Functional Genomics <span class="s1">计算功能基因组学</span></p>
+<p>6.875 Cryptography and Cryptanalysis <span class="s2">加密和安全性分析</span></p>
+<p>Foundations of Cryptography: Basic Tools.</p>
+<p>Lecture Notes on Cryptography</p>
+<p>6.876J Advanced Topics in Cryptography <span class="s2">密</span><span class="s1">码学中的高级主题</span>&nbsp;</p>
+<p>6.877J Computational Evolutionary Biology <span class="s1">计算演化生物学</span></p>
+<p>Evolutionary Theory: Conceptual and Mathematical Foundations</p>
+<p>Phylogenetic Trees Made Easy</p>
+<p>Principles of Population Genetics. 3rd ed</p>
+<p>Evolutionary Biology. 3rd ed</p>
+<p>Inferring Phylogenies</p>
+<p>Mathematical Population Genetics. 2nd ed. Vol. 1</p>
+<p>Genetics and the Logic of Evolution</p>
+<p>6.878 Computational Biology: Genomes, Networks, Evolution <span class="s1"><br>计算生物学：基因组，网络，演化</span></p>
+<p>Biological Sequence Analysis: Probabilistic Models of Proteins and Nucleic Acids</p>
+<p>An Introduction to Bioinformatics Algorithms</p>
+<p>Pattern Classification</p>
+<p>6.881 Representation and Modeling for Image Analysis <span class="s1"><br>图像分析的代表性和建模</span></p>
+<p>6.883 Pervasive Human Centric Computing (SMA 5508) <span class="s2"><br>普遍人权中心的</span><span class="s1">计算线</span></p>
+<p>6.883 Program Analysis&nbsp;</p>
+<p><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-883-program-analysis-fall-2005/readings/" target="_blank" rel="external">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-883-program-analysis-fall-2005/readings/</a></p>
+<p>6.884 Complex Digital Systems</p>
+<p>Verilog HDL: A Guide to Digital Design and Synthesis. 2nd ed</p>
+<p>HDL Chip Design</p>
+<p>Principles of CMOS VLSI Design: A Systems Perspective. 2nd ed</p>
+<p>Application-Specific Integrated Circuits</p>
+<p>Digital Integrated Circuits: A Design Perspective</p>
+<p>Logical Effort: Designing Fast CMOS Circuits</p>
+<p>See MIPS Run</p>
+<p>6.891 Computational Evolutionary Biology <span class="s1">计算演化生物学</span></p>
+<p>Evolutionary Theory: Conceptual and Mathematical Foundations</p>
+<p>Phylogenetic Trees Made Easy</p>
+<p>Principles of Population Genetics. 3rd ed</p>
+<p>Evolutionary Biology. 3rd ed</p>
+<p>Inferring Phylogenies</p>
+<p>Mathematical Population Genetics. 2nd ed</p>
+<p>Genetics and the Logic of Evolution</p>
+<p>6.892 Computational Models of Discourse <span class="s1">话语的计算模型</span></p>
+<p>6.895 Essential Coding Theory <span class="s2">必要的</span><span class="s1">编码理论</span></p>
+<p>Theory and Practice of Error-Control Codes</p>
+<p>The Theory of Error Correcting Codes</p>
+<p>Introduction to Coding Theory. 3rd ed</p>
+<p>6.895 Theory of Parallel Systems (SMA 5509) <span class="s2">平行系</span><span class="s1">统理论</span></p>
+<p>LaTex: A Document Preparation System User’s Guide and Reference Manual</p>
+<p>6.896 Theory of Parallel Hardware (SMA 5511)</p>
+<p>6.897 Selected Topics in Cryptography <span class="s2">在密</span><span class="s1">码学中选定的主题</span></p>
+<p>6.911 Transcribing Prosodic Structure of Spoken Utterances with ToBI</p>
+<p><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-911-transcribing-prosodic-structure-of-spoken-utterances-with-tobi-january-iap-2006/readings/" target="_blank" rel="external">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-911-transcribing-prosodic-structure-of-spoken-utterances-with-tobi-january-iap-2006/readings/</a></p>
+<p>6.931 Development of Inventions and Creative Ideas <span class="s1"><br>发明和创意的发展</span></p>
+<p>Create or Perish: The Case for Inventions and Patents</p>
+<p>6.933J The Structure of Engineering Revolutions <span class="s2">工程革命的</span><span class="s1">结构</span></p>
+<p>Science in Action: How to Follow Scientists and Engineers through Society</p>
+<p>Inventing Accuracy: A Historical Sociology of Nuclear Missile Guidance</p>
+<p>The Innovator’s Dilemma: The Revolutionary National Bestseller That Changed The Way We Do Business. 1st ed</p>
+<p>Visual &amp; Statistical Thinking: Displays of Evidence for Decision Making</p>
+<p>Visual Explanations: Images and Quantities, Evidence and Narrative</p>
+<p>6.938 Engineering Risk-Benefit Analysis <span class="s2">工程</span><span class="s1">风险</span> -<br><span class="s2">效益分析</span></p>
+<p>System Reliability Theory</p>
+<p>Making Hard Decisions. 2nd ed</p>
+<p>Engineering Economy. 9th ed</p>
+<p>Probability Concepts in Engineering Planning and Design, Basic Principles. Vol. 1</p>
+<p>6.945 Adventures in Advanced Symbolic Programming <span class="s2"><br>在先</span><span class="s1">进的符号编程的冒险</span></p>
+<p>Structure and Interpretation of Computer Programs. 2nd ed.</p>
+<p>6.946J Classical Mechanics: A Computational Approach <span class="s1"><br>经典力学：计算方法</span></p>
+<p>Structure and Interpretation of Classical Mechanics</p>
+<p>6.971 Biomedical Devices Design Laboratory <span class="s2">生物医学</span><span class="s1">设备设计实验室</span></p>
+<p>6.972 Algebraic Techniques and Semidefinite Optimization <span class="s2"><br>代数技巧和半定</span><span class="s1">优化</span></p>
+<p>Ideals, Varieties, and Algorithms: An Introduction to Computational Algebraic Geometry and Commutative Algebra</p>
+<p>Aspects of Semidefinite Programming: Interior Point Algorithms and Selected Applications</p>
+<p>Algorithmic Algebra</p>
+<p>Solving Systems of Polynomial Equations</p>
+<p>Handbook of Semidefinite Programming</p>
+<p>Fundamental Problems of Algorithmic Algebra</p>
+<p>6.973 Communication System Design</p>
+<p>Bluespec™ Language Definition</p>
+<p>the Digital Communication: Signal Processing course reader</p>
+<p>6.973 Organic Optoelectronics <span class="s2">有机光</span><span class="s1">电子</span></p>
+<p>6.974 Engineering, Economics and Regulation of the Electric Power Sector<br><span class="s2">工程，</span><span class="s1">经济和电力部门的规管</span></p>
+<p>6.974 Fundamentals of Photonics: Quantum Electronics <span class="s2"><br>光子学的基本原理：量子</span><span class="s1">电子</span></p>
+<p>Fundamentals of Photonics</p>
+<p>Optics. 3rd ed</p>
+<p>Introduction to Quantum Mechanics. 2nd ed</p>
+<p>Quantum Mechanics I</p>
+<p>Optical Electronics in Modern Communications. 5th ed</p>
+<p>Principles of Lasers</p>
+<p>Waves and Fields in Optoelectronics</p>
+<p>Optical Resonance and Two-Level Atoms</p>
+<p>Photonic Devices</p>
+<p>Elements of Quantum Optics. 3rd ed</p>
+<p>6.976 NextLab I: Designing Mobile Technologies for the Next Billion Users</p>
+<p>6.976 High Speed Communication Circuits and Systems <span class="s2"><br>高速通信</span><span class="s1">电路与系统</span></p>
+<p>The Design of CMOS Radio-Frequency Integrated Circuits</p>
+<p>RF Microelectronics</p>
+<p>A Book on C</p>
+<p>Microwave Transistor Amplifiers: Analysis and Design</p>
+<p>Digital Integrated Circuits: A Design Perspective</p>
+<p>6.977 Ultrafast Optics <span class="s2">超快光学</span></p>
+<p>Principles of Lasers. 4th ed</p>
+<p>Waves and Fields in Optoelectronics</p>
+<p>Optical Resonance and Two Level Atoms</p>
+<p>Elements of Quantum Optics. 3rd ed</p>
+<p>Ultrashort Laser Pulse Phenomena: Fundamentals, Techniques, and Applications on a Femtosecond Time Scale</p>
+<p>Topics in Applied Physics: Few-Cycle Laser Pulse Generation and Its Applications. Vol. 95</p>
+<p>6.977 Semiconductor Optoelectronics: Theory and Design <span class="s2"><br>光</span><span class="s1">电半导体：理论与设计</span></p>
+<p>Diode Lasers and Photonic Integrated Circuits. 1st ed</p>
+<p>Physics of Optoelectronic Devices</p>
+<p>6.978J Communications and Information Policy <span class="s2">通信和信息政策</span></p>
+<p>Policy Paradox: The Art of Political Decision Making</p>
+<p>Digital Crossroads: American Telecommunications Policy in the Internet Age.</p>
+<p>6.982J Teaching College-Level Science and Engineering <span class="s2"><br>学院</span><span class="s1">级科学与工程教学</span></p>
+<p><a href="http://ocw.mit.edu/courses/chemistry/5-95j-teaching-college-level-science-and-engineering-spring-2009/related-resources/" target="_blank" rel="external">http://ocw.mit.edu/courses/chemistry/5-95j-teaching-college-level-science-and-engineering-spring-2009/related-resources/</a></p>
+<p><span style="white-space:pre"></span><span style="white-space:pre"></span><span style="white-space:pre"></span></p>
+<p><span style="white-space:pre"></span></p>
+<pre><code>        &lt;<span class="operator">div</span>&gt;
+            作者：wowdd1 发表于<span class="number">2012</span>-<span class="number">3</span>-<span class="number">21</span> <span class="number">9</span>:<span class="number">47</span>:<span class="number">24</span> [原文链接](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">7376630</span>)
+        &lt;/<span class="operator">div</span>&gt;
+        &lt;<span class="operator">div</span>&gt;
+        阅读：<span class="number">3214</span> 评论：<span class="number">0</span> [查看评论](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">7376630</span><span class="comment">#comments)</span>
+        &lt;/<span class="operator">div</span>&gt;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/03/21/-原-MIT-Electrical-Engineering-and-Computer-Science-参考书整理/" data-id="hh9m75xgxt3okxdp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--原-历届jolt大奖" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/01/12/-原-历届jolt大奖/" class="article-date">
+  <time datetime="2012-01-12T14:22:12.000Z" itemprop="datePublished">Jan 12 2012</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/01/12/-原-历届jolt大奖/">[原]历届jolt大奖</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="_"> </h1>
+<p>1991</p>
+<p><strong>Annotated C&#43;&#43; Reference Manual. by Margaret Ellis, Bjarne Stroustrup</strong></p>
+<ol>
+<li><p>The Art of Human-Computer Interface Design. by Brenda Laurel</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2009/06/programming-windows.html" target="_blank" rel="external">Programming Windows, 2nd Edition</a>&nbsp;by Charles Petzold</p>
+</li>
+<li><p>Turbo C&#43;&#43; DiskTutor, by Greg Voss, Paul Chui</p>
+</li>
+</ol>
+<h1 id="_-1"> </h1>
+<p>1992</p>
+<p><strong>Object-Oriented Design with Applications. by Grady Booch</strong></p>
+<ol>
+<li><p>Advanced C&#43;&#43;: Programming Styles and Idioms. by James Coplien</p>
+</li>
+<li><p>Object-Oriented Modeling and Design. by James rumbaugh, Michael Blaha, William Premerlani, Frederick Eddy, William Lorensen</p>
+</li>
+<li><p>Object Lifecycles: Modeling the World in States. by Sally Shlaer, Steve Mellor</p>
+</li>
+</ol>
+<h1 id="_-1"> </h1>
+<p>1993</p>
+<p><strong>Undocumented Windows. by Andrew Schulman, David Maxey, Matt Pietrek</strong></p>
+<p><strong>Decline and Fall of the American Programmer. by Ed Yourdon</strong></p>
+<ol>
+<li><p>Object-Oriented Software Engineering: A Use-Case Driven Approach. by Ivar Jacobson, Magnus Christerson, Patrik Jonsson, Gunnar Overgaard</p>
+</li>
+<li><p>Literate Programming. by Donald Knuth</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2008/09/effective-cpp-third-edition-55-specific-ways-to-improve-your-programs-and-designs.html" target="_blank" rel="external">Effective C&#43;&#43;</a>&nbsp;by Scott Meyers</p>
+</li>
+</ol>
+<h1 id="_-1"> </h1>
+<p>1994</p>
+<p><strong><a href="http://www.ppurl.com/2009/11/code-complete-second-edition.html" target="_blank" rel="external">Code Complete</a>&nbsp;by Steve McConnell</strong></p>
+<p><strong>Object-Oriented Design and Analysis with Applications, 2nd Edition. by Grady Booch</strong></p>
+<ol>
+<li><p>Applied Cryptography. by Bruce Schneier</p>
+</li>
+<li><p>Programming on Purpose, Vols. I and II. by P.J. Plauger</p>
+</li>
+<li><p>Writing Solid Code. by Steve Maguire</p>
+</li>
+</ol>
+<h1 id="_-1"> </h1>
+<p>1995</p>
+<p><strong>Essential Client/Server Survival Guide. by Robert Orfali, Dan Harkey, Jeri Edwards</strong></p>
+<ol>
+<li><p>Debugging the Development Process. by Steve Maguire</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2010/04/design-patterns-elements-of-reusable-object-oriented-software-2.html" target="_blank" rel="external">Design Patterns</a>&nbsp;by Erich Gamma, Richard Helm, Ralph Johnson, John<br>Vlissides</p>
+</li>
+<li><p>The Design and Evolution of C&#43;&#43;. by Bjarne Stroustrup</p>
+</li>
+</ol>
+<h1 id="_-1"> </h1>
+<p>1996</p>
+<p><strong>Thinking in C&#43;&#43;, by Bruce Eckel</strong></p>
+<ol>
+<li><p>About Face: The Essentials of User Interface Design. by Alan Cooper</p>
+</li>
+<li><p>A Discipline for Software Engineering. by Watts Humphrey</p>
+</li>
+</ol>
+<h1 id="_-1"> </h1>
+<p>1997</p>
+<p><strong><a href="http://www.ppurl.com/2009/12/rapid-development.html" target="_blank" rel="external">Rapid Development</a>&nbsp;by Steve McConnell</strong></p>
+<ol>
+<li><p>Creating a Software Engineering Culture. by Karl Weigers</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2009/10/pattern-oriented-software-architecture.html" target="_blank" rel="external">Pattern-Oriented Software Architecture</a>&nbsp;by Frank Buschmann, Regine Meunier, Hans Rohnert,<br>Peter Sommerlad, Michael Stal</p>
+</li>
+<li><p>The Essential Distributed Objects Survival Guide. by Robert Orfali, Dan Harkey, and Jeri Edwards</p>
+</li>
+</ol>
+<h1 id="_-1"> </h1>
+<p>1998</p>
+<p><strong>Object-oriented Software Construction. by Bertrand Meyer</strong></p>
+<ol>
+<li><p>The Deadline: A Novel about Project Management. by Tom DeMarco</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2010/01/uml-distilled-2.html" target="_blank" rel="external">UML Distilled: Applying the Standard Object Modeling Language</a>&nbsp;by Martin Fowler, Scott Kendall</p>
+</li>
+<li><p>Building Object Applications That Work, by Scott Ambler</p>
+</li>
+</ol>
+<h1 id="_-1"> </h1>
+<p>1999</p>
+<p><strong>Component Software—Beyond Object-Oriented Programming. by Clemens Szyperski</strong></p>
+<ol>
+<li><p>Anti-Patterns: Refactoring Software, Architectures, and Projects in Crisis. by William J. Brown, Raphael C. Malveau, Hays W. McCormick, Thomas Mowbray</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2008/09/software-architecture-in-practice-second-edition.html" target="_blank" rel="external">Software Architecture in Practice</a>&nbsp;by Len Bass, Paul Clements, Rick Kazman</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2009/08/thinking-in-javafourth-edition.html" target="_blank" rel="external">Thinking in Java</a>&nbsp;by Bruce Eckel</p>
+</li>
+</ol>
+<h1 id="_-1"> </h1>
+<p>2000</p>
+<p><strong>Software for Use: A Practical Guide to the Models and Methods of Usage Centered Design. by Larry Constantine, Lucy Lockwood</strong></p>
+<ol>
+<li><p><a href="http://www.ppurl.com/2009/11/extreme-programming-explained-embrace-change-2nd-edition.html" target="_blank" rel="external">Extreme Programming Explained: Embrace Change</a>&nbsp;by Kent Beck</p>
+</li>
+<li><p>Software Requirements. by Karl E. Wiegers</p>
+</li>
+<li><p>After the Gold Rush: Creating a True Profession of Software Engineering. by Steve M. McConnell</p>
+</li>
+</ol>
+<h1 id="_-1"> </h1>
+<p>2001</p>
+<p><strong>Adaptive Software Development. by James A. Highsmith III</strong></p>
+<ol>
+<li><p><a href="http://www.ppurl.com/2010/08/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1%E7%A7%98%E7%AC%88don%E2%80%99t-make-me-think.html" target="_blank" rel="external">Don’t Make Me Think! A Common Sense Approach to<br>Web Usability</a>&nbsp;by Steve Krug</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2009/09/writing-effective-use-cases.html" target="_blank" rel="external">Writing Effective Use Cases</a>&nbsp;by Alistair Cockburn</p>
+</li>
+<li><p>Secrets and Lies: Digital Security in a Networked World. by Bruce Schneier</p>
+</li>
+</ol>
+<h1 id="_-1"> </h1>
+<p>2002</p>
+<p><strong><a href="http://www.ppurl.com/2008/11/effective-java-2nd-edition.html" target="_blank" rel="external">Effective Java</a>&nbsp;by Joshua Bloch</strong></p>
+<ol>
+<li><p>Agile Software Development. by Alistair Cockburn</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2010/09/software-craftsmanship.html" target="_blank" rel="external">Software Craftsmanship</a>&nbsp;by Pete McBreen</p>
+</li>
+<li><p>Under Pressure and On Time. by Ed Sullivan</p>
+</li>
+</ol>
+<h1 id="_-1"> </h1>
+<p>2003</p>
+<p><strong><a href="http://www.ppurl.com/2009/09/agile-principles-patterns-and-practices-in-c.html" target="_blank" rel="external">Agile Software Development: Principles, Patterns and Practices</a>&nbsp;by Robert<br> C. Martin</strong></p>
+<ol>
+<li><p><a href="http://www.ppurl.com/2008/09/documenting-software-architectures.html" target="_blank" rel="external">Documenting Software Architectures</a>&nbsp;by Paul Clements, Felix Bachmann</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2009/11/test-driven-development-by-example.html" target="_blank" rel="external">Test Driven Development: By Example</a>&nbsp;by Kent Beck</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2009/06/patterns-of-enterprise-application-architecture.html" target="_blank" rel="external">Patterns of Enterprise Application Architecture</a>&nbsp;by Martin Fowler</p>
+</li>
+</ol>
+<p><strong><a href="http://www.ppurl.com/2009/08/thinking-in-javafourth-edition.html" target="_blank" rel="external">Thinking in Java, 3rd Edition</a>&nbsp;by Bruce Eckel</strong></p>
+<ol>
+<li><p>Understanding Web Services: XML, WSDL, SOAP, and UDDI. by Eric Newcomer</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2009/11/core-java-volume-1-fundamentals-8th-edition.html" target="_blank" rel="external">Core Java 2, Volume 1: Fundamentals</a>&nbsp;by Cay Horstmann, Gary Cornell</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2009/02/php-and-mysql-web-development-4e.html" target="_blank" rel="external">PHP and MySQL Web Development, 2nd Edition</a>&nbsp;by Luke Welling, Laura Thomson</p>
+</li>
+</ol>
+<h1 id="_-1"> </h1>
+<p>2004</p>
+<p><strong>Waltzing with Bears. by Tom DeMarco, Timothy Lister</strong></p>
+<ol>
+<li><p><a href="http://www.ppurl.com/2009/11/the-art-of-unix-programming.html" target="_blank" rel="external">The Art of Unix Programming</a>&nbsp;by Eric S. Raymond</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2008/09/lean-software-development.html" target="_blank" rel="external">Lean Software Development: An Agile Toolkit</a>&nbsp;by Mary Poppendieck, Tom Poppendieck</p>
+</li>
+<li><p>The Pragmatic Starter Kit, by Dave Thomas, Andy Hunt</p>
+</li>
+</ol>
+<p><strong>Test-Driven Development: A Practical Guide. by David Astels</strong></p>
+<ol>
+<li><p><a href="http://www.ppurl.com/2009/12/about-face-2-0-the-essentials-of-interaction-design.html" target="_blank" rel="external">About Face 2.0: The Essentials of Interaction Design</a>&nbsp;by Alan Cooper, Robert<br>Reimann</p>
+</li>
+<li><p>Agile Database Techniques: Effective Strategies for the Agile Software Developer. by Scott W. Ambler</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2008/09/code-reading.html" target="_blank" rel="external">Code Reading: The Open Source Perspective</a>&nbsp;by Diomidis Spinellis</p>
+</li>
+</ol>
+<h1 id="_-1"> </h1>
+<p>2005</p>
+<p><strong><a href="http://www.ppurl.com/2009/11/head-first-design-patterns.html" target="_blank" rel="external">Head First Design Patterns</a>&nbsp;by Elisabeth Freeman, Eric Freeman, Bert Bates, Kathy</strong></p>
+<ol>
+<li><p><a href="http://www.ppurl.com/2009/12/joel-on-software.html" target="_blank" rel="external">Joel on Software</a>&nbsp;by Joel Spolsky</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2009/11/refactoring-to-patterns.html" target="_blank" rel="external">Refactoring to Patterns</a>&nbsp;by Joshua Kerievsky</p>
+</li>
+<li><p>Software Factories: Assembling Applications with Patterns, Models, Frameworks, and Tools. by Jack Greenfield, Keith Short, Steve Cook, Stuart Kent, John Crupi</p>
+</li>
+</ol>
+<p><strong>Better, Faster, Lighter Java. by Bruce A. Tate, Justin Gehtland</strong></p>
+<ol>
+<li><p><a href="http://www.ppurl.com/2008/11/cpp-coding-standards.html" target="_blank" rel="external">C&#43;&#43; Coding Standards: 101 Rules, Guidelines, and Best Practices</a>&nbsp;by Herb Sutter, Andrei Alexandrescu</p>
+</li>
+<li><p>Hibernate: A Developer’s Notebook. by James Elliott</p>
+</li>
+<li><p>Java Developer’s Guide to Eclipse, 2nd Edition. by Jim D’Anjou, Scott Fairbrother, Dan Kehn, John Kellerman, Pat McCarthy</p>
+</li>
+</ol>
+<h1 id="_-1"> </h1>
+<p>2006</p>
+<p><strong><a href="http://www.ppurl.com/2009/11/prefactoring.html" target="_blank" rel="external">Prefactoring</a>&nbsp;by Ken Pugh</strong></p>
+<ol>
+<li><p>The Art of Project Management. by Scott Berkun</p>
+</li>
+<li><p>Innovation Happens Elsewhere: Open Source as Business Strategy. by Ron Goldman, Richard P. Gabriel</p>
+</li>
+<li><p>Producing Open Source Software: How to Run a Successful Free Software Project. by Karl Fogel</p>
+</li>
+</ol>
+<p><strong><a href="http://www.ppurl.com/2009/04/agile-web-development-with-rails-third-edition.html" target="_blank" rel="external">Agile Web Development with Rails</a>&nbsp;by Dave Thomas, David Hansson, Leon Breedt,<br> Mike Clark</strong></p>
+<ol>
+<li><p><a href="http://www.ppurl.com/2009/08/framework-design-guidelines-conventions-idioms-and-patterns-for-reusable-net-libraries-2nd-edition.html" target="_blank" rel="external">Framework Design Guidelines: Conventions,<br>Idioms, and Patterns for Reusable .NET Libraries</a>&nbsp;by Krzysztof Cwalina, Brad Abrams</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2010/05/practical-common-lisp.html" target="_blank" rel="external">Practical Common Lisp</a>&nbsp;by Peter Seibel</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2010/03/why-programs-fail-second-edition-a-guide-to-systematic-debugging.html" target="_blank" rel="external">Why Programs Fail: A Guide to Systematic Debugging</a>&nbsp;by Andreas<br>Zeller</p>
+</li>
+</ol>
+<h1 id="_-1"> </h1>
+<p>2007</p>
+<p><strong><a href="http://www.ppurl.com/2009/11/agile-software-development-the-cooperative-game-2nd-edition.html" target="_blank" rel="external">Agile Software Development: The Cooperative Game</a>&nbsp;by Alistair<br> Cockburn</strong></p>
+<ol>
+<li><p>Catastrophe Disentanglement. by E. M. Bennatan</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2009/11/practices-of-an-agile-developer.html" target="_blank" rel="external">Practices of an Agile Developer</a>&nbsp;by Venkat Subramaniam, Andy Hunt</p>
+</li>
+<li><p>Software Estimation: Demystifying the Black Art. by Steve McConnell</p>
+</li>
+</ol>
+<p><strong><a href="http://www.ppurl.com/2009/12/head-first-object-oriented-analysis-and-design.html" target="_blank" rel="external">Head First Object-Oriented Analysis &amp;amp; Design</a>&nbsp;by B. McLaughlin, G. Pollice,<br> D. West</strong></p>
+<ol>
+<li><p><a href="http://www.ppurl.com/2010/05/code-quality.html" target="_blank" rel="external">Code Quality</a>&nbsp;by Diomidis Spinellis</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2009/11/refactoring-databases-evolutionary-database-design.html" target="_blank" rel="external">Refactoring Databases</a>&nbsp;by Scott W. Ambler, P.J. Sadalage</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2009/12/css-the-missing-manual-second-edition.html" target="_blank" rel="external">CSS: The Missing Manual</a>&nbsp;by David Sawyer McFarland</p>
+</li>
+</ol>
+<h1 id="_-1"> </h1>
+<p>2008</p>
+<p><strong><a href="http://www.ppurl.com/2009/11/beautiful-code.html" target="_blank" rel="external">Beautiful Code</a>&nbsp;by Andy Oram, Greg Wilson</strong></p>
+<ol>
+<li><p><a href="http://www.ppurl.com/2010/02/manage-it-your-guide-to-modern-pragmatic-project-management.html" target="_blank" rel="external">Manage It!: Your Guide to Modern Pragmatic Project Management</a>&nbsp;by Johanna<br>Rothman</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2010/08/myths-of-innovation.html" target="_blank" rel="external">The Myths of Innovation</a>&nbsp;by Scott Berkun</p>
+</li>
+<li><p>Release It: Design and Deploy Production-Ready Software. by Michael T. Nygard</p>
+</li>
+</ol>
+<p><strong><a href="http://www.ppurl.com/2009/11/continuous-integration.html" target="_blank" rel="external">Continuous Integration: Improving Software Quality and Reducing Risk</a>&nbsp;by Paul Duvall, Steve Matyas,<br> Andrew Glover</strong></p>
+<ol>
+<li><p>Head First SQL Your Brain on SQL: A Learner’s Guide. by Lynn Beighley</p>
+</li>
+<li><p>The Rails Way. by Obie Fernandez</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2009/09/xunit-test-patterns-refactoring-test-code.html" target="_blank" rel="external">xUnit Test Patterns: Refactoring Test Code</a>&nbsp;by Gerard Meszaros</p>
+</li>
+</ol>
+<h1 id="_-1"> </h1>
+<p>2009</p>
+<p><strong>Adrenaline Junkies and Template Zombies: Understanding Patterns of Project Behavior. by Tom Demarco, Peter Hruschka, Tim Lister, Suzanne Robertson, James Robertson, Steve McMenamin</strong></p>
+<ol>
+<li><p><a href="http://www.ppurl.com/2009/01/emergent-design-the-evolutionary-nature-of-professional-software-development.html" target="_blank" rel="external">Emergent Design: The Evolutionary Nature of Professional<br>Software Development</a>&nbsp;by Scott L. Bain</p>
+</li>
+<li><p>Intellectual Property and Open Source: A Practical Guide to Protecting Code. by Van Lindberg</p>
+</li>
+</ol>
+<p><strong><a href="http://www.ppurl.com/2009/11/real-world-haskell.html" target="_blank" rel="external">Real World Haskell</a>&nbsp;by Bryan O’Sullivan, John Goerzen, Don Stewart</strong></p>
+<ol>
+<li><p><a href="http://www.ppurl.com/2009/12/high-performance-mysql-second-edition.html" target="_blank" rel="external">High Performance MySQL: Optimization, Backups, Replication, and More</a>&nbsp;by Baron Schwartz,<br>Peter Zaitsev, Vadim Tkachenko, Jeremy Zawodny, Arjen Lentz, Derek J. Balling</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2009/04/programming-in-scala-a-comprehensive-step-by-step-guide.html" target="_blank" rel="external">Programming in Scala</a>&nbsp;by Martin Odersky, Lex Spoon, Bill Venners</p>
+</li>
+</ol>
+<h1 id="_-1"> </h1>
+<p>2010</p>
+<p><strong><a href="http://www.ppurl.com/2009/12/masterminds-of-programming-conversations-with-the-creators-of-major-programming-languages.html" target="_blank" rel="external">Masterminds of Programming: Conversations<br> with the Creators of Major Programming Languages</a>&nbsp;by Federico Biancuzzi, Shane Warden</strong></p>
+<ol>
+<li><p>SDLC 3.0: Beyond a Tacit Understanding of Agile. by Mark Kennaley</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2010/08/hello-world-computer-programming-for-kids-and-other-beginners.html" target="_blank" rel="external">Hello World! Computer Programming for Kids and Other Beginners</a>&nbsp;by<br>Carter Sande</p>
+</li>
+</ol>
+<h1 id="_-1"> </h1>
+<p>2011</p>
+<p><strong><a href="http://www.ppurl.com/2010/10/continuous-delivery-reliable-software-releases-through-build-test-and-deployment-automation.html" target="_blank" rel="external">Continuous Delivery</a>&nbsp;by Jez<br> Humble, David Farley</strong></p>
+<ol>
+<li><p><a href="http://www.ppurl.com/2010/11/seven-languages-in-seven-weeks.html" target="_blank" rel="external">Seven Languages in Seven Weeks</a>&nbsp;by Bruce Tate</p>
+</li>
+<li><p><a href="http://www.ppurl.com/2011/01/mining-the-social-web.html" target="_blank" rel="external">Mining the Social Web</a>&nbsp;by Matthew A. Russell</p>
+</li>
+</ol>
+<h1 id="_-1"> </h1>
+<p>2012</p>
+<p><strong><a href="http://www.amazon.com/Specification-Example-Successful-Deliver-Software/dp/1617290084/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1318986911&amp;sr=1-1" target="_blank" rel="external">Specification by Example:<br> How Successful Teams Deliver the Right Software</a>&nbsp;by Gojko Adzic</strong></p>
+<ol>
+<li><p><a href="http://www.amazon.com/HTML5-Developers-Cookbook-Library/dp/0321769384/?tag=drdos-20" target="_blank" rel="external">HTML5 Developer’s Cookbook</a>&nbsp;by Chuck Hudson, Tom Leadbetter</p>
+</li>
+<li><p><a href="http://www.amazon.com/iOS-Programming-Ranch-Guide-Guides/dp/0321821521/?tag=drdos-20" target="_blank" rel="external">iOS Programming: The Big Nerd Ranch Guide</a>&nbsp;by Joe Conway, Aaron Hillegass</p>
+<pre><code>    &lt;<span class="operator">div</span>&gt;
+        作者：wowdd1 发表于<span class="number">2012</span>-<span class="number">1</span>-<span class="number">12</span> <span class="number">22</span>:<span class="number">22</span>:<span class="number">12</span> [原文链接](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">7197423</span>)
+    &lt;/<span class="operator">div</span>&gt;
+    &lt;<span class="operator">div</span>&gt;
+    阅读：<span class="number">691</span> 评论：<span class="number">1</span> [查看评论](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">7197423</span><span class="comment">#comments)</span>
+    &lt;/<span class="operator">div</span>&gt;
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/01/12/-原-历届jolt大奖/" data-id="kfnk3z68brpjz3wi" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--原-高尔夫项目展示" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/01/09/-原-高尔夫项目展示/" class="article-date">
+  <time datetime="2012-01-09T03:09:18.000Z" itemprop="datePublished">Jan 9 2012</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/01/09/-原-高尔夫项目展示/">[原]高尔夫项目展示</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><span style="white-space:pre"></span><span style="white-space:pre"></span>刚结束了一个自己参与了的项目,贴出来记录一下;</p>
+<p><span style="white-space:pre"></span><span style="white-space:pre"></span>这个项目用于捕捉打高尔夫球杆的轨迹等一些数据,然后在android手机上显示,当然最核心东东的不是我做 :)<span style="white-space:pre"></span></p>
+<p><img src="http://img.my.csdn.net/uploads/201210/21/1350800636_8185.png" alt=""></p>
+<p><a href="http://v.youku.com/v_show/id_XMzQxMDUzOTgw.html" target="_blank" rel="external">视频地址</a></p>
+<p><span style="white-space:pre"></span></p>
+<pre><code>        &lt;<span class="operator">div</span>&gt;
+            作者：wowdd1 发表于<span class="number">2012</span>-<span class="number">1</span>-<span class="number">9</span> <span class="number">11</span>:<span class="number">09</span>:<span class="number">18</span> [原文链接](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">7186659</span>)
+        &lt;/<span class="operator">div</span>&gt;
+        &lt;<span class="operator">div</span>&gt;
+        阅读：<span class="number">161</span> 评论：<span class="number">0</span> [查看评论](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">7186659</span><span class="comment">#comments)</span>
+        &lt;/<span class="operator">div</span>&gt;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2012/01/09/-原-高尔夫项目展示/" data-id="xcgdhd0axp6mg2gh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--转-有理想的程序员必须知道的15件事" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/04/26/-转-有理想的程序员必须知道的15件事/" class="article-date">
+  <time datetime="2011-04-26T09:56:00.000Z" itemprop="datePublished">Apr 26 2011</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/04/26/-转-有理想的程序员必须知道的15件事/">[转]有理想的程序员必须知道的15件事</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><p>作为程序员，要取得非凡成就需要记住的15件事。<br>1、走一条不一样的路<br>在有利于自己的市场中竞争，如果你满足于&ldquo;泯然众人矣&rdquo;，那恐怕就得跟那些低工资国家的程序员们同场竞技了。</p>
+<p>2、了解自己的公司<br>以我在医院、咨询公司、物流企业以及大技术公司工作的经验来看，这一点所言不虚。</p>
+<p>不同公司的运营模式差异极大。如果你理解企业的运营模式，那你就不一样了！在这家公司中（或者对客户而言），你是参与业务运营的资产，你的工作能直接产生效益！</p>
+<p>3、与最优秀的人为伍<br>很早以前，我喜欢打篮球，被分配到一个水平比较高的队里。一开始适应的确很困难，但环境的压力越大（重大比赛），我的长进也就越明显。</p>
+<p>每个领域其实都一样：你周围人的水平（以及对你的期望）越高，你就会变得越优秀。</p>
+<p>4、制造差异<br>每年学习一门新编程语言。为什么不呢？不断尝试新事物，你关注的技术种类越多，脚下的路就越宽广，你的职业生涯就会日新月异。不知道几年后Java的趋势如何？那就学习Clojure。学Ruby还是Python？这两种语言都可以试试啊。然后你才能知道哪种语言更适合某个特定的项目。看，掌握的语言多了，才能在需要的时候信手拈来吧。</p>
+<p>5、畏惧，是最大的敌人<br>还是直接从书中摘一句吧：&ldquo;在畏惧中做出的职业规划，很可能会让自己后半辈子就一直被&lsquo;圈禁&rsquo;在小隔断里，永远不会有创造明天辉煌的时刻。没错，那样是安全，但有意思吗？&rdquo;</p>
+<p>6、要成为多面手<br>如果你掌握了所在领域的知识，那你只能是一名专业人士。用PHP编程？花点时间设置一台Apache服务器，让PHP和MySQL都跑起来。一直在用jQuery？试试Prototype。你懂了吧。</p>
+<p>7、一个字：做<br>别指望别人过来教你该怎么做，出去，自己学着去做！</p>
+<p>8、找一位好老师<br>找一位好老师可以让你在学习技术的时候有的放矢。作者给我们讲述了别人是怎么指导他学习的（顺便说一句，作者在这本书里讲了很多个人经历的小故事，他居然从一位演奏家转行来做软件开发！）：&ldquo;好好研究一下目录服务，熟悉一种UNIX变体，然后再掌握一门脚本语言。&rdquo;</p>
+<p>请记住这句禅宗谚语：&ldquo;循路觅宗师，形影不相离，师知吾亦知，吾乃成宗师。&rdquo;</p>
+<p>9、主动教会别人<br>教会别人是一种最好的学习方式。写一篇博客能帮你搞清楚一个问题。为此，你必须先掌握很多材料，同时还要有条有理地讲给别人听（写作技能）。如书中所言：&ldquo;要想知道自己是不是真的明白，你就讲给别人听听。&rdquo;</p>
+<p>10、实践，实践，再实践（训练）<br>只有进行大量实践（花大量的时间）才能掌握某种技术。看的很多，写的很少，遇到问题，改一改，又去读代码，&hellip;&hellip;（这样下去是不行的）。</p>
+<p>要特别警惕拖延症。其实，往往只要有了开头就好办了。</p>
+<p>自我加压，效果会更好。我曾在一篇博客中提到帕金森定律：紧张的时限可以让你提高工作效率。为什么不把这个定律用到学习上呢，比如说在y时间内学会x？</p>
+<p>11、从小处入手<br>每天都取得一项小成果，每天都要坚持做（写在博客上？）。这样一来，你只能让自己比昨天更进步，而不能说自己比上星期进步了一点。</p>
+<p>12、享受过程<br>关注当下，而不是目标，享受那些在追逐未来目标的途中可能无暇顾及的小胜利。人总要生活在当下。我享受编程的过程，就像享受编程的结果一样。</p>
+<p>13、不要丧失危机感<br>越是成功，就越容易犯重大错误。永远不要忘了危机感，特别是要认识到你今天所知道的，到了明天可能就会一文不值。过去的荣耀不能保你永远无虞。</p>
+<p>据书中所说，你最好是要让自己能够&ldquo;通用&rdquo;，而不要对哪种技术或哪个公司产生依赖。你所掌握的某些技能，甚至你的工作，到了明天都可能会变得毫无价值。因此要不断提高/丰富/扩展自己的技能。</p>
+<p>14、推销自己<br>为某个项目贡献自己的一份力量，写一篇博客，共享自己的源代码，成为对某个社区有用的人。<br>当然，做这些事可能需要激情，要看你的爱好，但这些事也会间接地推广你的工作成果，证明你的实力，提高你的知名度。</p>
+<p>15、关注市场<br>书中还提到了&ldquo;预警极客&rdquo;，也就是那些始终引领技术发展的人。这些人说过的话往往带有预见性，他们提到事物也许过几天就会成为头条新闻。关注这些人，常看他们的Twitter和博客。</p>
+<p></p><br>            <div><br>                作者：wowdd1 发表于2011-4-26 17:56:00 <a href="http://blog.csdn.net/wowdd1/article/details/6364959" target="_blank" rel="external">原文链接</a><br>            </div><br>            <div><br>            阅读：204 评论：0 <a href="http://blog.csdn.net/wowdd1/article/details/6364959#comments" target="_blank" rel="external">查看评论</a><br>            </div><p></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2011/04/26/-转-有理想的程序员必须知道的15件事/" data-id="yxkf7n3efa4uwl33" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--原-解决vlc-android播放http视频退出问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/04/25/-原-解决vlc-android播放http视频退出问题/" class="article-date">
+  <time datetime="2011-04-25T02:52:00.000Z" itemprop="datePublished">Apr 25 2011</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/04/25/-原-解决vlc-android播放http视频退出问题/">[原]解决vlc-android播放http视频退出问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前用vlc-android播放http视频,程序就自动退出了,尝试用ndk-gdb调试,但是一调试,就报</p>
+<p><table border="0" cellspacing="0" cellpadding="0"></table></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><td id="postmessage_446382" class="t_f"></td></p>
+<p></p><p>/home/administrator/code/vlc-android/extras/package/android/vlc-android/obj/local/armeabi/gdb.setup:4: Error in sourced command file:<br>Remote communication error: Connection reset by peer.</p>
+<p>到网上也没找到解决方案,最后只用采用在c代码中加入调试打印语句的方式,看究竟是哪里报错,最后跟踪到是调用poll函数引起,</p>
+<p>最后采在ffmpeg源码中找到一个poll函数的源码,修改后加入到vlc-android中</p>
+<p>&nbsp;</p>
+<p>int poll(struct pollfd *fds, nfds_t numfds, int timeout)</p>
+<p>{</p>
+<p>&nbsp;&nbsp; &nbsp;fd_set read_set;</p>
+<p>&nbsp;&nbsp; &nbsp;fd_set write_set;</p>
+<p>&nbsp;&nbsp; &nbsp;fd_set exception_set;</p>
+<p>&nbsp;&nbsp; &nbsp;nfds_t i;</p>
+<p>&nbsp;&nbsp; &nbsp;int n;</p>
+<p>&nbsp;&nbsp; &nbsp;int rc;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h1 id="if_HAVE_WINSOCK2_H">if HAVE_WINSOCK2_H</h1>
+<p>&nbsp;&nbsp; &nbsp;if (numfds &gt;= FD_SETSIZE) {</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;errno = EINVAL;</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;return -1;</p>
+<p>&nbsp;&nbsp; &nbsp;}</p>
+<h1 id="endif">endif</h1>
+<p>&nbsp;&nbsp; &nbsp;FD_ZERO(&amp;read_set);</p>
+<p>&nbsp;&nbsp; &nbsp;FD_ZERO(&amp;write_set);</p>
+<p>&nbsp;&nbsp; &nbsp;FD_ZERO(&amp;exception_set);</p>
+<p>&nbsp;&nbsp; &nbsp;n = -1;</p>
+<p>&nbsp;&nbsp; &nbsp;for(i = 0; i &lt; numfds; i++) {</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].fd &lt; 0)</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;continue;</p>
+<h1 id="if_!HAVE_WINSOCK2_H">if !HAVE_WINSOCK2_H</h1>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].fd &gt;= FD_SETSIZE) {</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;errno = EINVAL;</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return -1;</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<h1 id="endif-1">endif</h1>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].events &amp; POLLIN) &nbsp;FD_SET(fds[i].fd, &amp;read_set);</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].events &amp; POLLOUT) FD_SET(fds[i].fd, &amp;write_set);</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].events &amp; POLLERR) FD_SET(fds[i].fd, &amp;exception_set);</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (fds[i].fd &gt; n)</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;n = fds[i].fd;</p>
+<p>&nbsp;&nbsp; &nbsp;};</p>
+<p>&nbsp;&nbsp; &nbsp;if (n == -1)</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;/<em> Hey!? Nothing to poll, in fact!!! </em>/</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;return 0;</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp; &nbsp;if (timeout &lt; 0)</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;rc = select(n+1, &amp;read_set, &amp;write_set, &amp;exception_set, NULL);</p>
+<p>&nbsp;&nbsp; &nbsp;else {</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;struct timeval &nbsp; &nbsp;tv;</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;tv.tv_sec = timeout / 1000;</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;tv.tv_usec = 1000 * (timeout % 1000);</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;rc = select(n+1, &amp;read_set, &amp;write_set, &amp;exception_set, &amp;tv);</p>
+<p>&nbsp;&nbsp; &nbsp;};</p>
+<p>&nbsp;&nbsp; &nbsp;if (rc &lt; 0)</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;return rc;</p>
+<p>&nbsp;&nbsp; &nbsp;for(i = 0; i &lt; numfds; i++) {</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;fds[i].revents = 0;</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (FD_ISSET(fds[i].fd, &amp;read_set)) &nbsp; &nbsp; &nbsp;fds[i].revents |= POLLIN;</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (FD_ISSET(fds[i].fd, &amp;write_set)) &nbsp; &nbsp; fds[i].revents |= POLLOUT;</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if (FD_ISSET(fds[i].fd, &amp;exception_set)) fds[i].revents |= POLLERR;</p>
+<p>&nbsp;&nbsp; &nbsp;};</p>
+<p>&nbsp;&nbsp; &nbsp;return rc;</p>
+<p>}</p>
+<p>&nbsp;</p>
+<p>测试播放网上的http视频,视频地址:<a href="http://forum.ea3w.com/coll_ea3w/attach/2008_10/12231788691.wmv" target="_blank" rel="external">http://forum.ea3w.com/coll_ea3w/attach/2008_10/12231788691.wmv</a></p>
+<p><img src="http://hi.csdn.net/attachment/201104/25/1812247_130369999999g7.png" alt=""></p>
+<p>&nbsp;</p>
+<p><br><br><br><br></p><br>            <div><br>                作者：wowdd1 发表于2011-4-25 10:52:00 <a href="http://blog.csdn.net/wowdd1/article/details/6360940" target="_blank" rel="external">原文链接</a><br>            </div><br>            <div><br>            阅读：2250 评论：9 <a href="http://blog.csdn.net/wowdd1/article/details/6360940#comments" target="_blank" rel="external">查看评论</a><br>            </div><p></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2011/04/25/-原-解决vlc-android播放http视频退出问题/" data-id="ne2rfw4ijmh8mjzk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
+    </nav>
   
 </section>
         
@@ -132,7 +2189,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">January 2010</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -144,7 +2201,23 @@
       <ul>
         
           <li>
-            <a href="/2014/12/17/hello-world/">Hello World</a>
+            <a href="/2014/12/12/-原-用docker搭建spark集群/">[原]用docker搭建spark集群</a>
+          </li>
+        
+          <li>
+            <a href="/2014/09/25/-原-世界上最没用的是工资条-看了生气-擦屁股嫌太细/">[原]世界上最没用的是工资条,看了生气,擦屁股嫌太细</a>
+          </li>
+        
+          <li>
+            <a href="/2013/06/16/-转-2012年软件开发者薪资调查报告/">[转]2012年软件开发者薪资调查报告</a>
+          </li>
+        
+          <li>
+            <a href="/2013/06/10/-原-android系统定制项目展示/">[原]android系统定制项目展示</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/29/-转-MIT本科CS课程安排-2012版/">[转]MIT本科CS课程安排(2012版)</a>
           </li>
         
       </ul>
@@ -159,7 +2232,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2014 John Doe<br>
+      &copy; 2015 John Doe<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Archives: 2011/3 | wowdd1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="wowdd1">
+<meta property="og:url" content="http://yoursite.com/archives/2011/03/">
+<meta property="og:site_name" content="wowdd1">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="wowdd1">
+<meta name="twitter:description">
+
+  
+    <link rel="alternative" href="/atom.xml" title="wowdd1" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">wowdd1</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post--原-vlc-android-移植live555到android" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/03/31/-原-vlc-android-移植live555到android/" class="article-date">
+  <time datetime="2011-03-31T09:13:00.000Z" itemprop="datePublished">Mar 31 2011</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/03/31/-原-vlc-android-移植live555到android/">[原]vlc-android 移植live555到android</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先下载vlc-android的源码,并编译成功,参考&nbsp;<strong><a href="http://blog.csdn.net/wowdd1/archive/2011/03/20/6262845.aspx" target="_blank" rel="external">vlc-android编译流程</a></strong></p>
+<p>&nbsp;</p>
+<p>一. 在contrib目录下编译live555</p>
+<p>修改~/code/vlc-android/extras/contrib 下的distro.mak &nbsp; 增加.live</p>
+<p>&nbsp;</p>
+<p>all: .zlib /</p>
+<p>&nbsp;&nbsp; &nbsp; .a52 .mpeg2 .mad .ogg .vorbis .vorbisenc .theora /</p>
+<p>&nbsp;&nbsp; &nbsp; .flac .speex .faad .lame .ffmpeg /</p>
+<p>&nbsp;&nbsp; &nbsp; .twolame /</p>
+<p>&nbsp;&nbsp; &nbsp; .png .dvbpsi /</p>
+<p>&nbsp;&nbsp; &nbsp; .dca .kate .live</p>
+<p>&nbsp;</p>
+<div style="padding-left: 30px; ">终端执行如下命令:</div><br><div style="padding-left: 30px; ">cd vlc-android/extras/contrib/<br>export ANDROID_NDK=/usr/local/android-ndk-r5b<br>./bootstrap -t arm-eabi -d android</div><br><div style="padding-left: 30px; ">make</div><br><div style="padding-left: 30px; ">此时会在~/code/vlc-android/extras/contrib/build-src下载live555的源码,在live文件夹,此时编译是不能通过的</div>
+
+<p>&nbsp;</p>
+<p>修改/home/administrator/code/vlc-android/extras/contrib/build-src/live/makefile.tail</p>
+<p>注视掉cd $(TESTPROGS_DIR) ; $(MAKE) &nbsp;&nbsp;cd $(MEDIA_SERVER_DIR) ; $(MAKE) &nbsp;&nbsp;cd $(TESTPROGS_DIR) ; $(MAKE) clean</p>
+<p>&nbsp;cd $(MEDIA_SERVER_DIR) ; $(MAKE) clean</p>
+<p>如下所示:</p>
+<p>all:<br>cd $(LIVEMEDIA_DIR) ; $(MAKE)<br>cd $(GROUPSOCK_DIR) ; $(MAKE)<br>cd $(USAGE_ENVIRONMENT_DIR) ; $(MAKE)<br>cd $(BASIC_USAGE_ENVIRONMENT_DIR) ; $(MAKE)</p>
+<h1 id="cd_$(TESTPROGS_DIR)_;_$(MAKE)">cd $(TESTPROGS_DIR) ; $(MAKE)</h1>
+<h1 id="cd_$(MEDIA_SERVER_DIR)_;_$(MAKE)">cd $(MEDIA_SERVER_DIR) ; $(MAKE)</h1>
+<p>clean:<br>cd $(LIVEMEDIA_DIR) ; $(MAKE) clean<br>cd $(GROUPSOCK_DIR) ; $(MAKE) clean<br>cd $(USAGE_ENVIRONMENT_DIR) ; $(MAKE) clean<br>cd $(BASIC_USAGE_ENVIRONMENT_DIR) ; $(MAKE) clean</p>
+<h1 id="cd_$(TESTPROGS_DIR)_;_$(MAKE)_clean">cd $(TESTPROGS_DIR) ; $(MAKE) clean</h1>
+<h1 id="cd_$(MEDIA_SERVER_DIR)_;_$(MAKE)_clean">cd $(MEDIA_SERVER_DIR) ; $(MAKE) clean</h1>
+<p>&nbsp;</p>
+<div style="padding-left: 30px; ">&nbsp;在~/code/vlc-android/extras/contrib/build-src/live/liveMedia/Makefile.head增加&nbsp;&nbsp;-I/home/administrator/android-ndk-r5b/platforms/android-9/arch-arm/usr/include</div><br><div style="padding-left: 30px; ">如下所示:</div><br><div style="padding-left: 30px; ">INCLUDES = -Iinclude -I../UsageEnvironment/include -I../groupsock/include -I/home/administrator/android-ndk-r5b/platforms/android-9/arch-arm/usr/include</div><br><div style="padding-left: 30px; ">其他目录下的Makefile.head也要增加头文件路径,如groupsock &nbsp; &nbsp;&nbsp;UsageEnvironment BasicUsageEnvironment &nbsp;mediaServer&nbsp;testProgs目录的Makefile.head,方法同上</div><br><div style="padding-left: 30px; ">修改groupsock 目录下GroupsockHelper.cpp的socketJoinGroupSSM &nbsp;&nbsp;socketLeaveGroupSSM函数</div><br><div style="padding-left: 30px; ">将</div><br><div style="padding-left: 30px; ">imr.imr_multiaddr.s_addr = groupAddress;<br>imr.imr_sourceaddr.s_addr = sourceFilterAddr;<br>imr.imr_interface.s_addr = ReceivingInterfaceAddr;</div><br><div style="padding-left: 30px; ">改为</div><br><div style="padding-left: 30px; ">imr.imr_multiaddr = groupAddress;<br>imr.imr_sourceaddr= sourceFilterAddr;<br>imr.imr_interface = ReceivingInterfaceAddr;</div><br><div style="padding-left: 30px; ">如下所示:</div><br><div style="padding-left: 30px; ">Boolean socketJoinGroupSSM (UsageEnvironment&amp; env, int socket,<br>netAddressBits groupAddress,<br>netAddressBits sourceFilterAddr) {<br>if (!IsMulticastAddress(groupAddress)) return True; // ignore this case<br><br>struct ip_mreq_source imr;<br>imr.imr_multiaddr = groupAddress;<br>imr.imr_sourceaddr = sourceFilterAddr;<br>imr.imr_interface = ReceivingInterfaceAddr;<br>if (setsockopt(socket, IPPROTO_IP, IP_ADD_SOURCE_MEMBERSHIP,<br>(const char<em>)&amp;imr, sizeof (struct ip_mreq_source)) &lt; 0) {<br>socketErr(env, “setsockopt(IP_ADD_SOURCE_MEMBERSHIP) error: “);<br>return False;<br>}<br><br>return True;<br>}<br><br>Boolean socketLeaveGroupSSM(UsageEnvironment&amp; /</em>env<em>/, int socket,<br>netAddressBits groupAddress,<br>netAddressBits sourceFilterAddr) {<br>if (!IsMulticastAddress(groupAddress)) return True; // ignore this case<br><br>struct ip_mreq_source imr;<br>imr.imr_multiaddr = groupAddress;<br>imr.imr_sourceaddr = sourceFilterAddr;<br>imr.imr_interface = ReceivingInterfaceAddr;<br>if (setsockopt(socket, IPPROTO_IP, IP_DROP_SOURCE_MEMBERSHIP,<br>(const char</em>)&amp;imr, sizeof (struct ip_mreq_source)) &lt; 0) {<br>return False;<br>}</div><br><div style="padding-left: 30px; "><br><div>修改&nbsp;contrib/build-src/live/config.armlinux(CROSS_COMPILE改为arm-linux-androideabi-,COMPILE_OPTS 最后增加</div><br><div>-DLOCALE_NOT_USED)</div><br><div>&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;CROSS_COMPILE?=     arm-linux-androideabi-</div>
+
+<p>&nbsp;&nbsp; &nbsp; &nbsp; COMPILE_OPTS =     $(INCLUDES) -I. -O2 -DSOCKLEN_T=socklen_t -DNO_SSTREAM=1 -D_LARGEFILE_SOURCE=1</p>
+<p>-D_FILE_OFFSET_BITS=64 -DLOCALE_NOT_USED</p>
+<p>&nbsp;</p>
+<p></p></div><p></p>
+<div style="padding-left: 30px; ">然后到vlc-android/extras/contrib/执行make &nbsp;live555的库就编出来了</div><br><div>二. 编译liblive555_plugin.a</div>
+
+<p>&nbsp;</p>
+<div style="padding-left: 30px; ">修改/vlc-android/modules/demux/live555.cpp &nbsp; &nbsp;注释掉#include &lt;iostream&gt;</div><br><div style="padding-left: 30px; ">修改/vlc-android/extras/package/android/makefile 增加-lliveMedia -lUsageEnvironment -lBasicUsageEnvironment -lgroupsock 到$(APK_MK)</div><br><div style="padding-left: 30px; ">如下所示:</div><br><div style="padding-left: 30px; ">ldvbpsi -ltwolame -lkate -llog -la52 &nbsp; -lliveMedia &nbsp;-lUsageEnvironment &nbsp;-lBasicUsageEnvironment -lgroupsock/n” &gt;&gt; $(APK_MK); /</div><br><div style="padding-left: 30px; ">修改vlc-android/extras/package/android/configure.sh</div><br><div style="padding-left: 30px; ">增加</div><br><div style="padding-left: 30px; "><br><div>&nbsp;—enable-live555 /</div><br><div><span>        </span>—with-live555-tree=/home/administrator/code/vlc-android/extras/contrib/build-src/live /</div><br><div><span>        </span> —enable-rtsp /</div><br><div><span>        </span>—enable-realrtsp /</div><br><div>如下所示</div><br><div><br><div>sh ../configure —host=arm-eabi-linux —build=x86_64-unknown-linux /</div><br><div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;—enable-static-modules /</div><br><div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;—enable-debug /</div><br><div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;—disable-qt4 /</div><br><div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;—disable-skins2 /</div><br><div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;—disable-mad /</div><br><div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;—disable-mkv /</div><br><div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;—enable-live555 /</div><br><div><span>        </span>—with-live555-tree=/home/administrator/code/vlc-android/extras/contrib/build-src/live /</div><br><div><span>        </span> —enable-rtsp /</div><br><div><span>        </span>—enable-realrtsp /</div><br><div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;—disable-libgcrypt /</div><br><div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;—disable-lua /</div><br><div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;—enable-swscale /</div><br><div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;—enable-avcodec /</div><br><div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;—enable-avformat /</div><br><div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;—disable-xcb /</div><br><div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;—disable-dbus /</div><br><div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;—disable-vcd /</div><br><div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;—disable-v4l2 /</div><br><div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;—disable-atmo /</div><br><div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;—disable-vlc</div><br></div><br><div>到~/code/vlc-android/extras/package/android 下执行make distclean</div><br></div><br><div style="padding-left: 30px; ">到builddir 执行</div><br><div style="padding-left: 30px; ">../extras/package/android/configure.sh</div><br><div style="padding-left: 30px; ">./compile &nbsp;(不带-k选项,会产生liblive555_plugin.a在builddir/modules/demux/.libs下)</div><br><div>三. 编译&nbsp;libvlcjni.so</div>
+
+<p>&nbsp;</p>
+<div style="padding-left: 30px; ">到/vlc-android/extras/package/android下执行</div><br><div style="padding-left: 30px; ">export ANDROID_NDK=/usr/local/android-ndk-r5b</div><br><div style="padding-left: 30px; ">export ANDROID_SDK=/usr/local/android-sdk</div><br><div style="padding-left: 30px; ">VLC_BUILD_DIR=~/code/vlc-android/builddir VLC_CONTRIB=~/code/vlc-android/extras/contrib/build make</div><br><div style="padding-left: 30px; ">此时会报</div><br><div style="padding-left: 30px; ">/home/administrator/code/vlc-android/builddir/modules/misc/dummy/.libs/libdummy_plugin.a(libdummy_plugin_la-decoder.o): In function <code>CloseDecoder&#39;:
+/home/administrator/code/vlc-android/builddir/modules/misc/dummy/../../../../modules/misc/dummy/decoder.c:159: multiple definition of</code>CloseDecoder’<br>/home/administrator/code/vlc-android/builddir/modules/misc/stats/.libs/libstats_plugin.a(libstats_plugin_la-decoder.o):/home/administrator/code/vlc-android/builddir/modules/misc/stats/../../../../modules/misc/stats/decoder.c:106: first defined here<br>/home/administrator/code/vlc-android/builddir/modules/misc/dummy/.libs/libdummy_plugin.a(libdummy_plugin_la-decoder.o): In function <code>OpenDecoder&#39;:
+/home/administrator/code/vlc-android/builddir/modules/misc/dummy/../../../../modules/misc/dummy/decoder.c:120: multiple definition of</code>OpenDecoder’</div><br><div style="padding-left: 30px; ">修改 vlc-android/extras/package/android/vlc-android/jni/libvlcjni.h<br>注视掉</div><br><div style="padding-left: 30px; "> vlc_declare_plugin(stats) </div><br><div style="padding-left: 30px; ">vlc_plugin(stats)&nbsp;</div><br><div style="padding-left: 30px; ">重新执行make</div><br><div style="padding-left: 30px; ">administrator@ubuntu:~/code/vlc-android/extras/package/android$ VLC_BUILD_DIR=~/code/vlc-android/builddir VLC_CONTRIB=~/code/vlc-android/extras/contrib/build make</div><br><div style="padding-left: 30px; ">提示成功,大小为13m</div><br><div style="padding-left: 30px; ">=== Building libvlcjni ===<br>make[1]: Entering directory `/home/administrator/code/vlc-android/extras/package/android/vlc-android’<br>Compile thumb : vlcjni &lt;= libvlcjni.c<br>SharedLibrary : libvlcjni.so<br>Install : libvlcjni.so =&gt; libs/armeabi/libvlcjni.so</div>
+
+<p>&nbsp;</p>
+<pre><code>        &lt;<span class="operator">div</span>&gt;
+            作者：wowdd1 发表于<span class="number">2011</span>-<span class="number">3</span>-<span class="number">31</span> <span class="number">17</span>:<span class="number">13</span>:<span class="number">00</span> [原文链接](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">6292183</span>)
+        &lt;/<span class="operator">div</span>&gt;
+        &lt;<span class="operator">div</span>&gt;
+        阅读：<span class="number">7431</span> 评论：<span class="number">4</span> [查看评论](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">6292183</span><span class="comment">#comments)</span>
+        &lt;/<span class="operator">div</span>&gt;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2011/03/31/-原-vlc-android-移植live555到android/" data-id="vw56gxxo783hwica" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--原-vlc-android编译流程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/03/20/-原-vlc-android编译流程/" class="article-date">
+  <time datetime="2011-03-20T07:22:00.000Z" itemprop="datePublished">Mar 20 2011</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/03/20/-原-vlc-android编译流程/">[原]vlc-android编译流程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>操作系统: ubuntu10.10</p>
+<p>ndk: android-ndk-r5b</p>
+<p>android-sdk: 2.2<br>编译流程:<br>1. &nbsp; cd ~ | mkdir code</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp;cd ~/code<br>2. &nbsp; git clone&nbsp;<a href="git://git.videolan.org/vlc/vlc-android.git" target="_blank" rel="external">git://git.videolan.org/vlc/vlc-android.git</a><br>3. &nbsp; cd vlc-android/extras/contrib/</p>
+<p>4. &nbsp; export ANDROID_NDK=/usr/local/android-ndk-r5b &nbsp;,如果想要在模拟器上运行,还得 &nbsp;&nbsp;export NO_NEON=1</p>
+<p>5. &nbsp; &nbsp;./bootstrap -t arm-eabi -d android&nbsp;<br>6. &nbsp; 安装以下工具:<br>&nbsp;&nbsp; &nbsp; &nbsp;sudo apt-get install wget<br>&nbsp;&nbsp; &nbsp; &nbsp;sudo apt-get install autoconf<br>&nbsp;&nbsp; &nbsp; &nbsp;sudo apt-get install libtool</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp;sudo apt-get install subversion<br>7. &nbsp; make<br>8. &nbsp; cd ~/code/vlc-android<br>9. &nbsp; ./bootstrap<br>10. mkdir builddir<br>11. cd builddir<br>12. ../extras/package/android/configure.sh<br>13. ./compile -k<br>14. cd ~/code/vlc-android/extras/package/android<br>15. export ANDROID_SDK=/usr/local/android-sdk<br>16. VLC_BUILD_DIR=~/code/vlc-android/builddir VLC_CONTRIB=~/code/vlc-android/extras/contrib/build make<br>17.用Eclipse导入~/code/vlc-android/extras/package/android/vlc-android</p>
+<pre><code>        &lt;<span class="operator">div</span>&gt;
+            作者：wowdd1 发表于<span class="number">2011</span>-<span class="number">3</span>-<span class="number">20</span> <span class="number">15</span>:<span class="number">22</span>:<span class="number">00</span> [原文链接](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">6262845</span>)
+        &lt;/<span class="operator">div</span>&gt;
+        &lt;<span class="operator">div</span>&gt;
+        阅读：<span class="number">12753</span> 评论：<span class="number">48</span> [查看评论](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">6262845</span><span class="comment">#comments)</span>
+        &lt;/<span class="operator">div</span>&gt;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2011/03/20/-原-vlc-android编译流程/" data-id="5pibh6qt13iy12aj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">January 2010</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/12/12/-原-用docker搭建spark集群/">[原]用docker搭建spark集群</a>
+          </li>
+        
+          <li>
+            <a href="/2014/09/25/-原-世界上最没用的是工资条-看了生气-擦屁股嫌太细/">[原]世界上最没用的是工资条,看了生气,擦屁股嫌太细</a>
+          </li>
+        
+          <li>
+            <a href="/2013/06/16/-转-2012年软件开发者薪资调查报告/">[转]2012年软件开发者薪资调查报告</a>
+          </li>
+        
+          <li>
+            <a href="/2013/06/10/-原-android系统定制项目展示/">[原]android系统定制项目展示</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/29/-转-MIT本科CS课程安排-2012版/">[转]MIT本科CS课程安排(2012版)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

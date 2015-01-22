@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2014 | Hexo</title>
+  <title>Archives: 2014 | wowdd1</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="wowdd1">
 <meta property="og:url" content="http://yoursite.com/archives/2014/">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="wowdd1">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="wowdd1">
 <meta name="twitter:description">
 
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="wowdd1" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -35,7 +35,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">wowdd1</a>
       </h1>
       
     </div>
@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--原-用docker搭建spark集群" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/12/17/hello-world/" class="article-date">
-  <time datetime="2014-12-17T01:59:13.000Z" itemprop="datePublished">Dec 17 2014</time>
+    <a href="/2014/12/12/-原-用docker搭建spark集群/" class="article-date">
+  <time datetime="2014-12-12T12:25:02.000Z" itemprop="datePublished">Dec 12 2014</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/17/hello-world/">Hello World</a>
+      <a class="article-title" href="/2014/12/12/-原-用docker搭建spark集群/">[原]用docker搭建spark集群</a>
     </h1>
   
 
@@ -85,29 +85,117 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2>
-<h3 id="Create_a_new_post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
+        <p>系统是osx</p>
+<p>最近在学习spark, 有了docker搭建集群太方便了 </p>
+<p>安装好docker之后,在vbox里面做一个共享目录, 方便虚拟机从host拷贝文件</p>
+<p><img src="http://img.blog.csdn.net/20141212190059981?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd293ZGQx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br><img src="./image/20141212190059981.png" alt=""><br>运行docker, </p>
+<p>接着运行boot2docker ssh</p>
+<p>这样就进到虚拟机里面了, 因为需要用到github上的脚本, 可以拷贝你的ssh文件到虚拟机里面</p>
+<p>cp /Users/name/.ssh/id_* ~/.ssh/</p>
+<p>接着输入<br><code>tce-ab</code></p>
+<p>输入s`输入python.tcz<br>输入esc键  然后 输入 i 安装python</p>
+<p>同样的还需要安装<code>bash.tcz ,方法同上</code></p>
+<p>接着就clone amplab的docker脚本了</p>
+<p>git clone git@github.com:amplab/d<code>&lt;/code&gt;</code><code>ocker-scripts<code>&lt;/code&gt;</code><code><code>&lt;/code&gt;</code><code>.git</code></code></code></p>
+<p>注意: 这些更改到你退出虚拟机后不会被保存下来,  记得提出虚拟机前,在mac中再运行下<code>boot2docker save`</code></p>
+<p>ok,现在进到<code>&lt;code&gt;d</code>`<code>ocker-scripts</code></p>
+<p>进入apache-hadoop-hdfs-precise  dnsmasq-precise spark-1.0.0这3个目录,运行里面的build脚本,</p>
+<p><code>&lt;/code&gt;</code><code>运行docker images,就能看到相应的images<br><img src="http://img.blog.csdn.net/20141212201548452?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd293ZGQx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>`</code>你需要修改deploy/start_spark_cluster.sh 的start_master方法, 加入-p 8080:8080, 这是做端口映射,将容器的8080端口暴露给虚拟机,然后你在外部可以<br>访问虚拟机,这样你在浏览器中可以看到集群的运行状态</p>
+<p>work也要做端口映射, 8080给了master,8081 8082给work1 work2,依次类推<br>具体修改如下图所示:<br><img src="http://img.blog.csdn.net/20141212200934067?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd293ZGQx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>接着就可以启动集群了,运行 sudo ./deploy/deploy.sh -i spark:1.0.0 -w 3 </p>
+<p><strong><em> Starting Spark 1.0.0 </em></strong><br>starting nameserver container<br>started nameserver container:&nbsp; be7031996f698e0ec012448e3fbe65918e72902afc1fe5116fde90858b116a60<br>DNS host-&gt;IP file mapped:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /tmp/dnsdir_12623/0hosts<br>NAMESERVER_IP:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 172.17.0.23<br>waiting for nameserver to come up<br>starting master container<br>started master container:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 58a8169e8a0afcda7b3bc063409a602c7accba7e77d1e82366390d0b1e6ce4ae<br>MASTER_IP:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 172.17.0.24<br>waiting for master ……<br>waiting for nameserver to find master<br>starting worker container<br>started worker container:&nbsp; 8f5e14583c06419417ab918041b11f01278c471796a8b6d7824f6d9f40fb70cd<br>&nbsp;worker1 at port 8081, WORKER_IP is 172.17.0.25<br>starting worker container<br>started worker container:&nbsp; 118fa52a1662b061138151d907a649e4a34da755c5e84bf25d2a724102f728da<br>&nbsp;worker2 at port 8082, WORKER_IP is 172.17.0.26<br>starting worker container<br>started worker container:&nbsp; fc1905d24cdb4a97afad6c0f115e1700a9d8a13a610672a16b193739990b8e61<br>&nbsp;worker3 at port 8083, WORKER_IP is 172.17.0.27<br>waiting for workers to register …..</p>
+<hr>
+<p>start shell via:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sudo /home/docker/docker-scripts/deploy/start_shell.sh -i spark-shell:1.0.0 -n be7031996f698e0ec012448e3fbe65918e72902afc1fe5116fde90858b116a60 </p>
+<p>visit Spark WebUI at:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://172.17.0.24:8080/" target="_blank" rel="external">http://172.17.0.24:8080/</a><br>visit Hadoop Namenode at:&nbsp;&nbsp; <a href="http://172.17.0.24:50070" target="_blank" rel="external">http://172.17.0.24:50070</a><br>ssh into master via:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ssh -i /home/docker/docker-scripts/deploy/../apache-hadoop-hdfs-precise/files/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@172.17.0.24</p>
+<p>/data mapped:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</p>
+<p>kill master via:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sudo docker kill 58a8169e8a0afcda7b3bc063409a602c7accba7e77d1e82366390d0b1e6ce4ae</p>
+<hr>
+<p>to enable cluster name resolution add the following line to <em>the top</em> of your host’s /etc/resolv.conf:<br>nameserver 172.17.0.23</p>
+<p>运行docker ps:<br>docker@boot2docker:~/docker-scripts$ docker ps<br>CONTAINER ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IMAGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; COMMAND&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CREATED&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STATUS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PORTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NAMES<br>fc1905d24cdb&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; spark-worker:1.0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;/root/spark<em>worker</em>&nbsp;&nbsp; 21 seconds ago&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Up 19 seconds&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8888/tcp, 0.0.0.0:8083-&gt;8081/tcp&nbsp;&nbsp; evil<em>hopper&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br>118fa52a1662&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; spark-worker:1.0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;/root/spark_worker</em>&nbsp;&nbsp; 24 seconds ago&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Up 23 seconds&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8888/tcp, 0.0.0.0:8082-&gt;8081/tcp&nbsp;&nbsp; sharp<em>yonath&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br>8f5e14583c06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; spark-worker:1.0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;/root/spark_worker</em>&nbsp;&nbsp; 27 seconds ago&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Up 26 seconds&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8888/tcp, 0.0.0.0:8081-&gt;8081/tcp&nbsp;&nbsp; berserk<em>einstein&nbsp;&nbsp; &nbsp;<br>58a8169e8a0a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; spark-master:1.0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;/root/spark_master</em>&nbsp;&nbsp; 40 seconds ago&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Up 39 seconds&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7077/tcp, 0.0.0.0:8080-&gt;8080/tcp&nbsp;&nbsp; insane_einstein&nbsp;&nbsp;&nbsp; &nbsp;<br>be7031996f69&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; amplab/dnsmasq-precise:latest&nbsp;&nbsp; &quot;/root/dnsmasq_files&nbsp;&nbsp; 42 seconds ago&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Up 41 seconds&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; trusting_sammet&nbsp;&nbsp;&nbsp; &nbsp;</p>
+<p>在ports列可以看到相应的端口都做了映射</p>
+<p>在外部运行boot2docker ip 可以看到虚拟机的ip,我这边是<br>bash-3.2$ boot2docker ip</p>
+<p>The VM’s Host only interface IP address is: 192.168.59.103</p>
+<p>接着打开浏览器,依次输入<br>192.168.59.103:8080  查看master状态<br>192.168.59.103：8081 查看work1状态<br>192.168.59.103：8082 查看work2状态…</p>
+<p><img src="http://img.blog.csdn.net/20141212202505046?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd293ZGQx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p></p>
+<p>用sudo ./deploy/kill_all.sh spark可以关闭集群</p>
+<p>参考:</p>
+<p><a href="http://ju.outofmemory.cn/entry/63486" target="_blank" rel="external">http://ju.outofmemory.cn/entry/63486</a></p>
+<p><a href="https://github.com/amplab/docker-scripts" target="_blank" rel="external">https://github.com/amplab/docker-scripts</a></p>
+<p><a href="http://docs.docker.com/userguide/usingdocker/#seeing-docker-command-usage" target="_blank" rel="external">http://docs.docker.com/userguide/usingdocker/#seeing-docker-command-usage</a></p>
+<pre><code>        &lt;<span class="operator">div</span>&gt;
+            作者：wowdd1 发表于<span class="number">2014</span>-<span class="number">12</span>-<span class="number">12</span> <span class="number">20</span>:<span class="number">25</span>:<span class="number">02</span> [原文链接](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">41897757</span>)
+        &lt;/<span class="operator">div</span>&gt;
+        &lt;<span class="operator">div</span>&gt;
+        阅读：<span class="number">24</span> 评论：<span class="number">0</span> [查看评论](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">41897757</span><span class="comment">#comments)</span>
+        &lt;/<span class="operator">div</span>&gt;
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/17/hello-world/" data-id="o1iav92r5wd95vw2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/12/-原-用docker搭建spark集群/" data-id="yhtpq2d5nz88cqex" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--原-世界上最没用的是工资条-看了生气-擦屁股嫌太细" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/09/25/-原-世界上最没用的是工资条-看了生气-擦屁股嫌太细/" class="article-date">
+  <time datetime="2014-09-25T09:54:48.000Z" itemprop="datePublished">Sep 25 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/09/25/-原-世界上最没用的是工资条-看了生气-擦屁股嫌太细/">[原]世界上最没用的是工资条,看了生气,擦屁股嫌太细</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>月薪 &nbsp; &nbsp; &nbsp;年薪</p>
+<p>8333&nbsp; &nbsp; &nbsp; 10w</p>
+<p>12500 &nbsp;&nbsp; 15w</p>
+<p>16666&nbsp;&nbsp;&nbsp; 20w</p>
+<p>20833&nbsp; &nbsp; 25w</p>
+<p>25000&nbsp; &nbsp; 30w</p>
+<p>29166&nbsp; &nbsp; 35w</p>
+<p>33333&nbsp; &nbsp; 40w</p>
+<p>37500&nbsp; &nbsp; 45w</p>
+<p>41666&nbsp; &nbsp; 50w&nbsp; (google实习生水平)</p>
+<p>45833&nbsp; &nbsp; 55w</p>
+<p>50000&nbsp; &nbsp; 60w</p>
+<p>54166&nbsp; &nbsp; 65w</p>
+<p>58333&nbsp; &nbsp; 70w</p>
+<p>62500 &nbsp;&nbsp; 75w</p>
+<p>66666&nbsp; &nbsp; 80w</p>
+<p>70833&nbsp; &nbsp; 85w</p>
+<p>75000&nbsp; &nbsp; 90w (google平均水平 124520美元 Twitter平均水平 120768美元 facebook平均水平 118857美元 apple平均水平 118192美元）</p>
+<p>79166&nbsp; &nbsp; 95w (Juniper Networks平均水平 128378美元)</p>
+<p>83333&nbsp; &nbsp; 100w</p>
+<pre><code>        &lt;<span class="operator">div</span>&gt;
+            作者：wowdd1 发表于<span class="number">2014</span>-<span class="number">9</span>-<span class="number">25</span> <span class="number">17</span>:<span class="number">54</span>:<span class="number">48</span> [原文链接](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">39555055</span>)
+        &lt;/<span class="operator">div</span>&gt;
+        &lt;<span class="operator">div</span>&gt;
+        阅读：<span class="number">88</span> 评论：<span class="number">0</span> [查看评论](<span class="keyword">http</span>://blog.csdn.net/wowdd1/article/details/<span class="number">39555055</span><span class="comment">#comments)</span>
+        &lt;/<span class="operator">div</span>&gt;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/09/25/-原-世界上最没用的是工资条-看了生气-擦屁股嫌太细/" data-id="v61y4p4gxt5a12kk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -132,7 +220,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">January 2010</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -144,7 +232,23 @@
       <ul>
         
           <li>
-            <a href="/2014/12/17/hello-world/">Hello World</a>
+            <a href="/2014/12/12/-原-用docker搭建spark集群/">[原]用docker搭建spark集群</a>
+          </li>
+        
+          <li>
+            <a href="/2014/09/25/-原-世界上最没用的是工资条-看了生气-擦屁股嫌太细/">[原]世界上最没用的是工资条,看了生气,擦屁股嫌太细</a>
+          </li>
+        
+          <li>
+            <a href="/2013/06/16/-转-2012年软件开发者薪资调查报告/">[转]2012年软件开发者薪资调查报告</a>
+          </li>
+        
+          <li>
+            <a href="/2013/06/10/-原-android系统定制项目展示/">[原]android系统定制项目展示</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/29/-转-MIT本科CS课程安排-2012版/">[转]MIT本科CS课程安排(2012版)</a>
           </li>
         
       </ul>
@@ -159,7 +263,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2014 John Doe<br>
+      &copy; 2015 John Doe<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
